@@ -1,0 +1,27 @@
+{
+  "name": "mingo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "",
+  "author": "",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "test:e2e": "turbo run test:e2e",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "@mingo/eslint-config": "workspace:*",
+    "@mingo/typescript-config": "workspace:*",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "turbo": "^2.5.2"
+  },
+  "packageManager": "pnpm@8.15.5",
+  "engines": {
+    "node": ">=18"
+  }
+}

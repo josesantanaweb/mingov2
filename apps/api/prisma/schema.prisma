@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String              @id @default(uuid())
+  email        String              @unique
+  name         String?
+  username     String
+  password     String
+  image        String?
+  raking       Int                 @default(0)
+  balance      Int                 @default(0)
+  createdAt    DateTime            @default(now())
+  updatedAt    DateTime            @updatedAt
+  rooms        RoomsOnUsers[]
+  cards        CardsOnRoomsUsers[]
+  role         Role                @default(USER)
+  refreshToken String?
+
+  wonRooms Room[] @relation("RoomWinnerUser")
+}
+
+model Room {
+  id           String              @id @default(uuid())
+  name         String              @unique
+  award        Int
+  price        Int
+  status       Boolean             @default(true)
+  time         DateTime            @default(dbgenerated("now() + interval '1 hour'"))
+  createdAt    DateTime            @default(now())
+  updatedAt    DateTime            @updatedAt
+  started      Boolean             @default(false)
+  users        RoomsOnUsers[]
+  cards        CardsOnRoomsUsers[]
+  drawnNumbers Int[]
+
+  winnerUserId String?
+  winnerUser   User?   @relation("RoomWinnerUser", fields: [winnerUserId], references: [id])
+
+  winnerCardId String?
+  winnerCard   Card?   @relation("RoomWinnerCard", fields: [winnerCardId], references: [id])
+}
+
+model RoomsOnUsers {
+  id     String @id @default(uuid())
+  userId String
+  roomId String
+  user   User   @relation(fields: [userId], references: [id])
+  room   Room   @relation(fields: [roomId], references: [id])
+
+  @@unique([userId, roomId])
+}
+
+model Card {
+  id        String              @id @default(uuid())
+  number    Int                 @unique
+  numbers   Json
+  status    Boolean             @default(true)
+  createdAt DateTime            @default(now())
+  updatedAt DateTime            @updatedAt
+  rooms     CardsOnRoomsUsers[]
+
+  wonRooms Room[] @relation("RoomWinnerCard")
+}
+
+model CardsOnRoomsUsers {
+  id     String @id @default(uuid())
+  userId String
+  roomId String
+  cardId String
+  user   User   @relation(fields: [userId], references: [id])
+  room   Room   @relation(fields: [roomId], references: [id])
+  card   Card   @relation(fields: [cardId], references: [id])
+
+  @@unique([userId, roomId, cardId])
+  @@index([roomId, userId])
+}
+
+enum Role {
+  ADMIN
+  USER
+}

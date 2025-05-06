@@ -1,0 +1,9 @@
+{
+  "extends": "@mingo/typescript-config/nestjs.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "module": "commonjs",
+    "target": "ES2021"
+  }
+}
