@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { cn } from '@/utils/cn';
+import { cn } from '../../utils/cn';
 
 interface ModalProps {
   open: boolean;
@@ -41,7 +41,7 @@ const Modal = ({
             <div
               className={cn(
                 'rounded-[20px] overflow-hidden relative',
-                className
+                className,
               )}
             >
               {children}

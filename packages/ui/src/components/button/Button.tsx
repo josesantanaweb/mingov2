@@ -2,7 +2,7 @@
 import type { ReactElement } from 'react';
 import React from 'react';
 
-import { cn } from '@/utils/cn';
+import { cn } from '../../utils/cn';
 
 interface ButtonProps {
   onClick?: () => void;

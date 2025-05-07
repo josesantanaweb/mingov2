@@ -4,7 +4,7 @@ import type { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
-import ButtonIcon from '@/components/button-icon';
+import { ButtonIcon } from '@mingo/ui';
 
 const AuthProviders = (): ReactElement => {
   const handleGoogle = () => {};

@@ -1,8 +1,7 @@
 'use client';
 import React from 'react';
-import Image from 'next/image';
 
-import { cn } from '@/utils/cn';
+import { cn } from '../../utils/cn';
 
 interface AvatarProps {
   src: string;
@@ -17,13 +16,12 @@ const Avatar = ({ src, size, className }: AvatarProps): React.ReactElement => {
   const validSrc =
     src && src.startsWith('http') ? src : '/users/default-image.png';
   return (
-    <Image
+    <img
       src={validSrc}
       alt="user"
       className={customClass}
       width={imageSize}
       height={imageSize}
-      quality={imageSize}
     />
   );
 };

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandPointUp } from '@fortawesome/free-solid-svg-icons';
 
 import AmountBox from '@/components/amount-box';
-import Button from '@/components/button';
+import { Button } from '@mingo/ui';
 
 interface CurrentBalanceProps {
   balance: number;

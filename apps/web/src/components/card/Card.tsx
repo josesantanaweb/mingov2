@@ -1,7 +1,7 @@
 'use client';
 import React, { memo, useState } from 'react';
 
-import Button from '@/components/button';
+import { Button } from '@mingo/ui';
 import Number from '@/components/number';
 import Letter from '@/components/letter';
 import { isBoardFull, transposeMatrix } from '@/utils/board';
@@ -13,7 +13,7 @@ interface CardProps {
 
 const Card = memo(({ numbers, handleBingo }: CardProps): React.ReactElement => {
   const [boardNumbers, setBoardNumbers] = useState<number[][]>(
-    transposeMatrix(numbers)
+    transposeMatrix(numbers),
   );
 
   const handleCellClick = (rowIndex: number, colIndex: number) => {
@@ -42,7 +42,7 @@ const Card = memo(({ numbers, handleBingo }: CardProps): React.ReactElement => {
               onClick={() => handleCellClick(rowIndex, colIndex)}
               number={number}
             />
-          ))
+          )),
         )}
       </div>
       <Button

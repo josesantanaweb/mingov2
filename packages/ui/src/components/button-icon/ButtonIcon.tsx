@@ -2,8 +2,8 @@
 import React from 'react';
 import type { ReactElement } from 'react';
 
-import Button from '@/components/button';
-import { cn } from '@/utils/cn';
+import Button from '../button';
+import { cn } from '../../utils/cn';
 
 interface ButtonIconProps {
   onClick: () => void;
@@ -18,7 +18,7 @@ const ButtonIcon = ({
 }: ButtonIconProps): ReactElement => {
   const customClass = cn(
     'bg-base-500 w-10 h-10 text-base-300 hover:text-white p-0',
-    className
+    className,
   );
   return (
     <Button onClick={onClick} className={customClass}>

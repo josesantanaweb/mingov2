@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { cn } from '@/utils/cn';
-import Avatar from '@/components/avatar';
+import { Avatar } from '@mingo/ui';
 import type { User as UserType } from '@/__generated__/graphql';
 import { getRankingColor } from '@/utils/getRankingColor';
 
@@ -23,7 +23,7 @@ const User = ({ user, isWon }: UserProps): React.ReactElement => {
       'border-gray-400': tier === 'silver',
       'border-orange-700': tier === 'bronze',
       'border-base-500': tier === 'low',
-    }
+    },
   );
 
   const backgroundClass = cn(
@@ -33,7 +33,7 @@ const User = ({ user, isWon }: UserProps): React.ReactElement => {
       'bg-gray-400': tier === 'silver',
       'bg-orange-700': tier === 'bronze',
       'bg-base-500': tier === 'low',
-    }
+    },
   );
 
   return (

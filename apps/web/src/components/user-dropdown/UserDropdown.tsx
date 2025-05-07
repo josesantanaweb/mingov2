@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import type { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Avatar } from '@mingo/ui';
 import { faWallet } from '@fortawesome/free-solid-svg-icons';
 import { signOut } from 'next-auth/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
-import Avatar from '@/components/avatar';
 import { ROOMS_ROUTE } from '@/constants';
 
 interface UserDropdownProps {

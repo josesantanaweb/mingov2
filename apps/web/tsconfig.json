@@ -1,5 +1,5 @@
 {
-  "extends": "@mingo/typescript-config/nextjs.json",
+  // "extends": "@mingo/typescript-config/nextjs.json",
   "compilerOptions": {
     "plugins": [
       {
@@ -7,8 +7,27 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext"
   },
   "include": [
     "next-env.d.ts",
@@ -17,5 +36,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

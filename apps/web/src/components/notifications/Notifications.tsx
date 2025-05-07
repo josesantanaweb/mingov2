@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import type { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
-
-import ButtonIcon from '@/components/button-icon';
+import { ButtonIcon } from '@mingo/ui';
 
 const Notifications = (): ReactElement => {
   const [open, setOpen] = useState<boolean>(false);

@@ -12,9 +12,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
+import { Input, Button } from '@mingo/ui';
 
-import Button from '@/components/button';
-import Input from '@/components/input';
 import type { IAuthInput } from '@/types/auth';
 import { IAuthModal } from '@/types/auth';
 import { schema } from '@/validations/auth';

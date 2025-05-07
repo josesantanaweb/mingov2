@@ -2,7 +2,7 @@
 import React from 'react';
 import type { ReactElement } from 'react';
 
-import Button from '../button';
+import { Button } from '@mingo/ui';
 
 interface DepositProps {
   amount: number;
