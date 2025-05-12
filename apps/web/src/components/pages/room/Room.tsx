@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 
-import Room from '@/components/room';
+import Room from '@/components/bingo/room';
 import Award from '@/components/award';
 import Panel from '@/components/panel';
 import Users from '@/components/users/Users';
-import RoomName from '@/components/room-name';
+import RoomName from '@/components/bingo/room-name';
 import Game from '@/components/game';
 import { useRoomStarted } from '@/hooks/rooms/useRoomStarted';
 import { MAX_USERS_TO_SHOW } from '@/constants';

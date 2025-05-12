@@ -41,7 +41,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {error && <span className="text-xs text-red-500 px-1">{error}</span>}
       </div>
     );
-  }
+  },
 );
 
 Input.displayName = 'Input';

@@ -6,7 +6,7 @@ import Card from '@/components/card';
 import Balls from '@/components/balls';
 import Award from '@/components/award';
 import Users from '@/components/users';
-import RoomName from '@/components/room-name';
+import RoomName from '@/components/bingo/room-name';
 import { INTERVAL_BALLS, MAX_USERS_TO_SHOW } from '@/constants';
 import { useRoom } from '@/hooks/rooms/useRoom';
 import { useRoomWinner } from '@/hooks/rooms/useRoomWinner';
@@ -74,7 +74,7 @@ const Game = ({ roomId }: GameProps): React.ReactElement => {
   useEffect(() => {
     if (roomWinner && roomWinner.winnerCard.number !== lastWinnerCardNumber) {
       alert(
-        `¡ha ganado ${roomWinner.winnerUser.name} con la tarjeta ${roomWinner.winnerCard.number}!`
+        `¡ha ganado ${roomWinner.winnerUser.name} con la tarjeta ${roomWinner.winnerCard.number}!`,
       );
       setLastWinnerCardNumber(roomWinner.winnerCard.number);
     }

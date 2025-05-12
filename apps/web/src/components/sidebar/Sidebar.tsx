@@ -27,7 +27,7 @@ const Sidebar = () => {
     <div
       className={clsx(
         'w-full bg-base-600 h-full transition-all',
-        collapseSidebar ? 'max-w-[80px]' : 'max-w-[260px]'
+        collapseSidebar ? 'max-w-[80px]' : 'max-w-[260px]',
       )}
     >
       <div className="flex flex-col py-6 justify-center items-center">

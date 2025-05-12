@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-import Room from '@/components/room';
+import Room from '@/components/bingo/room';
 import { useRooms } from '@/hooks/rooms/useRooms';
 
 const Rooms = (): React.ReactElement => {

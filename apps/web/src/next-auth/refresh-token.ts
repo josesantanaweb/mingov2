@@ -7,7 +7,7 @@ export const refreshToken = async (token: JWT) => {
       'http://localhost:4000/api/auth/refresh',
       {
         id: String(token.id ?? ''),
-      }
+      },
     );
 
     return {
@@ -19,7 +19,7 @@ export const refreshToken = async (token: JWT) => {
   } catch (error: any) {
     console.error(
       'Error refreshing access token',
-      error?.response?.data || error.message
+      error?.response?.data || error.message,
     );
     return {
       ...token,

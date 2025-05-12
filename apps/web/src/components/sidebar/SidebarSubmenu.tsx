@@ -21,7 +21,7 @@ const SidebarSubmenu: React.FC<SidebarSubmenuProps> = ({
       className={clsx(
         'w-full rounded-lg overflow-hidden transition-all duration-300 flex flex-col',
         isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 my-0',
-        isCollapse ? 'items-center ' : 'bg-base-500'
+        isCollapse ? 'items-center ' : 'bg-base-500',
       )}
     >
       {submenu.map((subitem) => (
@@ -33,7 +33,7 @@ const SidebarSubmenu: React.FC<SidebarSubmenuProps> = ({
             'flex items-center gap-3 text-base-300 hover:text-white p-3 cursor-pointer rounded-lg',
             isCollapse
               ? 'justify-center mb-2 bg-base-500 w-[45px] h-[45px]'
-              : 'p-3'
+              : 'p-3',
           )}
         >
           <FontAwesomeIcon icon={subitem.icon} fontSize={18} width={18} />

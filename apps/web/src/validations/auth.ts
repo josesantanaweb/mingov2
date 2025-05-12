@@ -13,7 +13,7 @@ export const loginSchema = object({
 export const registerSchema = loginSchema.extend({
   username: string({ required_error: 'Username es requerido' }).min(
     3,
-    'Username debe tener más de 3 caracteres'
+    'Username debe tener más de 3 caracteres',
   ),
   referredCode: string().optional(),
 });

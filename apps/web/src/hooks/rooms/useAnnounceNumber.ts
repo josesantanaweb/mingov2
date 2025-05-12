@@ -6,7 +6,7 @@ export const useAnnounceNumber = () => {
     useAnnounceNumberMutation();
 
   const announceNumber = (
-    roomId: AnnounceNumberMutationVariables['roomId']
+    roomId: AnnounceNumberMutationVariables['roomId'],
   ) => {
     return announceNumberMutation({
       variables: {

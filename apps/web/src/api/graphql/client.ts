@@ -41,7 +41,7 @@ export function makeClient(): ApolloClient<InMemoryCache> {
                 authorization: token ? `Bearer ${token}` : '',
               };
             },
-          })
+          }),
         )
       : null;
 
@@ -56,7 +56,7 @@ export function makeClient(): ApolloClient<InMemoryCache> {
             );
           },
           wsLink,
-          authLink.concat(httpLink)
+          authLink.concat(httpLink),
         )
       : authLink.concat(httpLink);
 

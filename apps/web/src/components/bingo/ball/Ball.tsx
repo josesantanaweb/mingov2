@@ -25,7 +25,7 @@ const Ball = ({ ball, isLast }: BallProps): ReactElement => {
           'bg-violet-500 border-white': isLast,
           'bg-base-500 border-base-300': !isLast,
         },
-        'border-2  animate-ball relative'
+        'border-2  animate-ball relative',
       )}
     >
       <span className="text-xs font-bold">{ball.letter}</span>

@@ -9,7 +9,7 @@ export const isBoardFull = (board: number[][]): boolean => {
 export const generateUniqueNumber = (generatedNumbers: Set<number>): number => {
   const availableNumbers = Array.from(
     { length: 75 },
-    (_, index) => index + 1
+    (_, index) => index + 1,
   ).filter((num) => !generatedNumbers.has(num));
 
   if (availableNumbers.length === 0) {

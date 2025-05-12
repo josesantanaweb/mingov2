@@ -11,7 +11,7 @@ interface RoomStartedInput {
 
 export const useRoomStarted = () => {
   const { data, loading, error } = useSubscription<RoomStartedInput>(
-    ROOM_STARTED_SUBSCRIPTION
+    ROOM_STARTED_SUBSCRIPTION,
   );
 
   return {

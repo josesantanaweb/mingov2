@@ -14,6 +14,6 @@ export const useStore = create<StoreState>()(
       ...createSidebarSlice(set, get, api),
       ...createUserSlice(set, get, api),
     }),
-    { name: 'app-store' }
-  )
+    { name: 'app-store' },
+  ),
 );

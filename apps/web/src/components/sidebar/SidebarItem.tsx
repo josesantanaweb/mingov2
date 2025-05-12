@@ -38,7 +38,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
           !isOpen && 'text-base-300',
           isCollapse
             ? 'justify-center mb-2 w-[45px] h-[45px] rounded-lg bg-base-500'
-            : 'justify-between p-3 w-full'
+            : 'justify-between p-3 w-full',
         )}
         onClick={() => toggleDropdown(item.label)}
       >
@@ -57,7 +57,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
               'transform transition-transform duration-300 rounded-lg p-2',
               isOpen
                 ? 'rotate-180 hover:bg-violet-500'
-                : 'rotate-0 hover:bg-base-500'
+                : 'rotate-0 hover:bg-base-500',
             )}
           />
         )}

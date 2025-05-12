@@ -7,7 +7,7 @@ export const useUpdateUser = () => {
 
   const updateUser = (
     id: UpdateUserMutationVariables['id'],
-    input: UpdateUserMutationVariables['input']
+    input: UpdateUserMutationVariables['input'],
   ) => {
     return updateUserMutation({
       variables: {

@@ -23,7 +23,7 @@ const useCountdown = (targetDate: Date): string => {
       const formattedSeconds = seconds.toString().padStart(2, '0');
 
       setTimeLeft(
-        `${formattedHours}h : ${formattedMinutes}m : ${formattedSeconds}s`
+        `${formattedHours}h : ${formattedMinutes}m : ${formattedSeconds}s`,
       );
     }, 1000);
 

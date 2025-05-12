@@ -20,7 +20,7 @@ describe('<User />', () => {
     const img = screen.getByAltText('user');
     expect(img).toHaveAttribute(
       'src',
-      '/_next/image?url=https%3A%2F%2Fjohn-doe.jpg&w=2048&q=100'
+      '/_next/image?url=https%3A%2F%2Fjohn-doe.jpg&w=2048&q=100',
     );
 
     const name = screen.getByText(/John Doe/i);

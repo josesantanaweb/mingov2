@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import React from 'react';
 
 import TotalAmount from '@/components/total-amount';
-import NumberSelector from '@/components/number-selector';
+import NumberSelector from '@/components/bingo/number-selector';
 import { usePanel } from '@/hooks/usePanel';
 import { useUpdateUser } from '@/hooks/users/useUpdate';
 import { useProfile } from '@/hooks/users/useProfile';
@@ -17,7 +17,7 @@ interface PanelProps {
 
 const Panel = ({ room }: PanelProps): ReactElement => {
   const { total, balance, boards, setBalance, setBoards, setTotal } = usePanel(
-    room.price
+    room.price,
   );
   const { data: profile } = useProfile();
   const { addUserToRoom } = useAddUserToRoom();

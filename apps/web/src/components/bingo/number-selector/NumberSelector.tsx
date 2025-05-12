@@ -2,7 +2,7 @@
 import type { FC } from 'react';
 import React from 'react';
 
-import Number from '@/components/number';
+import Number from '@/components/bingo/number';
 
 const NumberSelector: FC<{
   handleNumber: (number: number) => void;
