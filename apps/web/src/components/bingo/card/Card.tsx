@@ -17,8 +17,8 @@ const Card = memo(({ numbers, handleBingo }: CardProps): React.ReactElement => {
   );
 
   const handleCellClick = (rowIndex: number, colIndex: number) => {
-    setBoardNumbers((prevBoard) => {
-      const newBoard = prevBoard.map((row) => [...row]);
+    setBoardNumbers(prevBoard => {
+      const newBoard = prevBoard.map(row => [...row]);
 
       const currentValue = newBoard[rowIndex][colIndex];
       newBoard[rowIndex][colIndex] =
@@ -30,7 +30,7 @@ const Card = memo(({ numbers, handleBingo }: CardProps): React.ReactElement => {
   return (
     <div className="relative flex flex-col items-center bg-base-600 p-3 rounded-2xl max-w-[284px]">
       <div className="flex items-center justify-center w-full py-1 mb-2 rounded-lg bg-base-500">
-        {['B', 'I', 'N', 'G', 'O'].map((letter) => (
+        {['B', 'I', 'N', 'G', 'O'].map(letter => (
           <Letter key={letter} letter={letter} />
         ))}
       </div>

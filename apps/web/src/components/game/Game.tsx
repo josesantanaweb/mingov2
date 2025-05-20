@@ -2,8 +2,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import { getLetter } from '@/utils/board';
-import Card from '@/components/card';
-import Balls from '@/components/balls';
+import Card from '@/components/bingo/card';
+import Balls from '@/components/bingo/balls';
 import Award from '@/components/award';
 import Users from '@/components/users';
 import RoomName from '@/components/bingo/room-name';
@@ -56,7 +56,7 @@ const Game = ({ roomId }: GameProps): React.ReactElement => {
         letter: getLetter(announcedNumber),
       };
 
-      setBalls((prev) => [...prev, newBall]);
+      setBalls(prev => [...prev, newBall]);
       setLastBallId(newBall.id);
     } catch (err) {
       console.error('Error announcing number:', err);
@@ -94,7 +94,7 @@ const Game = ({ roomId }: GameProps): React.ReactElement => {
       <div className="flex justify-between w-full h-full">
         <div className="grid lg:grid-cols-3 items-start w-10/12 py-5 gap-[40px]">
           {cards &&
-            cards.map((card) => (
+            cards.map(card => (
               <Card
                 key={card.id}
                 numbers={card.numbers}

@@ -14,7 +14,7 @@ interface BallsProps {
 const Balls = ({ balls, lastBallId }: BallsProps): ReactElement => {
   return (
     <div className="flex justify-center items-center max-w-[310px] gap-3 relative w-full">
-      {balls.slice(-MAX_BALLS).map((ball) => {
+      {balls.slice(-MAX_BALLS).map(ball => {
         return (
           <Ball key={ball.id} ball={ball} isLast={ball.id === lastBallId} />
         );

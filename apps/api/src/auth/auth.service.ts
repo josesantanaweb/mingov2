@@ -83,6 +83,10 @@ export class AuthService {
       refreshToken: newRefreshToken,
     });
 
-    return { user, accessToken: newAccessToken, refreshToken: newRefreshToken };
+    return {
+      user,
+      accessToken: newAccessToken,
+      refreshToken: newRefreshToken,
+    };
   }
 }

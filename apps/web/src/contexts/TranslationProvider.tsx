@@ -15,7 +15,7 @@ const TranslationContext = createContext<{
   setLanguage: (lang: SupportedLanguages) => void;
   language: SupportedLanguages;
 }>({
-  t: (key) => key,
+  t: key => key,
   setLanguage: () => {},
   language: 'en',
 });

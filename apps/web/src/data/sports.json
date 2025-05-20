@@ -1,0 +1,39 @@
+{
+  "sports": [
+    {
+      "id": 4,
+      "name": "Soccer",
+      "icon": "soccer"
+    },
+    {
+      "id": 5,
+      "name": "Football",
+      "icon": "football"
+    },
+    {
+      "id": 6,
+      "name": "Baseball",
+      "icon": "baseball"
+    },
+    {
+      "id": 7,
+      "name": "Tennis",
+      "icon": "tennis"
+    },
+    {
+      "id": 8,
+      "name": "Voleiball",
+      "icon": "voleiball"
+    },
+    {
+      "id": 6,
+      "name": "Hockey",
+      "icon": "hockey"
+    },
+    {
+      "id": 9,
+      "name": "Boxeo",
+      "icon": "boxeo"
+    }
+  ]
+}

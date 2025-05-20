@@ -1,16 +1,16 @@
 export const transposeMatrix = (matrix: number[][]): number[][] => {
-  return matrix[0].map((_, colIndex) => matrix.map((row) => row[colIndex]));
+  return matrix[0].map((_, colIndex) => matrix.map(row => row[colIndex]));
 };
 
 export const isBoardFull = (board: number[][]): boolean => {
-  return board.every((row) => row.every((cell) => cell === -1 || cell === 0));
+  return board.every(row => row.every(cell => cell === -1 || cell === 0));
 };
 
 export const generateUniqueNumber = (generatedNumbers: Set<number>): number => {
   const availableNumbers = Array.from(
     { length: 75 },
     (_, index) => index + 1,
-  ).filter((num) => !generatedNumbers.has(num));
+  ).filter(num => !generatedNumbers.has(num));
 
   if (availableNumbers.length === 0) {
     return -1;

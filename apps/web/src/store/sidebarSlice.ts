@@ -5,7 +5,7 @@ export type SidebarState = {
   setCollapseSidebar: (collapseSidebar: boolean) => void;
 };
 
-export const createSidebarSlice: StateCreator<SidebarState> = (set) => ({
+export const createSidebarSlice: StateCreator<SidebarState> = set => ({
   collapseSidebar: false,
-  setCollapseSidebar: (collapseSidebar) => set({ collapseSidebar }),
+  setCollapseSidebar: collapseSidebar => set({ collapseSidebar }),
 });

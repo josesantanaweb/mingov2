@@ -7,7 +7,7 @@ export type UserState = {
   setUser: (user: UserType) => void;
 };
 
-export const createUserSlice: StateCreator<UserState> = (set) => ({
+export const createUserSlice: StateCreator<UserState> = set => ({
   user: null,
   setUser: (user: UserType) => set({ user }),
 });

@@ -1,0 +1,92 @@
+{
+  "events": [
+    {
+      "league": "España - La Liga",
+      "date": "Mañana, 14:30",
+      "homeTeam": {
+        "name": "Sevilla",
+        "logo": "/images/teams/sevilla.png"
+      },
+      "awayTeam": {
+        "name": "Real Madrid",
+        "logo": "/images/teams/real-madrid.png"
+      },
+      "markets": [
+        {
+          "name": "1x2",
+          "options": [
+            { "label": "1", "odd": "+156" },
+            { "label": "X", "odd": "+300" },
+            { "label": "2", "odd": "+176" }
+          ]
+        },
+        {
+          "name": "Doble oportunidad",
+          "options": [
+            { "label": "1x", "odd": "+156" },
+            { "label": "12", "odd": "+300" },
+            { "label": "2x", "odd": "+176" }
+          ]
+        },
+        {
+          "name": "Total",
+          "options": [
+            { "label": "Más de 2.5", "odd": "+156" },
+            { "label": "Menos de 2.5", "odd": "+300" }
+          ]
+        },
+        {
+          "name": "Hándicap",
+          "options": [
+            { "label": "(-0.5) AC Milan", "odd": "+156" },
+            { "label": "(0.5) AC Milan", "odd": "+300" }
+          ]
+        }
+      ]
+    },
+    {
+      "league": "España - La Liga",
+      "date": "Mañana, 14:30",
+      "homeTeam": {
+        "name": "Atlético de Madrid",
+        "logo": "/images/teams/atletico-madrid.png"
+      },
+      "awayTeam": {
+        "name": "Betis",
+        "logo": "/images/teams/betis.png"
+      },
+      "markets": [
+        {
+          "name": "1x2",
+          "options": [
+            { "label": "1", "odd": "+156" },
+            { "label": "X", "odd": "+300" },
+            { "label": "2", "odd": "+176" }
+          ]
+        },
+        {
+          "name": "Doble oportunidad",
+          "options": [
+            { "label": "1x", "odd": "+156" },
+            { "label": "12", "odd": "+300" },
+            { "label": "2x", "odd": "+176" }
+          ]
+        },
+        {
+          "name": "Total",
+          "options": [
+            { "label": "Más de 2.5", "odd": "+156" },
+            { "label": "Menos de 2.5", "odd": "+300" }
+          ]
+        },
+        {
+          "name": "Hándicap",
+          "options": [
+            { "label": "(-0.5) AC Milan", "odd": "+156" },
+            { "label": "(0.5) AC Milan", "odd": "+300" }
+          ]
+        }
+      ]
+    }
+  ]
+}

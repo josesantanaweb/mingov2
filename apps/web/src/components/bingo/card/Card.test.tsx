@@ -19,7 +19,7 @@ describe('<Card />', () => {
   });
 
   test('should render the Bingo card with correct numbers', () => {
-    testNumbers.flat().forEach((number) => {
+    testNumbers.flat().forEach(number => {
       expect(screen.getByText(String(number))).toBeInTheDocument();
     });
   });
@@ -34,7 +34,7 @@ describe('<Card />', () => {
   });
 
   test('should show all correct letters (B, I, N, G, O)', () => {
-    ['B', 'I', 'N', 'G', 'O'].forEach((letter) => {
+    ['B', 'I', 'N', 'G', 'O'].forEach(letter => {
       expect(screen.getByText(letter)).toBeInTheDocument();
     });
   });

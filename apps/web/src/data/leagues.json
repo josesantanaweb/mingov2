@@ -1,0 +1,60 @@
+{
+  "leagues": [
+    {
+      "id": 1,
+      "name": "Liga Campeones UEFA",
+      "country": "International",
+      "founded": 1992,
+      "teams": 20,
+      "logo": "/images/countries/international.svg"
+    },
+    {
+      "id": 2,
+      "name": "Liga Europa de la UEFA",
+      "country": "International",
+      "founded": 1992,
+      "teams": 20,
+      "logo": "/images/countries/international.svg"
+    },
+    {
+      "id": 3,
+      "name": "Premier League",
+      "country": "England",
+      "founded": 1992,
+      "teams": 20,
+      "logo": "/images/countries/england.svg"
+    },
+    {
+      "id": 4,
+      "name": "La Liga",
+      "country": "Spain",
+      "founded": 1992,
+      "teams": 20,
+      "logo": "/images/countries/spain.svg"
+    },
+    {
+      "id": 5,
+      "name": "Serie A",
+      "country": "Italy",
+      "founded": 1992,
+      "teams": 20,
+      "logo": "/images/countries/italy.svg"
+    },
+    {
+      "id": 6,
+      "name": "Bundesliga",
+      "country": "Germany",
+      "founded": 1992,
+      "teams": 20,
+      "logo": "/images/countries/germany.svg"
+    },
+    {
+      "id": 6,
+      "name": "Liga Portugal",
+      "country": "Portugal",
+      "founded": 1992,
+      "teams": 20,
+      "logo": "/images/countries/portugal.svg"
+    }
+  ]
+}

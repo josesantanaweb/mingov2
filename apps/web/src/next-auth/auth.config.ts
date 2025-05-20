@@ -21,7 +21,7 @@ export default {
         email: { label: 'Email', type: 'text' },
         password: { label: 'Password', type: 'password' },
       },
-      authorize: async (credentials) => {
+      authorize: async credentials => {
         const client = new GraphQLClient(
           `${process.env.NEXT_PUBLIC_API_URL}/graphql`,
           {

@@ -61,7 +61,7 @@ export class RoomsService {
       include: { card: true },
     });
 
-    return cardsOnRoomsUsers.map((relation) => relation.card);
+    return cardsOnRoomsUsers.map(relation => relation.card);
   }
 
   async findUserCardsInRoom(userId: string, roomId: string): Promise<Card[]> {
@@ -75,7 +75,7 @@ export class RoomsService {
       },
     });
 
-    return cardsOnRoomsUsers.map((relation) => relation.card);
+    return cardsOnRoomsUsers.map(relation => relation.card);
   }
 
   async createRoom(data: CreateRoomInput): Promise<Room> {
@@ -91,7 +91,9 @@ export class RoomsService {
 
   async addUserToRoom(input: AddUserToRoomInput): Promise<string> {
     const { userId, roomId, numberOfCards } = input;
-    const room = await this.prisma.room.findUnique({ where: { id: roomId } });
+    const room = await this.prisma.room.findUnique({
+      where: { id: roomId },
+    });
     if (!room) throw new NotFoundException(`Room with id ${roomId} not found`);
 
     const existingRelation = await this.prisma.roomsOnUsers.findUnique({
@@ -176,7 +178,7 @@ export class RoomsService {
       const cardNumbers = cardOnRoom.card.numbers as number[];
 
       const flattened = cardNumbers.flat();
-      const isWinner = flattened.every((n) => n === -1 || drawn.includes(n));
+      const isWinner = flattened.every(n => n === -1 || drawn.includes(n));
 
       if (isWinner) {
         await this.prisma.card.update({
@@ -228,7 +230,7 @@ export class RoomsService {
 
     const drawnNumbers: number[] = room?.drawnNumbers || [];
     const availableNumbers = Array.from({ length: 75 }, (_, i) => i + 1).filter(
-      (n) => !drawnNumbers.includes(n),
+      n => !drawnNumbers.includes(n),
     );
 
     if (availableNumbers.length === 0) {

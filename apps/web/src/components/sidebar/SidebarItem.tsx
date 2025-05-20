@@ -45,7 +45,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
         <div className={clsx('flex items-center gap-3 justify-center')}>
           <FontAwesomeIcon icon={item.icon} fontSize={18} width={18} />
           {!isCollapse && (
-            <span className="font-medium text-base">{item.label}</span>
+            <span className="font-medium text-base-300">{item.label}</span>
           )}
         </div>
         {!isCollapse && item.submenu && (
@@ -67,7 +67,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
           id={`tooltip-${item.label}`}
           place="right"
           className="!bg-base-500 !rounded-lg text-white px-2 py-1"
-          offset={10}
+          offset={30}
         />
       )}
 

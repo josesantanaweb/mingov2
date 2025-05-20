@@ -12,7 +12,7 @@ const Sidebar = () => {
   const [openDropdowns, setOpenDropdowns] = useState<Set<string>>(new Set());
 
   const toggleDropdown = (label: string) => {
-    setOpenDropdowns((prev) => {
+    setOpenDropdowns(prev => {
       const newSet = new Set(prev);
       if (newSet.has(label)) {
         newSet.delete(label);
@@ -32,7 +32,7 @@ const Sidebar = () => {
     >
       <div className="flex flex-col py-6 justify-center items-center">
         <div className="flex flex-col w-full items-center">
-          {ROUTES.map((item) => (
+          {ROUTES.map(item => (
             <SidebarItem
               key={item.label}
               item={item}

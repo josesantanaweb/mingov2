@@ -30,7 +30,7 @@ export default async function RootLayout({ children }: Props) {
             <Navbar />
             <div className="w-full flex h-full">
               <Sidebar />
-              <div className="p-8 bg-base-700 w-full">{children}</div>
+              <div className="bg-base-700 w-full">{children}</div>
             </div>
           </main>
         </Providers>

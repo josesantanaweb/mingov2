@@ -24,7 +24,7 @@ const SidebarSubmenu: React.FC<SidebarSubmenuProps> = ({
         isCollapse ? 'items-center ' : 'bg-base-500',
       )}
     >
-      {submenu.map((subitem) => (
+      {submenu.map(subitem => (
         <li
           key={subitem.label}
           data-tooltip-id={`tooltip-${subitem.label}`}

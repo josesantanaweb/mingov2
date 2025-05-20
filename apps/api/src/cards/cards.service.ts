@@ -66,7 +66,7 @@ export class CardsService {
   }
 
   private transposeMatrix(matrix: number[][]): number[][] {
-    return matrix[0].map((_, colIndex) => matrix.map((row) => row[colIndex]));
+    return matrix[0].map((_, colIndex) => matrix.map(row => row[colIndex]));
   }
 
   private async generateUniqueCardNumber(): Promise<number> {

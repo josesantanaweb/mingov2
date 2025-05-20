@@ -73,7 +73,7 @@ const Slider: React.FC<SliderProps> = ({
         className="flex items-center text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-40 text-secondary data-[invalid]:text-secondary relative w-full translate-y-10 font-normal"
         htmlFor="slider"
       >
-        {generateLabels().map((label) => (
+        {generateLabels().map(label => (
           <span
             key={label}
             className="absolute -translate-x-1/2 text-secondary text-lg"

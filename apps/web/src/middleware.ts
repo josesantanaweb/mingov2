@@ -12,7 +12,7 @@ import { LOGIN_REDIRECT_ROUTE } from './constants';
 
 const { auth } = NextAuth(authConfig);
 
-export default auth(async (req) => {
+export default auth(async req => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
   // const isPublicRoute = publicRoutes.some((route) =>
