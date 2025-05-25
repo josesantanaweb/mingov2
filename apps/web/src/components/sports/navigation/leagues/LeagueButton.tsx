@@ -29,7 +29,7 @@ const LeagueButton = ({
           height={20}
         />
       )}
-      <p className="text-white text-sm font-medium">{name}</p>
+      <p className="text-white text-sm font-semibold">{name}</p>
     </button>
   );
 };

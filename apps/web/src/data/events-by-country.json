@@ -1,0 +1,34 @@
+{
+  "events": [
+    {
+      "name": "International",
+      "count": 6,
+      "logo": "/images/countries/international.svg",
+      "leagues": [
+        {
+          "name": "Liga Campeones UEFA",
+          "count": 2
+        },
+        {
+          "name": "Liga Europa de la UEFA",
+          "count": 2
+        },
+        {
+          "name": "Copa libertadores",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "name": "Inglaterra",
+      "count": 6,
+      "logo": "/images/countries/england.svg",
+      "leagues": [
+        {
+          "name": "Premier League",
+          "count": 2
+        }
+      ]
+    }
+  ]
+}

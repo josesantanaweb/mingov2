@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import LeagueButton from './LeagueButton';
 import { ILeague } from '@/types/league';
 import { leagues } from '@/data/leagues.json';
+import AllEvents from '@/components/sports/navigation/all-events/AllEvents';
 
 const Leagues = (): React.ReactElement => {
   const [selectedLeague, setSelectedLeague] = useState<string>('Popular');
@@ -11,6 +12,7 @@ const Leagues = (): React.ReactElement => {
   return (
     <div className="mb-5 max-w-full">
       <div className="flex gap-3 items-center w-full">
+        <AllEvents />
         <LeagueButton
           name="Popular"
           isSelected={selectedLeague === 'Popular'}

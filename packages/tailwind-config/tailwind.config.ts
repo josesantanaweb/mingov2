@@ -6,7 +6,7 @@ const config: Omit<Config, 'content'> = {
       colors: {
         base: {
           100: '#FFF7F7',
-          200: '#FDFEFF',
+          200: '#5878A1',
           300: '#55657E',
           400: '#30415A',
           500: '#253245',

@@ -47,14 +47,6 @@
       "founded": 1992,
       "teams": 20,
       "logo": "/images/countries/germany.svg"
-    },
-    {
-      "id": 6,
-      "name": "Liga Portugal",
-      "country": "Portugal",
-      "founded": 1992,
-      "teams": 20,
-      "logo": "/images/countries/portugal.svg"
     }
   ]
 }
