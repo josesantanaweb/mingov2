@@ -43,8 +43,8 @@ const Panel = ({ room }: PanelProps): ReactElement => {
   };
 
   return (
-    <div className="flex flex-col w-[400px] bg-base-600 rounded-2xl h-full p-3 gap-6">
-      <CurrentBalance balance={balance} />
+    <div className="flex flex-col w-[400px] bg-base-600 rounded-2xl h-full px-3 py-5 gap-6">
+      {/* <CurrentBalance balance={balance} /> */}
       <NumberSelector handleNumber={handleNumber} />
       <TotalAmount total={total} onBuy={handleBuy} balance={balance} />
     </div>

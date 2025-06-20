@@ -68,6 +68,22 @@ input[type='number'] {
   @apply w-[5px] bg-base-500 rounded-lg;
 }
 
+.border-room-1 {
+  @apply bg-gradient-to-b from-yellow-500 to-yellow-700;
+}
+
+.border-room-2 {
+  @apply bg-gradient-to-b from-white to-gray-400;
+}
+
+.border-room-3 {
+  @apply bg-gradient-to-b from-orange-500 to-orange-700;
+}
+
+.border-room-3 {
+  @apply bg-gradient-to-b from-orange-500 to-orange-700;
+}
+
 @font-face {
   font-family: 'fontello';
   src: url('../../public/font/fontello.eot?71271403');
@@ -148,7 +164,7 @@ input[type='number'] {
   content: '\e806';
 }
 
-.icon-star:before {
+.icon-star-line:before {
   content: '\e807';
 }
 
@@ -166,4 +182,24 @@ input[type='number'] {
 
 .icon-soccer:before {
   content: '\e80b';
+}
+
+.icon-star:before {
+  content: '\e80c';
+}
+
+.icon-heart:before {
+  content: '\e80d';
+}
+
+.icon-sound:before {
+  content: '\e80e';
+}
+
+.icon-volumen:before {
+  content: '\e80f';
+}
+
+.icon-shared:before {
+  content: '\e810';
 }

@@ -1,4 +1,4 @@
-import Rooms from '@/components/pages/rooms';
+import Rooms from '@/components/bingo/pages/rooms';
 
 const RoomsPage = () => <Rooms />;
 

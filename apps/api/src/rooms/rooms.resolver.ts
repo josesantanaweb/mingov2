@@ -87,11 +87,13 @@ export class RoomsResolver {
   @Subscription(() => RoomStarted, {
     name: 'roomStarted',
     filter: (payload, variables) => {
+      console.log(
+        `Payload roomId: ${payload.roomStarted.roomId}, Variables roomId: ${variables.roomId}`,
+      );
       return payload.roomStarted.roomId === variables.roomId;
     },
   })
   roomStarted(@Args('roomId') roomId: string) {
-    console.log(`Suscripción a roomId: ${roomId}`);
     return this.pubSub.asyncIterableIterator('ROOM_STARTED');
   }
 

@@ -2,15 +2,12 @@
 import { Injectable, OnModuleInit, Inject } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { RoomsService } from './rooms.service';
-import { PubSub } from 'graphql-subscriptions';
+import { pubSub } from '../common/pubsub';
 
 @Injectable()
 export class RoomCronService implements OnModuleInit {
-  constructor(
-    private readonly roomService: RoomsService,
-    @Inject('PUB_SUB')
-    private readonly pubSub: PubSub,
-  ) {}
+    private pubSub = pubSub;
+  constructor(private readonly roomService: RoomsService) {}
 
   async onModuleInit() {
     await this.checkRoomsToStart();
@@ -34,6 +31,7 @@ export class RoomCronService implements OnModuleInit {
       });
 
       await this.roomService.markRoomAsStarted(room.id);
+
     }
   }
 }

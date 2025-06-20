@@ -1,7 +1,7 @@
 export const borderClasses: Record<string, string> = {
-  'sala 1': 'bg-gradient-to-b from-yellow-500 to-yellow-700',
-  'sala 2': 'bg-gradient-to-b from-white to-gray-400',
-  'sala 3': 'bg-gradient-to-b from-orange-500 to-orange-700',
+  'sala 1': 'border-room-1',
+  'sala 2': 'border-room-2',
+  'sala 3': 'border-room-3',
 };
 
 export const backgroundClasses: Record<string, string> = {

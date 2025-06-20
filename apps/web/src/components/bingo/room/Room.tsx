@@ -16,7 +16,7 @@ const Room = ({ room }: RoomProps): ReactElement => {
   const { award, price, time, name } = room;
 
   const targetDate = new Date(time);
-  const timeLeft = useCountdown(targetDate);
+  const timeLeft = useCountdown(targetDate) || '00:00:00';
 
   const borderClass = borderClasses[name.toLowerCase()] || 'bg-base-300';
   const backgroundClass =
@@ -26,7 +26,7 @@ const Room = ({ room }: RoomProps): ReactElement => {
   return (
     <Link
       href={ROOM_ROUTE(room.id)}
-      className="flex items-center justify-center w-full gap-2 cursor-pointer"
+      className="flex items-center justify-center gap-2 cursor-pointer w-1/4"
     >
       <div className="flex flex-col gap-2">
         <div className="flex items-center gap-2">
@@ -39,7 +39,7 @@ const Room = ({ room }: RoomProps): ReactElement => {
         </div>
       </div>
       <div
-        className={`${borderClass} w-[210px] h-[270px] relative rounded-2xl p-0.5`}
+        className={`${borderClass} w-[210px] h-[250px] relative rounded-2xl p-0.5`}
       >
         <div className="flex flex-col items-center justify-center w-full h-full transition-all bg-base-500 hover:bg-base-400 rounded-2xl">
           <div
