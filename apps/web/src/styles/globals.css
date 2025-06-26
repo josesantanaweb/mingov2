@@ -57,7 +57,7 @@ input[type='number'] {
 }
 
 .mark {
-  @apply flex items-center justify-center w-12 h-12 text-sm transition-all rounded-full cursor-pointer bg-violet-500;
+  @apply flex items-center justify-center w-12 h-12 text-sm transition-all rounded-full cursor-pointer bg-primary-600;
 }
 
 .scrollbar::-webkit-scrollbar {
@@ -66,6 +66,19 @@ input[type='number'] {
 
 .scrollbar::-webkit-scrollbar-thumb {
   @apply w-[5px] bg-base-500 rounded-lg;
+}
+
+.scrollbar-transparent {
+  @apply bg-transparent;
+  scrollbar-color: transparent transparent;
+}
+
+.scrollbar-transparent::-webkit-scrollbar {
+  @apply h-[6px] bg-transparent;
+}
+
+.scrollbar-transparent::-webkit-scrollbar-thumb {
+  @apply bg-transparent rounded-[6px];
 }
 
 .border-room-1 {
@@ -136,70 +149,24 @@ input[type='number'] {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-baseball:before {
-  content: '\e800';
-}
-
-.icon-bets:before {
-  content: '\e801';
-}
-
-.icon-hockey:before {
-  content: '\e802';
-}
-
-.icon-home:before {
-  content: '\e805';
-}
-
-.icon-boxeo:before {
-  content: '\e803';
-}
-
-.icon-crown:before {
-  content: '\e804';
-}
-
-.icon-live:before {
-  content: '\e806';
-}
-
-.icon-star-line:before {
-  content: '\e807';
-}
-
-.icon-tennis:before {
-  content: '\e808';
-}
-
-.icon-voleiball:before {
-  content: '\e809';
-}
-
-.icon-football:before {
-  content: '\e80a';
-}
-
-.icon-soccer:before {
-  content: '\e80b';
-}
-
-.icon-star:before {
-  content: '\e80c';
-}
-
-.icon-heart:before {
-  content: '\e80d';
-}
-
-.icon-sound:before {
-  content: '\e80e';
-}
-
-.icon-volumen:before {
-  content: '\e80f';
-}
-
-.icon-shared:before {
-  content: '\e810';
-}
+.icon-bets:before { content: '\e801'; } /* '' */
+.icon-crow:before { content: '\e804'; } /* '' */
+.icon-home:before { content: '\e805'; } /* '' */
+.icon-live:before { content: '\e806'; } /* '' */
+.icon-star-line:before { content: '\e807'; } /* '' */
+.icon-star:before { content: '\e80c'; } /* '' */
+.icon-heart:before { content: '\e80d'; } /* '' */
+.icon-sound:before { content: '\e80e'; } /* '' */
+.icon-volumen:before { content: '\e80f'; } /* '' */
+.icon-shared:before { content: '\e810'; } /* '' */
+.icon-baseball:before { content: '\e811'; } /* '' */
+.icon-boxeo:before { content: '\e812'; } /* '' */
+.icon-football:before { content: '\e813'; } /* '' */
+.icon-hockey:before { content: '\e814'; } /* '' */
+.icon-horse:before { content: '\e815'; } /* '' */
+.icon-tennis:before { content: '\e817'; } /* '' */
+.icon-soccer:before { content: '\e818'; } /* '' */
+.icon-user:before { content: '\e819'; } /* '' */
+.icon-menu:before { content: '\e81b'; } /* '' */
+.icon-ranking:before { content: '\e81c'; } /* '' */
+.icon-history:before { content: '\e81d'; } /* '' */

@@ -20,7 +20,7 @@ describe('Ball', () => {
     render(<Ball ball={ballData} isLast />);
 
     const ball = screen.getByText('10').parentElement;
-    expect(ball).toHaveClass('bg-violet-500');
+    expect(ball).toHaveClass('bg-primary-600');
     expect(ball).toHaveClass('border-white');
   });
 

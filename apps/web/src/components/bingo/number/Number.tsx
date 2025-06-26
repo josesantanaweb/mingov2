@@ -29,7 +29,7 @@ const Number = ({ number, onClick }: NumberProps): ReactElement => {
       onClick={onClick}
       className={clsx('number', {
         'bg-transparent': number === -1,
-        'bg-base-500 hover:bg-base-400 focus:bg-violet-500 focus:text-white':
+        'bg-base-500 hover:bg-base-400 focus:bg-primary-600 focus:text-white':
           number !== -1,
       })}
     >

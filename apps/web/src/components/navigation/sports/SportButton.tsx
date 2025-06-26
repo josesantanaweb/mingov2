@@ -10,11 +10,11 @@ interface SportButtonProps {
 const SportButton = ({ icon, name }: SportButtonProps): React.ReactElement => {
   return (
     <button
-      className="cursor-pointer text-base-300 hover:text-violet-500 p-1 transition-all"
+      className="cursor-pointer text-base-300 hover:text-primary-600 p-1 transition-all"
       data-tooltip-id={`tooltip-${name}`}
       data-tooltip-content={name}
     >
-      <span className={`icon-${icon} text-3xl`}></span>
+      <span className={`icon-${icon} text-2xl`}></span>
       <Tooltip
         id={`tooltip-${name}`}
         place="bottom"

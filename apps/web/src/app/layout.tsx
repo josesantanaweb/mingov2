@@ -2,17 +2,17 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
 import '@/styles/globals.css';
-import Sidebar from '@/components/sidebar';
-import Navbar from '@/components/navbar';
 import Providers from '@/components/providers';
+import Header from '@/components/bets/header';
+import Footer from '@/components/bets/footer';
 
 type Props = {
   children: ReactNode;
 };
 
 export const metadata: Metadata = {
-  title: 'Bingo',
-  description: 'Bingo game',
+  title: 'Mingo',
+  description: 'Mingo is a platform for betting on the outcome of AI models.',
 };
 
 export default async function RootLayout({ children }: Props) {
@@ -20,11 +20,11 @@ export default async function RootLayout({ children }: Props) {
     <html lang="es">
       <body>
         <Providers>
-          <main className="relative w-full h-screen grid grid-rows-[64px_1fr]">
-            <Navbar />
-            <div className="w-full flex h-full">
-              <Sidebar />
-              <div className="bg-base-800 w-full">{children}</div>
+          <main className="relative w-full flex items-center justify-center md:p-10 bg-black">
+            <div className="bg-base-900 w-full md:max-w-md h-full md:rounded-3xl flex flex-col">
+              <Header />
+              {children}
+              <Footer />
             </div>
           </main>
         </Providers>

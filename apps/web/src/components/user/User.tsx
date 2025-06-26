@@ -27,7 +27,7 @@ const User = ({ user, isWon }: UserProps): React.ReactElement => {
   );
 
   const backgroundClass = cn(
-    isWon && 'bg-violet-500',
+    isWon && 'bg-primary-600',
     !isWon && {
       'bg-yellow-500': tier === 'gold',
       'bg-gray-400': tier === 'silver',
@@ -53,7 +53,7 @@ const User = ({ user, isWon }: UserProps): React.ReactElement => {
         {username}
       </span>
       {isWon && (
-        <span className="bg-violet-500 absolute -left-20 top-[50%] -translate-y-1/2 text-xs h-5 px-2 text-white rounded flex items-center">
+        <span className="bg-primary-600 absolute -left-20 top-[50%] -translate-y-1/2 text-xs h-5 px-2 text-white rounded flex items-center">
           Bingo
         </span>
       )}

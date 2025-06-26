@@ -1,0 +1,52 @@
+{
+  "matches": [
+    {
+      "league": "Premier league",
+      "date": "2025-06-23T14:30:00Z",
+      "homeTeam": {
+        "name": "Man United",
+        "logo": "/images/teams/man-united.png"
+      },
+      "awayTeam": {
+        "name": "Arsenal FC",
+        "logo": "/images/teams/arsenal.png"
+      }
+    },
+    {
+      "league": "Premier league",
+      "date": "2024-06-09T14:30:00Z",
+      "homeTeam": {
+        "name": "Milan",
+        "logo": "/images/teams/milan.png"
+      },
+      "awayTeam": {
+        "name": "Napoles",
+        "logo": "/images/teams/napoles.png"
+      }
+    },
+    {
+      "league": "Premier league",
+      "date": "2024-06-09T14:30:00Z",
+      "homeTeam": {
+        "name": "Chelsea",
+        "logo": "/images/teams/chelsea.png"
+      },
+      "awayTeam": {
+        "name": "Man City",
+        "logo": "/images/teams/man-city.png"
+      }
+    },
+    {
+      "league": "Premier league",
+      "date": "2024-06-09T14:30:00Z",
+      "homeTeam": {
+        "name": "Everton FC",
+        "logo": "/images/teams/everton.png"
+      },
+      "awayTeam": {
+        "name": "Leicester",
+        "logo": "/images/teams/leicester.png"
+      }
+    }
+  ]
+}

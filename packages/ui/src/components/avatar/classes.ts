@@ -5,7 +5,7 @@ export const borderClasses: Record<number, string> = {
 };
 
 export const backgroundClasses: Record<number, string> = {
-  10: 'bg-violet-500',
+  10: 'bg-primary-600',
   50: 'bg-gray-400',
   90: 'bg-yellow-500',
 };

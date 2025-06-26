@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import SportsNav from '@/components/sports/navigation/sports';
-import LeaguesNav from '@/components/sports/navigation/leagues';
+import SportsNav from '@/components/navigation/sports';
+import LeaguesNav from '@/components/navigation/leagues';
 import Event from '@/components/sports/event';
 
 import { events } from '@/data/events.json';

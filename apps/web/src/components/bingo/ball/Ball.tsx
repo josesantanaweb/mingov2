@@ -22,7 +22,7 @@ const Ball = ({ ball, isLast }: BallProps): ReactElement => {
       className={clsx(
         'ball w-12 h-12 text-white rounded-full flex items-center flex-col justify-center p-2',
         {
-          'bg-violet-500 border-white': isLast,
+          'bg-primary-600 border-white': isLast,
           'bg-base-500 border-base-300': !isLast,
         },
         'border-2  animate-ball relative',

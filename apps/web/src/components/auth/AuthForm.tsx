@@ -150,7 +150,7 @@ const AuthForm = ({ type, setType, setOpen }: AuthFormProps): ReactElement => {
         {isLogin && (
           <Link
             href="/"
-            className="text-violet-500 cursor-pointer text-sm w-full text-right hover:underline"
+            className="text-primary-600 cursor-pointer text-sm w-full text-right hover:underline"
           >
             ¿Has olvidado tu contraseña?
           </Link>
@@ -163,7 +163,7 @@ const AuthForm = ({ type, setType, setOpen }: AuthFormProps): ReactElement => {
         <p className="text-base-300 text-sm">
           {isRegister ? 'Ya tienes una cuenta?' : 'No tienes una cuenta?'}
           <span
-            className="text-violet-500 ml-2 cursor-pointer"
+            className="text-primary-600 ml-2 cursor-pointer"
             onClick={handleToggleType}
           >
             {isRegister ? 'Iniciar sesión' : 'Registrate'}

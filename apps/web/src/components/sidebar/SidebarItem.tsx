@@ -34,7 +34,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
         data-tooltip-content={item.label}
         className={clsx(
           'flex items-center rounded-lg gap-2 hover:text-white cursor-pointer transition-all',
-          isOpen && 'bg-violet-500 text-white',
+          isOpen && 'bg-primary-600 text-white',
           !isOpen && 'text-base-300',
           isCollapse
             ? 'justify-center mb-2 w-[45px] h-[45px] rounded-lg bg-base-500'
@@ -56,7 +56,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             className={clsx(
               'transform transition-transform duration-300 rounded-lg p-2',
               isOpen
-                ? 'rotate-180 hover:bg-violet-500'
+                ? 'rotate-180 hover:bg-primary-600'
                 : 'rotate-0 hover:bg-base-500',
             )}
           />

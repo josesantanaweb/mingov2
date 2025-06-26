@@ -46,7 +46,7 @@ describe('<User />', () => {
 
     const bingoBadge = screen.getByText(/Bingo/i);
     expect(bingoBadge).toBeInTheDocument();
-    expect(bingoBadge).toHaveClass('bg-violet-500');
+    expect(bingoBadge).toHaveClass('bg-primary-600');
   });
 
   it('should not render the "Bingo" badge when isWon is false', () => {
