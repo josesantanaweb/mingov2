@@ -11,6 +11,8 @@ import { CardsModule } from './cards/cards.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { LeaguesModule } from './leagues/leagues.module';
+import { TeamsModule } from './teams/teams.module';
+import { MatchsModule } from './matchs/matchs.module';
 
 @Module({
   imports: [
@@ -34,6 +36,8 @@ import { LeaguesModule } from './leagues/leagues.module';
     CardsModule,
     AuthModule,
     LeaguesModule,
+    TeamsModule,
+    MatchsModule,
   ],
 })
 export class AppModule {}
