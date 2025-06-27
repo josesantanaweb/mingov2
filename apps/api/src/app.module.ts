@@ -10,6 +10,7 @@ import { RoomsModule } from './rooms/rooms.module';
 import { CardsModule } from './cards/cards.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { LeaguesModule } from './leagues/leagues.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { AuthModule } from './auth/auth.module';
     RoomsModule,
     CardsModule,
     AuthModule,
+    LeaguesModule,
   ],
 })
 export class AppModule {}

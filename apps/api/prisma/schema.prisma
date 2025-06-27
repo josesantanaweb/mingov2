@@ -24,6 +24,7 @@ model User {
   refreshToken String?
 
   wonRooms Room[] @relation("RoomWinnerUser")
+  Bet      Bet[]
 }
 
 model Room {
@@ -80,6 +81,115 @@ model CardsOnRoomsUsers {
 
   @@unique([userId, roomId, cardId])
   @@index([roomId, userId])
+}
+
+model League {
+  id        String   @id @default(uuid())
+  name      String
+  country   String
+  logo      String
+  status    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  teams   Team[]
+  matches Match[]
+}
+
+model Team {
+  id        String   @id @default(uuid())
+  name      String
+  logo      String
+  status    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  leagueId String
+  league   League @relation(fields: [leagueId], references: [id])
+
+  homeMatches Match[] @relation("HomeTeam")
+  awayMatches Match[] @relation("AwayTeam")
+}
+
+model Match {
+  id          String   @id @default(uuid())
+  name        String
+  date        String
+  totalAmount Int
+  status      Boolean  @default(true)
+  isLive      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  leagueId String
+  league   League @relation(fields: [leagueId], references: [id])
+
+  homeTeamId String
+  awayTeamId String
+  homeTeam   Team   @relation("HomeTeam", fields: [homeTeamId], references: [id])
+  awayTeam   Team   @relation("AwayTeam", fields: [awayTeamId], references: [id])
+
+  markets Market[]
+  bets    Bet[]
+}
+
+model Market {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  icon        String
+  totalAmount Int
+  status      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  matchId String
+  match   Match  @relation(fields: [matchId], references: [id])
+
+  bets         Bet[]
+  MarketOption MarketOption[]
+}
+
+model MarketOption {
+  id          String @id @default(uuid())
+  title       String
+  odds        Float
+  totalAmount Int    @default(0)
+
+  marketId String
+  market   Market @relation(fields: [marketId], references: [id])
+
+  bets Bet[]
+}
+
+model Bet {
+  id        String   @id @default(uuid())
+  amount    Int
+  odds       Float
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  matchId String
+  match   Match  @relation(fields: [matchId], references: [id])
+
+  marketId String
+  market   Market @relation(fields: [marketId], references: [id])
+
+  marketOptionId String
+  marketOption   MarketOption @relation(fields: [marketOptionId], references: [id])
+}
+
+model Sport {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  icon        String
+  status      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 enum Role {

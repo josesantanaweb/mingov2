@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import { CardsService } from './../cards/cards.service';
+import { CardsService } from '../cards/cards.service';
 import { AddUserToRoomInput, CreateRoomInput } from './input/rooms.inputs';
 import { Room } from './entities/room.entity';
 import { User } from '../users/entities/user.entity';
