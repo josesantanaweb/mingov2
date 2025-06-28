@@ -138,7 +138,6 @@ model Market {
   name        String
   description String
   icon        String
-  totalAmount Int
   status      Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -147,7 +146,7 @@ model Market {
   match   Match  @relation(fields: [matchId], references: [id])
 
   bets         Bet[]
-  MarketOption MarketOption[]
+  marketOption MarketOption[]
 }
 
 model MarketOption {

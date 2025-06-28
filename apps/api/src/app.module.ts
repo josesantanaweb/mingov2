@@ -13,6 +13,8 @@ import { AuthModule } from './auth/auth.module';
 import { LeaguesModule } from './leagues/leagues.module';
 import { TeamsModule } from './teams/teams.module';
 import { MatchsModule } from './matchs/matchs.module';
+import { BetsModule } from './bets/bets.module';
+import { MarketsModule } from './markets/markets.module';
 
 @Module({
   imports: [
@@ -38,6 +40,8 @@ import { MatchsModule } from './matchs/matchs.module';
     LeaguesModule,
     TeamsModule,
     MatchsModule,
+    BetsModule,
+    MarketsModule,
   ],
 })
 export class AppModule {}

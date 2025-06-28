@@ -103,6 +103,16 @@ type Match {
   awayTeam: Team!
 }
 
+type Market {
+  id: ID!
+  name: String!
+  description: String!
+  icon: String!
+  status: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
 type Query {
   users: [User!]!
   user(id: String!): User!
@@ -115,6 +125,7 @@ type Query {
   leagues: [League!]!
   teams: [Team!]!
   matchs: [Match!]!
+  markets: [Market!]!
 }
 
 type Mutation {
