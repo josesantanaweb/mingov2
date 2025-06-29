@@ -137,6 +137,7 @@ type Mutation {
   register(input: RegisterInput!): AuthResponse!
   login(input: LoginInput!): AuthResponse!
   logout(id: String!): Boolean!
+  executeSeed: Boolean!
 }
 
 input UpdateUserInput {

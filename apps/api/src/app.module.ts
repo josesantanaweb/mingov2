@@ -15,6 +15,7 @@ import { TeamsModule } from './teams/teams.module';
 import { MatchsModule } from './matchs/matchs.module';
 import { BetsModule } from './bets/bets.module';
 import { MarketsModule } from './markets/markets.module';
+import { SeedsModule } from './seeds/seeds.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { MarketsModule } from './markets/markets.module';
     MatchsModule,
     BetsModule,
     MarketsModule,
+    SeedsModule,
   ],
 })
 export class AppModule {}

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Más / Menos goles",
+    "description": "Aposta no total de goles marcados en la partida.",
+    "icon": "over-under.svg"
+  },
+  {
+    "name": "Resultado final",
+    "description": "Apuesta al vencedor de la partida.",
+    "icon": "moneyline.svg"
+  },
+  {
+    "name": "Ambos marcan",
+    "description": "Apuesta si ambos equipos marcarán goles.",
+    "icon": "asian-handicap.svg"
+  },
+  {
+    "name": "Doble oportunidad",
+    "description": "Apuesta por dos de los tres resultados posibles.",
+    "icon": "both-teams-to-score.svg"
+  }
+]

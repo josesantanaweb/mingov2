@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Fútbol",
+    "description": "Deporte de equipo jugado entre dos equipos de once jugadores cada uno.",
+    "icon": "football.svg"
+  },
+  {
+    "name": "Baloncesto",
+    "description": "Deporte de equipo jugado entre dos equipos de cinco jugadores cada uno.",
+    "icon": "basketball.svg"
+  },
+  {
+    "name": "Tenis",
+    "description": "Deporte individual o de dobles jugado con raquetas y una pelota.",
+    "icon": "tennis.svg"
+  }
+]

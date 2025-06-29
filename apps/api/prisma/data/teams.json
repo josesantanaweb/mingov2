@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Man City",
+    "logo": "man-city.png",
+    "leagueId": "63a9e841-2e0e-490f-aebe-f262466c827f"
+  },
+  {
+    "name": "Man United",
+    "logo": "man-united.png",
+    "leagueId": "63a9e841-2e0e-490f-aebe-f262466c827f"
+  },
+  {
+    "name": "Chelsea",
+    "logo": "chelsea.png",
+    "leagueId": "63a9e841-2e0e-490f-aebe-f262466c827f"
+  },
+  {
+    "name": "Arsenal",
+    "logo": "arsenal.png",
+    "leagueId": "63a9e841-2e0e-490f-aebe-f262466c827f"
+  },
+  {
+    "name": "Inter",
+    "logo": "inter.png",
+    "leagueId": "1687479c-4389-463e-9c64-07d35d3d8753"
+  },
+  {
+    "name": "Milan",
+    "logo": "milan.png",
+    "leagueId": "1687479c-4389-463e-9c64-07d35d3d8753"
+  },
+  {
+    "name": "Napoli",
+    "logo": "napoli.png",
+    "leagueId": "1687479c-4389-463e-9c64-07d35d3d8753"
+  }
+]

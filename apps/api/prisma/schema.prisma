@@ -114,7 +114,7 @@ model Team {
 model Match {
   id          String   @id @default(uuid())
   name        String
-  dateAt   DateTime @default(now())
+  dateAt      DateTime @default(now())
   totalAmount Int
   status      Boolean  @default(true)
   isLive      Boolean  @default(true)
@@ -142,8 +142,8 @@ model Market {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  matchId String
-  match   Match  @relation(fields: [matchId], references: [id])
+  matchId String?
+  match   Match?  @relation(fields: [matchId], references: [id])
 
   bets         Bet[]
   marketOption MarketOption[]
@@ -164,7 +164,7 @@ model MarketOption {
 model Bet {
   id        String   @id @default(uuid())
   amount    Int
-  odds       Float
+  odds      Float
   status    String   @default("pending")
   createdAt DateTime @default(now())
 
