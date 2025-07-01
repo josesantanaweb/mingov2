@@ -1,55 +1,353 @@
 {
   "matches": [
     {
-      "id": "1",
-      "league": "Premier league",
-      "date": "2025-06-23T14:30:00Z",
+      "id": "4f9a8263-7744-4bb0-91fa-99675d5126a0",
+      "name": "Man United vs Chelsea",
+      "dateAt": "2025-07-01T03:07:01.830Z",
+      "totalAmount": 0,
+      "isLive": false,
+      "status": true,
+      "createdAt": "2025-06-30T23:00:00.000Z",
+      "updatedAt": "2025-07-01T01:00:00.000Z",
       "homeTeam": {
+        "id": "2790d9c5-0746-4e16-861e-29a9e4153511",
         "name": "Man United",
-        "logo": "/images/teams/man-united.png"
+        "logo": "man-united.png",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
       },
       "awayTeam": {
-        "name": "Arsenal FC",
-        "logo": "/images/teams/arsenal.png"
-      }
-    },
-    {
-      "id": "2",
-      "league": "Premier league",
-      "date": "2024-06-09T14:30:00Z",
-      "homeTeam": {
-        "name": "Milan",
-        "logo": "/images/teams/milan.png"
-      },
-      "awayTeam": {
-        "name": "Napoles",
-        "logo": "/images/teams/napoles.png"
-      }
-    },
-    {
-      "id": "3",
-      "league": "Premier league",
-      "date": "2024-06-09T14:30:00Z",
-      "homeTeam": {
+        "id": "a7906b31-c0b3-4bd2-9b81-c4661484eca2",
         "name": "Chelsea",
-        "logo": "/images/teams/chelsea.png"
+        "logo": "chelsea.png",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
       },
-      "awayTeam": {
-        "name": "Man City",
-        "logo": "/images/teams/man-city.png"
+      "league": {
+        "id": "63a9e841-2e0e-490f-aebe-f262466c827f",
+        "name": "Premier League",
+        "country": "Inglaterra",
+        "logo": "england.svg",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
       }
     },
     {
-      "id": "4",
-      "league": "Premier league",
-      "date": "2024-06-09T14:30:00Z",
+      "id": "a8c97506-74ea-40fd-ab2e-54fa2fe56a94",
+      "name": "Brighton vs Tottenham",
+      "dateAt": "2025-08-01T03:06:02.213Z",
+      "totalAmount": 0,
+      "isLive": false,
+      "status": true,
+      "createdAt": "2025-06-30T23:10:00.000Z",
+      "updatedAt": "2025-07-01T01:10:00.000Z",
       "homeTeam": {
-        "name": "Everton FC",
-        "logo": "/images/teams/everton.png"
+        "id": "7bed1d27-8b5d-48b4-9ee2-0be1790cf6c9",
+        "name": "Brighton",
+        "logo": "brighton.png",
+        "status": true,
+        "createdAt": "2025-07-01T03:08:16.154Z",
+        "updatedAt": "2025-07-01T03:07:59.373Z"
       },
       "awayTeam": {
+        "id": "8dbc5921-65d3-447c-a910-ae01d3b28325",
+        "name": "Tottenham",
+        "logo": "tottenham.png",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      },
+      "league": {
+        "id": "63a9e841-2e0e-490f-aebe-f262466c827f",
+        "name": "Premier League",
+        "country": "Inglaterra",
+        "logo": "england.svg",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      }
+    },
+    {
+      "id": "3718bbde-2e0a-4119-8d88-0582e9eef424",
+      "name": "Arsenal vs Man City",
+      "dateAt": "2025-08-01T03:10:45.897Z",
+      "totalAmount": 0,
+      "isLive": true,
+      "status": true,
+      "createdAt": "2025-06-30T23:20:00.000Z",
+      "updatedAt": "2025-07-01T01:20:00.000Z",
+      "homeTeam": {
+        "id": "deb31b31-85cc-43e8-912e-2f5f55c0ccdf",
+        "name": "Arsenal",
+        "logo": "arsenal.png",
+        "status": true,
+        "createdAt": "2025-07-01T03:09:52.907Z",
+        "updatedAt": "2025-07-01T03:09:58.677Z"
+      },
+      "awayTeam": {
+        "id": "be541dbc-a7dc-4564-b7ca-ee04394cc97c",
+        "name": "Man City",
+        "logo": "man-city.png",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      },
+      "league": {
+        "id": "63a9e841-2e0e-490f-aebe-f262466c827f",
+        "name": "Premier League",
+        "country": "Inglaterra",
+        "logo": "england.svg",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      }
+    },
+    {
+      "id": "addfeb9d-da1f-4e7c-b137-f62c73ac6c75",
+      "name": "Wolverhampton vs Aston Villa",
+      "dateAt": "2025-08-01T03:12:05.682Z",
+      "totalAmount": 0,
+      "isLive": false,
+      "status": true,
+      "createdAt": "2025-06-30T23:30:00.000Z",
+      "updatedAt": "2025-07-01T01:30:00.000Z",
+      "homeTeam": {
+        "id": "fc0cf1c8-8942-41cc-a2b7-5e24b7bfdeb3",
+        "name": "Wolverhampton",
+        "logo": "wolverhampton.png",
+        "status": true,
+        "createdAt": "2025-07-01T03:03:09.032Z",
+        "updatedAt": "2025-07-01T03:02:57.256Z"
+      },
+      "awayTeam": {
+        "id": "c4bdb30d-39ce-4876-9bc3-98e128dc8ae2",
+        "name": "Aston Villa",
+        "logo": "aston-villa.png",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      },
+      "league": {
+        "id": "63a9e841-2e0e-490f-aebe-f262466c827f",
+        "name": "Premier League",
+        "country": "Inglaterra",
+        "logo": "england.svg",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      }
+    },
+    {
+      "id": "4662f5f3-c1a7-4de7-922a-ff5bef25d8eb",
+      "name": "Liverpool vs West Ham",
+      "dateAt": "2025-09-01T03:15:53.739Z",
+      "totalAmount": 0,
+      "isLive": true,
+      "status": true,
+      "createdAt": "2025-06-30T23:40:00.000Z",
+      "updatedAt": "2025-07-01T01:40:00.000Z",
+      "homeTeam": {
+        "id": "54849a7b-0ef1-493d-b202-aa631280ff4a",
+        "name": "Liverpool",
+        "logo": "liverpool.png",
+        "status": true,
+        "createdAt": "2025-07-01T03:15:15.413Z",
+        "updatedAt": "2025-07-01T03:14:46.961Z"
+      },
+      "awayTeam": {
+        "id": "c28702b6-d053-4103-85da-ced2d27db6df",
+        "name": "West Ham",
+        "logo": "west-ham.png",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      },
+      "league": {
+        "id": "63a9e841-2e0e-490f-aebe-f262466c827f",
+        "name": "Premier League",
+        "country": "Inglaterra",
+        "logo": "england.svg",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      }
+    },
+    {
+      "id": "6a440e17-8ed6-4824-863c-740973c09fd3",
+      "name": "Everton vs Leicester",
+      "dateAt": "2025-07-01T03:16:56.826Z",
+      "totalAmount": 0,
+      "isLive": true,
+      "status": true,
+      "createdAt": "2025-06-30T23:50:00.000Z",
+      "updatedAt": "2025-07-01T01:50:00.000Z",
+      "homeTeam": {
+        "id": "7696c412-3170-453b-8046-d3b25f198a7d",
+        "name": "Everton",
+        "logo": "everton.png",
+        "status": true,
+        "createdAt": "2025-07-01T02:53:30.903Z",
+        "updatedAt": "2025-07-01T03:01:20.103Z"
+      },
+      "awayTeam": {
+        "id": "5492b236-1536-4209-8577-1a46c204c0d5",
         "name": "Leicester",
-        "logo": "/images/teams/leicester.png"
+        "logo": "leicester.png",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      },
+      "league": {
+        "id": "63a9e841-2e0e-490f-aebe-f262466c827f",
+        "name": "Premier League",
+        "country": "Inglaterra",
+        "logo": "england.svg",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      }
+    },
+    {
+      "id": "2030a6c2-462f-46d1-9339-ccf46990126e",
+      "name": "Sunderland vs Newcastle",
+      "dateAt": "2025-07-01T03:20:46.086Z",
+      "totalAmount": 0,
+      "isLive": true,
+      "status": true,
+      "createdAt": "2025-07-01T00:00:00.000Z",
+      "updatedAt": "2025-07-01T02:00:00.000Z",
+      "homeTeam": {
+        "id": "34e54256-34e3-4f56-85e4-b9763cadfd3a",
+        "name": "Sunderland",
+        "logo": "sunderland.png",
+        "status": true,
+        "createdAt": "2025-07-01T03:20:00.707Z",
+        "updatedAt": "2025-07-01T03:19:41.250Z"
+      },
+      "awayTeam": {
+        "id": "bb8cc94c-c9e7-45aa-9c48-e3863943dab6",
+        "name": "Newcastle",
+        "logo": "newcastle.png",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      },
+      "league": {
+        "id": "63a9e841-2e0e-490f-aebe-f262466c827f",
+        "name": "Premier League",
+        "country": "Inglaterra",
+        "logo": "england.svg",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      }
+    },
+    {
+      "id": "e3b1bfee-67fd-4808-ab90-a9a453539f95",
+      "name": "Crystal Palace vs Brentford",
+      "dateAt": "2025-07-01T03:29:09.358Z",
+      "totalAmount": 0,
+      "isLive": false,
+      "status": true,
+      "createdAt": "2025-07-01T00:10:00.000Z",
+      "updatedAt": "2025-07-01T02:10:00.000Z",
+      "homeTeam": {
+        "id": "6ccbec0a-b963-4516-aa5f-6524397f4395",
+        "name": "Crystal Palace",
+        "logo": "crystal-palace.png",
+        "status": true,
+        "createdAt": "2025-07-01T03:22:17.119Z",
+        "updatedAt": "2025-07-01T03:22:01.279Z"
+      },
+      "awayTeam": {
+        "id": "b0cde4b9-d05f-406c-80b2-32977c1b83b0",
+        "name": "Brentford",
+        "logo": "brentford.png",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      },
+      "league": {
+        "id": "63a9e841-2e0e-490f-aebe-f262466c827f",
+        "name": "Premier League",
+        "country": "Inglaterra",
+        "logo": "england.svg",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      }
+    },
+    {
+      "id": "7015dd22-63b2-4d23-b419-ab8084a9dabb",
+      "name": "Bournemouth vs Nottingham Forest",
+      "dateAt": "2025-07-01T03:33:35.650Z",
+      "totalAmount": 0,
+      "isLive": false,
+      "status": true,
+      "createdAt": "2025-07-01T00:20:00.000Z",
+      "updatedAt": "2025-07-01T02:20:00.000Z",
+      "homeTeam": {
+        "id": "3c5e81c8-c579-453b-b03a-32dbf6e84800",
+        "name": "Bournemouth",
+        "logo": "bournemouth.png",
+        "status": true,
+        "createdAt": "2025-07-01T03:32:52.805Z",
+        "updatedAt": "2025-07-01T03:32:41.638Z"
+      },
+      "awayTeam": {
+        "id": "9a669114-5ddb-434b-a832-994afedde2bb",
+        "name": "Nottingham Forest",
+        "logo": "nottingham-forest.png",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      },
+      "league": {
+        "id": "63a9e841-2e0e-490f-aebe-f262466c827f",
+        "name": "Premier League",
+        "country": "Inglaterra",
+        "logo": "england.svg",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      }
+    },
+    {
+      "id": "1267754e-ac63-4c1f-a4b2-9807419e870a",
+      "name": "Burnley vs Leeds United",
+      "dateAt": "2025-07-01T03:40:46.597Z",
+      "totalAmount": 0,
+      "isLive": true,
+      "status": true,
+      "createdAt": "2025-07-01T00:30:00.000Z",
+      "updatedAt": "2025-07-01T02:30:00.000Z",
+      "homeTeam": {
+        "id": "e173fc53-1fb2-4e60-95a2-1f1111c11bb1",
+        "name": "Burnley",
+        "logo": "burnley.png",
+        "status": true,
+        "createdAt": "2025-07-01T03:38:29.288Z",
+        "updatedAt": "2025-07-01T03:38:19.187Z"
+      },
+      "awayTeam": {
+        "id": "d972e5c9-376a-4c1b-9f47-12c7b326faaf",
+        "name": "Leeds United",
+        "logo": "leeds-united.png",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
+      },
+      "league": {
+        "id": "63a9e841-2e0e-490f-aebe-f262466c827f",
+        "name": "Premier League",
+        "country": "Inglaterra",
+        "logo": "england.svg",
+        "status": true,
+        "createdAt": "2025-06-29T00:23:23.456Z",
+        "updatedAt": "2025-06-29T00:23:23.456Z"
       }
     }
   ]

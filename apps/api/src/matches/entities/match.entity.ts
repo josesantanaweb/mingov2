@@ -1,5 +1,6 @@
 import { ObjectType, Field, ID, GraphQLISODateTime } from '@nestjs/graphql';
 import { Team } from '../../teams/entities/team.entity';
+import { League } from '../../leagues/entities/league.entity';
 
 @ObjectType()
 export class Match {
@@ -32,6 +33,9 @@ export class Match {
 
   @Field(() => Team)
   awayTeam: Team;
+
+  @Field(() => League)
+  league: League;
 
   // @Field(() => Market)
   // markets: Market[];

@@ -30,14 +30,14 @@ const MatchCard = ({
       <LeagueLogo src="/images/leagues/premier-league.png" />
       <div className="relative z-10 flex flex-col text-white p-3">
         <div className="w-full flex items-center justify-center mb-4">
-          <h6 className="text-base font-medium">{match.league}</h6>
+          <h6 className="text-base font-medium">{match.league.name}</h6>
         </div>
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center gap-2 flex-col">
             <Image
               width={50}
               height={50}
-              src={match.homeTeam.logo}
+              src={`/images/teams/${match.homeTeam.logo}`}
               alt="Team 1"
               className="w-12 h-12 rounded-full object-contain object-center"
             />
@@ -55,7 +55,7 @@ const MatchCard = ({
             <Image
               width={50}
               height={50}
-              src={match.awayTeam.logo}
+              src={`/images/teams/${match.awayTeam.logo}`}
               alt="Team 1"
               className="w-12 h-12 rounded-full object-contain object-center"
             />

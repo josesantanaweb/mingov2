@@ -12,8 +12,8 @@ interface MatchItemProps {
 }
 
 const MatchItem = ({ match }: MatchItemProps): React.ReactElement => {
-  const hour = formatHour(match.date);
-  const day = formatDay(match.date);
+  const hour = formatHour(match.dateAt);
+  const day = formatDay(match.dateAt);
 
   return (
     <Link
@@ -27,7 +27,7 @@ const MatchItem = ({ match }: MatchItemProps): React.ReactElement => {
         <Image
           width={50}
           height={50}
-          src={match.homeTeam.logo}
+          src={`/images/teams/${match.homeTeam.logo}`}
           alt="Team 1"
           className="w-11 h-11 rounded-full object-contain object-center"
         />
@@ -40,7 +40,7 @@ const MatchItem = ({ match }: MatchItemProps): React.ReactElement => {
         <Image
           width={50}
           height={50}
-          src={match.awayTeam.logo}
+          src={`/images/teams/${match.awayTeam.logo}`}
           alt="Team 2"
           className="w-11 h-11 rounded-full object-contain object-center"
         />

@@ -12,7 +12,7 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { LeaguesModule } from './leagues/leagues.module';
 import { TeamsModule } from './teams/teams.module';
-import { MatchsModule } from './matchs/matchs.module';
+import { MatchesModule } from './matches/matches.module';
 import { BetsModule } from './bets/bets.module';
 import { MarketsModule } from './markets/markets.module';
 import { SeedsModule } from './seeds/seeds.module';
@@ -40,7 +40,7 @@ import { SeedsModule } from './seeds/seeds.module';
     AuthModule,
     LeaguesModule,
     TeamsModule,
-    MatchsModule,
+    MatchesModule,
     BetsModule,
     MarketsModule,
     SeedsModule,

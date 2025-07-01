@@ -24,7 +24,7 @@ const Bets = (): React.ReactElement => {
             </button>
           </div>
           <div className="scrollbar-transparent flex items-center gap-4 max-w-full overflow-x-auto">
-            {matches.map((match, index) => (
+            {matches.filter(match => match.isLive).map((match, index) => (
               <MatchCard key={index} match={match} isActive={index === 0} />
             ))}
           </div>

@@ -101,6 +101,7 @@ type Match {
   updatedAt: DateTime
   homeTeam: Team!
   awayTeam: Team!
+  league: League!
 }
 
 type Market {
@@ -124,7 +125,7 @@ type Query {
   refreshToken(id: String!, refreshToken: String!): AuthResponse!
   leagues: [League!]!
   teams: [Team!]!
-  matchs: [Match!]!
+  matches: [Match!]!
   markets: [Market!]!
 }
 
