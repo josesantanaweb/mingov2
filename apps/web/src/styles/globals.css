@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 body {
-  /* font-family: 'Outfit', sans-serif; */
-  font-family: 'Averta', sans-serif;
+  font-family: 'Outfit', sans-serif;
 }
 
 @layer utilities {
@@ -110,23 +109,30 @@ input[type='number'] {
 }
 
 @font-face {
-  font-family: 'Averta';
-  src: url('../../public/font/averta/regular.otf') format('opentype');
+  font-family: 'Outfit';
+  src: url('../../public/font/outfit/Outfit-Regular.ttf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Averta';
-  src: url('../../public/font/averta/semibold.otf') format('opentype');
+  font-family: 'Outfit';
+  src: url('../../public/font/outfit/Outfit-Medium.ttf') format('opentype');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Averta';
-  src: url('../../public/font/averta/bold.otf') format('opentype');
+  font-family: 'Outfit';
+  src: url('../../public/font/outfit/Outfit-SemiBold.ttf') format('opentype');
   font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('../../public/font/outfit/Outfit-Bold.ttf') format('opentype');
+  font-weight: 800;
   font-style: normal;
 }
 
@@ -149,7 +155,10 @@ input[type='number'] {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-calculator:before { content: '\e800'; } /* '' */
 .icon-bets:before { content: '\e801'; } /* '' */
+.icon-sort-alt:before { content: '\e802'; } /* '' */
+.icon-pie-chart:before { content: '\e803'; } /* '' */
 .icon-crow:before { content: '\e804'; } /* '' */
 .icon-home:before { content: '\e805'; } /* '' */
 .icon-live:before { content: '\e806'; } /* '' */
@@ -164,6 +173,7 @@ input[type='number'] {
 .icon-football:before { content: '\e813'; } /* '' */
 .icon-hockey:before { content: '\e814'; } /* '' */
 .icon-horse:before { content: '\e815'; } /* '' */
+.icon-directions:before { content: '\e816'; } /* '' */
 .icon-tennis:before { content: '\e817'; } /* '' */
 .icon-soccer:before { content: '\e818'; } /* '' */
 .icon-user:before { content: '\e819'; } /* '' */

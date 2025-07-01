@@ -2,14 +2,14 @@
 import React, { useState, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { IMarket, IMarketSelected } from '@/types/market';
+import { IMarketSport, IMarketSportSelected } from '@/types/market';
 import MarketButton from './MarketButton';
 
 interface MarketProps {
-  market: IMarket;
+  market: IMarketSport;
   handleToggle?: () => void;
-  setSelectedMarket: (market: IMarketSelected) => void;
-  selectedMarket?: IMarketSelected;
+  setSelectedMarket: (market: IMarketSportSelected) => void;
+  selectedMarket?: IMarketSportSelected;
   isOpen: boolean;
 }
 

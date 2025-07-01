@@ -1,14 +1,20 @@
-export interface IMarketOption {
+export interface IMarketSportOption {
   label: string;
   odd: string;
 }
 
-export interface IMarket {
+export interface IMarketSport {
   name: string;
-  options: IMarketOption[];
+  options: IMarketSportOption[];
 }
 
-export interface IMarketSelected {
+export interface IMarket {
   name: string;
-  option: IMarketOption;
+  icon: string;
+  description: string;
+}
+
+export interface IMarketSportSelected {
+  name: string;
+  option: IMarketSportOption;
 }

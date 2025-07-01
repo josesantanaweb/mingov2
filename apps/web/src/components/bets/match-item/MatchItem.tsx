@@ -1,28 +1,33 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { IMatch } from '@/types/match';
 import { formatDay, formatHour } from '@/utils/date';
+import { MATCH_ROUTE } from '@/constants';
 
 interface MatchItemProps {
-  data: IMatch;
+  match: IMatch;
 }
 
-const MatchItem = ({ data }: MatchItemProps): React.ReactElement => {
-  const hour = formatHour(data.date);
-  const day = formatDay(data.date);
+const MatchItem = ({ match }: MatchItemProps): React.ReactElement => {
+  const hour = formatHour(match.date);
+  const day = formatDay(match.date);
 
   return (
-    <div className="bg-base-800 hover:bg-base-700 transition-all w-full text-white rounded-xl h-[75px] gap-5 flex items-center justify-center">
+    <Link
+      href={MATCH_ROUTE(match.id)}
+      className="bg-base-800 cursor-pointer hover:bg-base-700 transition-all w-full text-white rounded-xl h-[75px] gap-5 flex items-center justify-center"
+    >
       <div className="flex items-center gap-3 flex-1 justify-end">
         <p className="text-xs font-semibold truncate max-w-[50px]">
-          {data.homeTeam.name}
+          {match.homeTeam.name}
         </p>
         <Image
           width={50}
           height={50}
-          src={data.homeTeam.logo}
+          src={match.homeTeam.logo}
           alt="Team 1"
           className="w-11 h-11 rounded-full object-contain object-center"
         />
@@ -35,15 +40,15 @@ const MatchItem = ({ data }: MatchItemProps): React.ReactElement => {
         <Image
           width={50}
           height={50}
-          src={data.awayTeam.logo}
+          src={match.awayTeam.logo}
           alt="Team 2"
           className="w-11 h-11 rounded-full object-contain object-center"
         />
         <p className="text-xs font-semibold truncate max-w-[70px]">
-          {data.awayTeam.name}
+          {match.awayTeam.name}
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 

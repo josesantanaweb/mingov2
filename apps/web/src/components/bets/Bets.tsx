@@ -9,7 +9,7 @@ import { matches } from '@/data/matches.json';
 
 const Bets = (): React.ReactElement => {
   return (
-    <section className="bets relative p-3">
+    <section className="bets relative px-3 py-4">
       <div className="flex flex-col gap-3 mb-6">
         <MainBanner />
         <Sports />
@@ -25,7 +25,7 @@ const Bets = (): React.ReactElement => {
           </div>
           <div className="scrollbar-transparent flex items-center gap-4 max-w-full overflow-x-auto">
             {matches.map((match, index) => (
-              <MatchCard key={index} data={match} isActive={index === 0} />
+              <MatchCard key={index} match={match} isActive={index === 0} />
             ))}
           </div>
         </div>
@@ -39,7 +39,7 @@ const Bets = (): React.ReactElement => {
           <div className="scrollbar-transparent max-h-[300px] overflow-y-auto pb-[80px]">
             <div className="flex flex-col gap-3">
               {matches.map((match, index) => (
-                <MatchItem key={index} data={match} />
+                <MatchItem key={index} match={match} />
               ))}
             </div>
           </div>

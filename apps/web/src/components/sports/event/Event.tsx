@@ -4,7 +4,7 @@ import Image from 'next/image';
 import clsx from 'clsx';
 
 import { IEvent } from '@/types/event';
-import { IMarketSelected } from '@/types/market';
+import { IMarketSportSelected } from '@/types/market';
 import Market from './Market';
 
 interface EventProps {
@@ -18,7 +18,7 @@ const Event = ({
   handleToggle,
   data,
 }: EventProps): React.ReactElement => {
-  const [selectedMarket, setSelectedMarket] = useState<IMarketSelected | null>(
+  const [selectedMarket, setSelectedMarket] = useState<IMarketSportSelected | null>(
     null,
   );
 

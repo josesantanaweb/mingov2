@@ -4,8 +4,10 @@ export const BALANCE = 100;
 
 // Routes
 export const ROOM_ROUTE = (roomId: string) => `/rooms/${roomId}`;
+export const MATCH_ROUTE = (matchId: string) => `/matchs/${matchId}`;
 export const HOME_ROUTE = '/';
 export const ROOMS_ROUTE = '/rooms';
+export const BETS_ROUTE = '/bets';
 export const LOGIN_REDIRECT_ROUTE = '/rooms';
 export const GAME_ROUTE = '/game';
 

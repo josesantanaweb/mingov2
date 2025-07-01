@@ -1,9 +1,9 @@
 'use client';
-import { IMarketOption } from '@/types/market';
+import { IMarketSportOption } from '@/types/market';
 import React from 'react';
 
 interface MarketButtonProps {
-  values: IMarketOption;
+  values: IMarketSportOption;
   onClick?: () => void;
   isSelected: boolean;
 }

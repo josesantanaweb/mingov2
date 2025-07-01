@@ -1,0 +1,28 @@
+{
+  "markets": [
+    {
+      "id": "1",
+      "name": "Más / Menos goles",
+      "description": "Aposta no total de goles marcados en la partida.",
+      "icon": "sort-alt"
+    },
+    {
+      "id": "2",
+      "name": "Resultado final",
+      "description": "Apuesta al vencedor de la partida.",
+      "icon": "calculator"
+    },
+    {
+      "id": "3",
+      "name": "Ambos marcan",
+      "description": "Apuesta si ambos equipos marcarán goles.",
+      "icon": "directions"
+    },
+    {
+      "id": "4",
+      "name": "Doble oportunidad",
+      "description": "Apuesta por dos de los tres resultados posibles.",
+      "icon": "pie-chart"
+    }
+  ]
+}
