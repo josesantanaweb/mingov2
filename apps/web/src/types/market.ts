@@ -9,9 +9,15 @@ export interface IMarketSport {
 }
 
 export interface IMarket {
+  id: string;
   name: string;
   icon: string;
   description: string;
+}
+export interface IMarketOption {
+  id: string;
+  name: string;
+  odds: number;
 }
 
 export interface IMarketSportSelected {

@@ -151,7 +151,7 @@ model Market {
 
 model MarketOption {
   id          String @id @default(uuid())
-  title       String
+  name       String
   odds        Float
   totalAmount Int    @default(0)
 

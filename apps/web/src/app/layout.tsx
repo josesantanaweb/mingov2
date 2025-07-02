@@ -21,7 +21,7 @@ export default async function RootLayout({ children }: Props) {
       <body>
         <Providers>
           <main className="relative w-full flex items-center justify-center md:p-10 bg-black">
-            <div className="bg-base-900 w-full md:max-w-md h-full md:rounded-3xl flex flex-col">
+            <div className="bg-base-900 w-full md:max-w-md h-full flex flex-col min-h-screen">
               <Header />
               {children}
               <Footer />

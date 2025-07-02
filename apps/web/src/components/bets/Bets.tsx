@@ -5,9 +5,10 @@ import Leagues from '@/components/navigation/leagues';
 import MainBanner from '@/components/main-banner';
 import MatchCard from '@/components/bets/match-card';
 import MatchItem from '@/components/bets/match-item';
-import { matches } from '@/data/matches.json';
+import { useMatches } from '@/hooks/matches/useMatches';
 
 const Bets = (): React.ReactElement => {
+  const { data: matches, loading, error } = useMatches();
   return (
     <section className="bets relative px-3 py-4">
       <div className="flex flex-col gap-3 mb-6">
@@ -24,9 +25,11 @@ const Bets = (): React.ReactElement => {
             </button>
           </div>
           <div className="scrollbar-transparent flex items-center gap-4 max-w-full overflow-x-auto">
-            {matches.filter(match => match.isLive).map((match, index) => (
-              <MatchCard key={index} match={match} isActive={index === 0} />
-            ))}
+            {matches
+              .filter(match => match.isLive)
+              .map((match, index) => (
+                <MatchCard key={index} match={match} isActive={index === 0} />
+              ))}
           </div>
         </div>
         <div className="flex flex-col gap-3">

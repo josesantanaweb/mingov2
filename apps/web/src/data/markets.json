@@ -1,28 +1,40 @@
 {
   "markets": [
     {
-      "id": "1",
+      "id": "4d7d506a-bba6-4d1d-b5c3-e03c98c20596",
       "name": "Más / Menos goles",
       "description": "Aposta no total de goles marcados en la partida.",
-      "icon": "sort-alt"
+      "icon": "over-under.svg",
+      "status": true,
+      "createdAt": "2025-06-29T00:23:23.459Z",
+      "updatedAt": "2025-06-29T00:23:23.459Z"
     },
     {
-      "id": "2",
+      "id": "11dfb275-7678-41db-8a75-2d6e669158fe",
       "name": "Resultado final",
       "description": "Apuesta al vencedor de la partida.",
-      "icon": "calculator"
+      "icon": "moneyline.svg",
+      "status": true,
+      "createdAt": "2025-06-29T00:23:23.461Z",
+      "updatedAt": "2025-06-29T00:23:23.461Z"
     },
     {
-      "id": "3",
+      "id": "5b31b0d4-94b0-482d-b7a6-f1538396a3ed",
       "name": "Ambos marcan",
       "description": "Apuesta si ambos equipos marcarán goles.",
-      "icon": "directions"
+      "icon": "asian-handicap.svg",
+      "status": true,
+      "createdAt": "2025-06-29T00:23:23.462Z",
+      "updatedAt": "2025-06-29T00:23:23.462Z"
     },
     {
-      "id": "4",
+      "id": "a8884ee1-ed78-4f74-9c62-d127a7a7271f",
       "name": "Doble oportunidad",
       "description": "Apuesta por dos de los tres resultados posibles.",
-      "icon": "pie-chart"
+      "icon": "both-teams-to-score.svg",
+      "status": true,
+      "createdAt": "2025-06-29T00:23:23.462Z",
+      "updatedAt": "2025-06-29T00:23:23.462Z"
     }
   ]
 }

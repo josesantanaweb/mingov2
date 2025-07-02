@@ -18,10 +18,10 @@ const MatchItem = ({ match }: MatchItemProps): React.ReactElement => {
   return (
     <Link
       href={MATCH_ROUTE(match.id)}
-      className="bg-base-800 cursor-pointer hover:bg-base-700 transition-all w-full text-white rounded-xl h-[75px] gap-5 flex items-center justify-center"
+      className="bg-base-800 cursor-pointer hover:bg-base-700 transition-all w-full text-white rounded-xl h-[75px] gap-4 flex items-center justify-center"
     >
       <div className="flex items-center gap-3 flex-1 justify-end">
-        <p className="text-xs font-semibold truncate max-w-[50px]">
+        <p className="text-xs font-semibold truncate max-w-[70px]">
           {match.homeTeam.name}
         </p>
         <Image
@@ -29,7 +29,7 @@ const MatchItem = ({ match }: MatchItemProps): React.ReactElement => {
           height={50}
           src={`/images/teams/${match.homeTeam.logo}`}
           alt="Team 1"
-          className="w-11 h-11 rounded-full object-contain object-center"
+          className="w-10 h-10 rounded-full object-contain object-center"
         />
       </div>
       <div className="flex flex-col gap-1 justify-center items-center">
@@ -42,7 +42,7 @@ const MatchItem = ({ match }: MatchItemProps): React.ReactElement => {
           height={50}
           src={`/images/teams/${match.awayTeam.logo}`}
           alt="Team 2"
-          className="w-11 h-11 rounded-full object-contain object-center"
+          className="w-10 h-10 rounded-full object-contain object-center"
         />
         <p className="text-xs font-semibold truncate max-w-[70px]">
           {match.awayTeam.name}

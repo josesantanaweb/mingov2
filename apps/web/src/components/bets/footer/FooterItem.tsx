@@ -1,20 +1,44 @@
 'use client';
+import { BETS_ROUTE } from '@/constants';
+import Link from 'next/link';
 import React from 'react';
 
 interface FooterItemProps {
   name: string;
   icon: string;
+  isActive?: boolean;
+  isMain?: boolean;
 }
 
-const FooterItem = ({ name, icon }: FooterItemProps): React.ReactElement => {
+const FooterItem = ({
+  name,
+  icon,
+  isActive,
+  isMain = false,
+}: FooterItemProps): React.ReactElement => {
+  if (isMain) {
+    return (
+      <Link
+        href={BETS_ROUTE}
+        className="flex h-full flex-col items-center justify-center text-white relative"
+      >
+        <div className="bg-primary-600 w-12 h-12 rounded-xl relative rotate-45 -top-4 flex items-center justify-center">
+          <span className={`icon-${icon} text-xl`}></span>
+        </div>
+      </Link>
+    );
+  }
+
   return (
-    <button
-      type="button"
-      className="w-16 flex flex-col items-center justify-center text-base-300 h-full"
+    <Link
+      href={BETS_ROUTE}
+      className={`w-16 flex flex-col items-center justify-center h-full gap-1 ${isActive ? 'text-white' : 'text-base-300'} hover:bg-base-700 transition-colors duration-200`}
     >
-      <span className={`icon-${icon} text-xl`} />
+      <span
+        className={`icon-${icon} text-xl flex items-center justify-center`}
+      />
       <p className="text-xs capitalize">{name}</p>
-    </button>
+    </Link>
   );
 };
 

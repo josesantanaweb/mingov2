@@ -7,14 +7,7 @@ const Footer = (): React.ReactElement => {
     <div className="flex items-center justify-between bg-base-800 h-[60px] fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md">
       <FooterItem name="menu" icon="menu" />
       <FooterItem name="historial" icon="history" />
-      <button
-        type="button"
-        className="flex h-full flex-col items-center justify-center text-white relative"
-      >
-        <div className="bg-primary-600 w-12 h-12 rounded-xl absolute rotate-45 -top-6 flex items-center justify-center">
-          <span className="icon-soccer text-xl"></span>
-        </div>
-      </button>
+      <FooterItem name="" icon="soccer" isMain />
       <FooterItem name="ranking" icon="ranking" />
       <FooterItem name="profile" icon="user" />
     </div>

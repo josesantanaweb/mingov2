@@ -1,16 +1,20 @@
 'use client';
 import React from 'react';
+import Link from 'next/link';
 
 import { IMarket } from '@/types/market';
+import { MARKET_ROUTE } from '@/constants';
 
 interface MatchItemProps {
   market: IMarket;
+  matchId: string;
 }
 
-const MatchItem = ({ market }: MatchItemProps): React.ReactElement => {
+const MatchItem = ({ market, matchId }: MatchItemProps): React.ReactElement => {
 
   return (
-    <div
+    <Link
+      href={`/match/${matchId}/market/${market.id}`}
       className="bg-base-800 px-2 hover:bg-base-700 transition-all w-full text-white rounded-xl h-[75px] gap-3 flex items-center justify-start cursor-pointer"
     >
       <span className={`icon-${market.icon} text-3xl`} />
@@ -20,7 +24,7 @@ const MatchItem = ({ market }: MatchItemProps): React.ReactElement => {
           {market.description}
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 

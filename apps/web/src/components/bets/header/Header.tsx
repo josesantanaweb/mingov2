@@ -6,7 +6,7 @@ import Logo from '@/components/logo';
 
 const Header = (): React.ReactElement => {
   return (
-    <div className="flex px-4 items-center w-full bg-base-900 h-[70px] border-b border-base-700 justify-between">
+    <div className="flex px-4 items-center w-full bg-base-900 h-[70px] border-b border-base-700 justify-between sticky top-0 z-50">
       <Logo />
       <div className="flex gap-2">
         <Deposit amount={10000} isLoading={false} />

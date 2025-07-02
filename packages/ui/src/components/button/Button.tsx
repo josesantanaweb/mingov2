@@ -15,7 +15,7 @@ interface ButtonProps {
 }
 
 const variants = {
-  default: 'bg-base-500 text-base-300 hover:text-white',
+  default: 'bg-base-700 text-base-300 text-white hover:bg-base-600',
   primary: 'bg-primary-600 text-white hover:bg-primary-500',
   danger: 'bg-red-600 text-white hover:bg-red-500',
   success: 'bg-green-600 text-white hover:bg-green-500',
@@ -25,7 +25,7 @@ const sizes = {
   sm: 'h-9 px-3 text-sm',
   md: 'h-11 px-5 text-sm',
   lg: 'h-12 px-6 text-base',
-  full: 'w-full h-11 px-5 text-sm',
+  full: 'w-full h-14 px-5 text-base',
 };
 
 const Button = ({
