@@ -104,14 +104,28 @@ type Match {
   league: League!
 }
 
-type Market {
+type MarketOption {
+  id: ID!
+  name: String!
+  odds: Float!
+  totalAmount: Float!
+}
+
+type MarketType {
   id: ID!
   name: String!
   description: String!
   icon: String!
-  status: Boolean
+  status: Boolean!
+}
+
+type Market {
+  id: ID!
+  matchId: String!
   createdAt: DateTime
   updatedAt: DateTime
+  marketType: MarketType
+  marketOptions: [MarketOption!]
 }
 
 type Query {
@@ -127,6 +141,7 @@ type Query {
   teams: [Team!]!
   matches: [Match!]!
   markets: [Market!]!
+  marketOptions: [MarketOption!]!
 }
 
 type Mutation {

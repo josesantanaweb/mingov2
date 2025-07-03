@@ -14,7 +14,7 @@ export class SeedsService {
       await this.seedLeagues();
       await this.seedTeams();
       await this.seedSports();
-      await this.seedMarkets();
+      await this.seedMarketTypes();
     } catch (error) {
       console.error('Error al ejecutar seeds:', error);
       throw error;
@@ -27,7 +27,7 @@ export class SeedsService {
     await this.prisma.match.deleteMany({});
     await this.prisma.team.deleteMany({});
     await this.prisma.league.deleteMany({});
-    await this.prisma.market.deleteMany({});
+    await this.prisma.marketType.deleteMany({});
     await this.prisma.sport.deleteMany({});
   }
 
@@ -52,10 +52,10 @@ export class SeedsService {
     }
   }
 
-  async seedMarkets() {
-    const markets = loadJson<any[]>('markets.json');
-    for (const market of markets) {
-      await this.prisma.market.create({ data: market });
+  async seedMarketTypes() {
+    const marketTypes = loadJson<any[]>('markets.json');
+    for (const marketType of marketTypes) {
+      await this.prisma.marketType.create({ data: marketType });
     }
   }
 }

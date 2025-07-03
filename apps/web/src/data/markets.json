@@ -1,40 +1,64 @@
 {
   "markets": [
     {
-      "id": "4d7d506a-bba6-4d1d-b5c3-e03c98c20596",
-      "name": "Más / Menos goles",
-      "description": "Aposta no total de goles marcados en la partida.",
-      "icon": "over-under.svg",
-      "status": true,
-      "createdAt": "2025-06-29T00:23:23.459Z",
-      "updatedAt": "2025-06-29T00:23:23.459Z"
-    },
-    {
       "id": "11dfb275-7678-41db-8a75-2d6e669158fe",
-      "name": "Resultado final",
-      "description": "Apuesta al vencedor de la partida.",
-      "icon": "moneyline.svg",
-      "status": true,
+      "matchId": "3718bbde-2e0a-4119-8d88-0582e9eef424",
       "createdAt": "2025-06-29T00:23:23.461Z",
-      "updatedAt": "2025-06-29T00:23:23.461Z"
+      "updatedAt": "2025-07-03T05:13:01.151Z",
+      "marketOptions": [
+        {
+          "id": "e2bb52b9-c66b-4045-a86c-789c291c8ac2",
+          "name": "arsenal",
+          "odds": 1.75
+        },
+        {
+          "id": "388266c2-bdb9-4496-9adb-f682a86d3064",
+          "name": "empate",
+          "odds": 2.1
+        },
+        {
+          "id": "26ac0823-97a4-49b6-8f34-69cd2142c9ba",
+          "name": "man city",
+          "odds": 1.6
+        }
+      ],
+      "marketType": {
+        "id": "163b18e9-b171-4335-9594-b33f954768f7",
+        "name": "Resultado final",
+        "description": "Apuesta al vencedor de la partida.",
+        "icon": "calculator",
+        "status": true
+      }
     },
     {
-      "id": "5b31b0d4-94b0-482d-b7a6-f1538396a3ed",
-      "name": "Ambos marcan",
-      "description": "Apuesta si ambos equipos marcarán goles.",
-      "icon": "asian-handicap.svg",
-      "status": true,
-      "createdAt": "2025-06-29T00:23:23.462Z",
-      "updatedAt": "2025-06-29T00:23:23.462Z"
-    },
-    {
-      "id": "a8884ee1-ed78-4f74-9c62-d127a7a7271f",
-      "name": "Doble oportunidad",
-      "description": "Apuesta por dos de los tres resultados posibles.",
-      "icon": "both-teams-to-score.svg",
-      "status": true,
-      "createdAt": "2025-06-29T00:23:23.462Z",
-      "updatedAt": "2025-06-29T00:23:23.462Z"
+      "id": "4d7d506a-bba6-4d1d-b5c3-e03c98c20596",
+      "matchId": "3718bbde-2e0a-4119-8d88-0582e9eef424",
+      "createdAt": "2025-06-29T00:23:23.459Z",
+      "updatedAt": "2025-07-03T05:13:33.231Z",
+      "marketOptions": [
+        {
+          "id": "99961093-25de-45d8-bc66-96820d0b657f",
+          "name": "-1.5",
+          "odds": 1.5
+        },
+        {
+          "id": "b8d9b086-074e-4328-80dc-ac3c2e0d3a84",
+          "name": "-2.5",
+          "odds": 1.65
+        },
+        {
+          "id": "2f199bf5-c3fc-4c79-b66d-d1d1b41c9e67",
+          "name": "-3.5",
+          "odds": 1.75
+        }
+      ],
+      "marketType": {
+        "id": "09136be4-f37c-44e8-8bc6-fcfca4e5d1da",
+        "name": "Más / Menos goles",
+        "description": "Aposta no total de goles marcados en la partida.",
+        "icon": "sort-alt",
+        "status": true
+      }
     }
   ]
 }

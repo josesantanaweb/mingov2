@@ -134,6 +134,21 @@ model Match {
 }
 
 model Market {
+  id      String @id @default(uuid())
+  matchId String
+  match   Match  @relation(fields: [matchId], references: [id])
+
+  marketTypeId String
+  marketType   MarketType @relation(fields: [marketTypeId], references: [id])
+
+  marketOptions MarketOption[]
+  bets          Bet[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MarketType {
   id          String   @id @default(uuid())
   name        String
   description String
@@ -142,16 +157,12 @@ model Market {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  matchId String?
-  match   Match?  @relation(fields: [matchId], references: [id])
-
-  bets         Bet[]
-  marketOption MarketOption[]
+  markets Market[]
 }
 
 model MarketOption {
   id          String @id @default(uuid())
-  name       String
+  name        String
   odds        Float
   totalAmount Int    @default(0)
 

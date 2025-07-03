@@ -5,7 +5,7 @@ export const BALANCE = 100;
 // Routes
 export const ROOM_ROUTE = (roomId: string) => `/rooms/${roomId}`;
 export const MATCH_ROUTE = (matchId: string) => `/match/${matchId}`;
-export const MARKET_ROUTE = (marketId: string) => `/market/${marketId}`;
+export const MARKET_ROUTE = (matchId: string, marketId: string) => `/match/${matchId}/market/${marketId}`;
 export const HOME_ROUTE = '/';
 export const ROOMS_ROUTE = '/rooms';
 export const BETS_ROUTE = '/bets';

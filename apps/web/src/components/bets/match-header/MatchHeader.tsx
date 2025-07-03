@@ -30,7 +30,7 @@ const MatchHeader = ({ match }: MatchHeaderProps): React.ReactElement => {
         </div>
       </div>
       <TotalBox amount={300} />
-      <span className="bg-base-700 h-[1px] w-full my-3"></span>
+      <span className="bg-base-700 h-[1px] w-full mt-3 mb-1"></span>
     </div>
   );
 };

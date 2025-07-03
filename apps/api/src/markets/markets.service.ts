@@ -6,7 +6,12 @@ import { Market } from './entities/market.entity';
 export class MarketsService {
   constructor(private prisma: PrismaService) {}
   async findAll(): Promise<Market[]> {
-    const markets = await this.prisma.market.findMany();
+    const markets = await this.prisma.market.findMany({
+      include: {
+        marketOptions: true,
+        marketType: true,
+      },
+    });
     return markets;
   }
 }

@@ -1,8 +1,8 @@
 import { markets } from '@/data/markets.json';
 
-export const useMarkets = () => {
+export const useMarkets = (matchId: string) => {
   return {
-    data: markets || [],
+    data: markets.filter(market => market.matchId === matchId) || null,
     error: null,
     loading: false,
   };
