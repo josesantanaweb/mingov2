@@ -20,15 +20,27 @@ export default tseslint.config(
       sourceType: 'commonjs',
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: import.meta.dirname,
+        tsconfigRootDir: process.cwd(),
       },
     },
   },
   {
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-floating-promises': 'warn',
-      '@typescript-eslint/no-unsafe-argument': 'warn'
+      // ===== TYPESCRIPT RULES =====
+      '@typescript-eslint/no-unused-vars': 'error', // Marks unused variables, arguments and functions
+      '@typescript-eslint/no-explicit-any': 'warn', // Warns when using any
+      '@typescript-eslint/explicit-function-return-type': 'warn', // Warns if you don't define return type for public functions
+      '@typescript-eslint/no-inferrable-types': 'warn', // Warns if you define types that TS can infer
+      '@typescript-eslint/no-var-requires': 'error', // Prohibits use of require()
+      // ===== GENERAL BEST PRACTICES =====
+      'no-console': 'error', // Warns about console.log usage
+      'no-empty-function': 'warn', // Warns about empty functions
+      'no-duplicate-imports': 'error', // Prohibits importing the same module multiple times
+      'prefer-const': 'error', // Forces using const if variable doesn't change
+      // ===== SECURITY RULES =====
+      'no-eval': 'error', // Prohibits use of eval()
+      'no-implied-eval': 'error', // Prohibits use of setTimeout("code") and similar
+      'no-new-func': 'error', // Prohibits use of new Function()
     },
   },
 );
