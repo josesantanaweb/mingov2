@@ -15,7 +15,7 @@ const MarketOption = ({
 }: MarketOption): React.ReactElement => {
   return (
     <div
-      className={`flex items-center justify-center flex-col w-full h-[90px] cursor-pointer ${isActive ? 'bg-primary-600' : 'bg-base-700'} text-white rounded-xl`}
+      className={`flex items-center justify-center flex-col w-full h-[90px] cursor-pointer ${isActive ? 'bg-primary-600' : 'bg-base-800'} text-white rounded-xl`}
       onClick={() => onClick && onClick(option)}
     >
       <p
