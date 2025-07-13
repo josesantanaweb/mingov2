@@ -9,9 +9,10 @@ import { useMarkets } from '@/hooks/markets/useMarkets';
 const Match = (): React.ReactElement => {
   const { matchId } = useParams<{ matchId: string }>();
   const { data: markets, loading, error } = useMarkets(matchId);
-  
+  const betSummary = { amount: 400, label: 'Total apostado en este partido:' };
+
   return (
-    <MatchWrapper>
+    <MatchWrapper betSummary={betSummary}>
       {markets?.length === 0 && (
         <div className="flex items-center w-full justify-center">
           <p className="text-base font-medium text-white">

@@ -15,6 +15,7 @@ const Market = (): React.ReactElement => {
   const { marketId } = useParams<{ marketId: string }>();
   const [isOpen, setIsOpen] = useState(false);
   const { data: market } = useMarket(marketId);
+  const betSummary = { amount: 300, label: 'Total apostado en este mercado:' };
 
   const handleOptionSelect = (option: IMarketOption) =>
     setMarketOption(option);
@@ -24,7 +25,7 @@ const Market = (): React.ReactElement => {
   const handleCloseModal = () => setIsOpen(false);
 
   return (
-    <MatchWrapper>
+    <MatchWrapper betSummary={betSummary}>
       <div className="flex items-start flex-col gap-6 w-full pb-20">
         <div className="flex flex-col">
           <h6 className="text-base font-medium text-white">
