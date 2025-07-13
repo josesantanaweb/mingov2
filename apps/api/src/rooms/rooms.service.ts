@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CardsService } from '../cards/cards.service';
-import { AddUserToRoomInput, CreateRoomInput } from './input/rooms.inputs';
+import { AddUserToRoomInput, CreateRoomInput } from './input/rooms.input';
 import { Room } from './entities/room.entity';
 import { User } from '../users/entities/user.entity';
 import { Card } from '../cards/entities/card.entity';
@@ -61,7 +61,7 @@ export class RoomsService {
       include: { card: true },
     });
 
-    return cardsOnRoomsUsers.map(relation => relation.card);
+    return cardsOnRoomsUsers.map((relation) => relation.card);
   }
 
   async findUserCardsInRoom(userId: string, roomId: string): Promise<Card[]> {
@@ -75,10 +75,10 @@ export class RoomsService {
       },
     });
 
-    return cardsOnRoomsUsers.map(relation => relation.card);
+    return cardsOnRoomsUsers.map((relation) => relation.card);
   }
 
-  async createRoom(data: CreateRoomInput): Promise<Room> {
+  async create(data: CreateRoomInput): Promise<Room> {
     const room = await this.prisma.room.create({
       data: {
         ...data,
@@ -172,13 +172,13 @@ export class RoomsService {
       throw new Error('No numbers have been drawn yet.');
     }
 
-    const drawn = room.drawnNumbers as number[];
+    const drawn = room.drawnNumbers;
 
     for (const cardOnRoom of room.cards) {
       const cardNumbers = cardOnRoom.card.numbers as number[];
 
       const flattened = cardNumbers.flat();
-      const isWinner = flattened.every(n => n === -1 || drawn.includes(n));
+      const isWinner = flattened.every((n) => n === -1 || drawn.includes(n));
 
       if (isWinner) {
         await this.prisma.card.update({
@@ -230,7 +230,7 @@ export class RoomsService {
 
     const drawnNumbers: number[] = room?.drawnNumbers || [];
     const availableNumbers = Array.from({ length: 75 }, (_, i) => i + 1).filter(
-      n => !drawnNumbers.includes(n),
+      (n) => !drawnNumbers.includes(n),
     );
 
     if (availableNumbers.length === 0) {

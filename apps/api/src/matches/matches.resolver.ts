@@ -7,7 +7,7 @@ export class MatchesResolver {
   constructor(private readonly matchesService: MatchesService) {}
 
   @Query(() => [Match], { name: 'matches' })
-  rooms() {
+  matches(): Promise<Match[]> {
     return this.matchesService.findAll();
   }
 }

@@ -1,12 +1,12 @@
 import { ObjectType, Field, ID, GraphQLISODateTime } from '@nestjs/graphql';
+import { Match } from '../../matches/entities/match.entity';
+import { Market } from '../../markets/entities/market.entity';
+import { MarketOption } from '../../market-options/entities/market-option.entity';
 
 @ObjectType()
 export class Bet {
   @Field(() => ID)
   id: string;
-
-  @Field()
-  name: string;
 
   @Field()
   amount: number;
@@ -23,12 +23,12 @@ export class Bet {
   @Field(() => GraphQLISODateTime, { nullable: true })
   updatedAt?: Date;
 
-  // @Field(() => Market, { nullable: true })
-  // market?: Market;
+  @Field(() => Market, { nullable: true })
+  market?: Market;
 
-  // @Field(() => Match, { nullable: true })
-  // match?: Match;
+  @Field(() => Match, { nullable: true })
+  match?: Match;
 
-  // @Field(() => MarketOption, { nullable: true })
-  // marketOption?: MarketOption;
+  @Field(() => MarketOption)
+  marketOption: MarketOption;
 }

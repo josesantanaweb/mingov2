@@ -188,8 +188,8 @@ model Bet {
   marketId String
   market   Market @relation(fields: [marketId], references: [id])
 
-  marketOptionId String
-  marketOption   MarketOption @relation(fields: [marketOptionId], references: [id])
+  marketOptionId String?
+  marketOption   MarketOption? @relation(fields: [marketOptionId], references: [id])
 }
 
 model Sport {

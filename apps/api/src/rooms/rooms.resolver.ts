@@ -10,7 +10,7 @@ import {
 import { Room, RoomStarted, RoomWinner } from './entities/room.entity';
 import { User } from '../users/entities/user.entity';
 import { Card } from '../cards/entities/card.entity';
-import { AddUserToRoomInput, CreateRoomInput } from './input/rooms.inputs';
+import { AddUserToRoomInput, CreateRoomInput } from './input/rooms.input';
 import { RoomsService } from './rooms.service';
 import { pubSub } from '../common/pubsub';
 @Resolver(() => Room)
@@ -53,7 +53,7 @@ export class RoomsResolver {
     @Args('input', { type: () => CreateRoomInput })
     input: CreateRoomInput,
   ): Promise<Room> {
-    return this.roomsService.createRoom(input);
+    return this.roomsService.create(input);
   }
 
   @Mutation(() => String, { name: 'addUserToRoom' })

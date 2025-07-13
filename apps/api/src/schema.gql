@@ -128,6 +128,18 @@ type Market {
   marketOptions: [MarketOption!]
 }
 
+type Bet {
+  id: ID!
+  amount: Float!
+  odds: Float!
+  status: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  market: Market
+  match: Match
+  marketOption: MarketOption!
+}
+
 type Query {
   users: [User!]!
   user(id: String!): User!
@@ -140,6 +152,7 @@ type Query {
   leagues: [League!]!
   teams: [Team!]!
   matches: [Match!]!
+  bets: [Bet!]!
   markets: [Market!]!
   marketOptions: [MarketOption!]!
 }
@@ -153,6 +166,7 @@ type Mutation {
   register(input: RegisterInput!): AuthResponse!
   login(input: LoginInput!): AuthResponse!
   logout(id: String!): Boolean!
+  createBet(input: CreateBetInput!): Bet!
   executeSeed: Boolean!
 }
 
@@ -188,6 +202,15 @@ input RegisterInput {
 input LoginInput {
   email: String!
   password: String!
+}
+
+input CreateBetInput {
+  amount: Int!
+  odds: Int!
+  userId: String!
+  matchId: String!
+  marketId: String!
+  marketOptionId: String!
 }
 
 type Subscription {

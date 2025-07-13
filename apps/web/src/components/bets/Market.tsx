@@ -34,7 +34,7 @@ const Market = (): React.ReactElement => {
             {market?.marketType?.description}
           </p>
         </div>
-        <div className="flex flex-col gap-[100px] w-full">
+        <div className="flex flex-col gap-[40px] w-full">
           <div className="grid grid-cols-3 items-center justify-between w-full gap-5">
             {market?.marketOptions.map(option => (
               <MarketOption
