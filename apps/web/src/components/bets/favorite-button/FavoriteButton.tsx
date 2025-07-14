@@ -22,10 +22,10 @@ const FavoriteButton = ({
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
     >
       <motion.span
-        className="icon-star text-xl"
+        className={`text-xl ${isFavorite ? 'icon-star' : 'icon-star-line'}`}
         animate={{
           rotate: isFavorite ? [0, -10, 10, -10, 0] : 0,
-          scale: isFavorite ? [1, 1.2, 1] : 1
+          scale: isFavorite ? [1, 1.1, 1] : 1
         }}
         transition={{
           duration: 0.6,
@@ -33,7 +33,7 @@ const FavoriteButton = ({
         }}
       />
       <motion.p
-        className="text-base font-medium"
+        className="text-sm font-medium"
         animate={{ opacity: [0.7, 1] }}
         transition={{ duration: 0.3 }}
       >

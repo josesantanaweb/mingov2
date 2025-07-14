@@ -5,18 +5,18 @@ import { motion } from 'framer-motion';
 interface LikeButtonProps {
   isLiked: boolean;
   count: number;
-  onToggle: () => void;
+  onClick: () => void;
 }
 
 const LikeButton = ({
   isLiked,
   count,
-  onToggle,
+  onClick,
 }: LikeButtonProps): React.ReactElement => {
 
   return (
     <motion.button
-      onClick={onToggle}
+      onClick={onClick}
       className={`flex items-center gap-1 transition-colors duration-200 cursor-pointer ${
         isLiked ? 'text-red-600' : 'text-base-300'
       }`}
@@ -25,7 +25,7 @@ const LikeButton = ({
       transition={{ type: 'spring', stiffness: 400, damping: 17 }}
     >
       <motion.span
-        className="icon-heart text-xl"
+        className={`text-xl ${isLiked ? 'icon-heart' : 'icon-heart-line'}`}
         animate={{
           rotate: isLiked ? [0, -10, 10, -10, 0] : 0,
           scale: isLiked ? [1, 1.2, 1] : 1,
@@ -37,7 +37,7 @@ const LikeButton = ({
       />
       {count > 0 && (
         <motion.p
-          className="text-base font-medium"
+          className="text-sm font-medium"
           animate={{ opacity: [0.7, 1] }}
           transition={{ duration: 0.3 }}
         >

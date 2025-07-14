@@ -184,3 +184,6 @@ input[type='number'] {
 .icon-coin:before { content: '\e81a'; } /* '' */
 .icon-challenge:before { content: '\e81b'; } /* '' */
 .icon-history:before { content: '\e81d'; } /* '' */
+.icon-heart-line:before { content: '\e81c'; } /* '' */
+.icon-send:before { content: '\e819'; } /* '' */
+.icon-arrow:before { content: '\e81e'; } /* '' */

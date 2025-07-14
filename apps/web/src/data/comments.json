@@ -1,0 +1,66 @@
+{
+  "comments": [
+    {
+      "id": "11dfb275-7678-41db-8a75-2d6e669158fe",
+      "isReply": false,
+      "user": {
+        "id": "a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6",
+        "name": "Juan Delgado",
+        "avatar": "/images/users/06.png"
+      },
+      "content": "Vamos Milan! Confio en que haremos un buen partido",
+      "createdAt": "2025-06-29T00:23:23.461Z",
+      "updatedAt": "2025-07-03T05:13:01.151Z",
+      "replies": [
+        {
+          "id": "c1d2e3f4-g5h6-i7j8-k9l0-m1n2o3p4q5r6",
+          "user": {
+            "id": "a7b8c9d0-e1f2-3g4h-5i6j-k7l8m9n0o1p2",
+            "name": "Maria Perez",
+            "avatar": "/images/users/02.png"
+          },
+          "content": "Estoy de acuerdo, el equipo está en buena forma.",
+          "createdAt": "2025-06-29T01:00:00.000Z",
+          "updatedAt": "2025-07-03T05:13:01.151Z"
+        },
+        {
+          "id": "c1d2e3f4-g5h6-i7j8-k9l0-m1n2o3p4q5r6",
+          "user": {
+            "id": "a7b8c9d0-e1f2-3g4h-5i6j-k7l8m9n0o1p2",
+            "name": "Ana Torres",
+            "avatar": "/images/users/05.png"
+          },
+          "content": "Estoy de acuerdo, el equipo está en buena forma.",
+          "createdAt": "2025-06-29T01:00:00.000Z",
+          "updatedAt": "2025-07-03T05:13:01.151Z"
+        }
+      ]
+    },
+    {
+      "id": "22dfb275-7678-41db-8a75-2d6e66915232",
+      "isReply": false,
+      "user": {
+        "id": "b1c2d3e4-f5g6-h7i8-j9k0-l1m2n3o4p5q6",
+        "name": "Carlos Pérez",
+        "avatar": "/images/users/03.png"
+      },
+      "content": "El equipo está en buena forma, pero debemos mantener la concentración.",
+      "createdAt": "2025-06-30T00:23:23.461Z",
+      "updatedAt": "2025-07-03T05:13:01.151Z",
+      "replies": []
+    },
+    {
+      "id": "33dfb275-7678-41db-8a75-2d6e66915345",
+      "isReply": false,
+      "user": {
+        "id": "c1d2e3f4-g5h6-i7j8-k9l0-m1n2o3p4q5r6",
+        "name": "Lucía Fernández",
+        "avatar": "/images/users/04.png"
+      },
+      "content": "Confío en que haremos un buen partido, ¡vamos Milan!",
+      "createdAt": "2025-07-01T00:23:23.461Z",
+      "updatedAt": "2025-07-03T05:13:01.151Z",
+      "replies": []
+    }
+  ]
+}
