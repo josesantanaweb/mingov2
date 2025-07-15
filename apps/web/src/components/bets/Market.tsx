@@ -6,6 +6,8 @@ import { useMarket } from '@/hooks/markets/useMarket';
 import MatchWrapper from '@/components/bets/match-wrapper';
 import MarketOption from '@/components/bets/market-option';
 import ConfirmBet from '@/components/bets/modals/confim-bet/ConfirmBet';
+import MarketAuthor from '@/components/bets/market-author';
+import MarketPlayers from '@/components/bets/market-players';
 import { IMarketOption } from '@/types/market';
 
 const Market = (): React.ReactElement => {
@@ -32,7 +34,7 @@ const Market = (): React.ReactElement => {
             {market?.marketType?.description}
           </p>
         </div>
-        <div className="flex flex-col gap-[40px] w-full">
+        <div className="flex flex-col gap-5 w-full">
           <div className="grid items-center justify-between w-full grid-cols-3 gap-5">
             {market?.marketOptions.map(option => (
               <MarketOption
@@ -43,7 +45,11 @@ const Market = (): React.ReactElement => {
               />
             ))}
           </div>
-          <div className="flex flex-col w-full gap-3">
+          <div className="flex items-center justify-between w-full">
+            <MarketAuthor isPlatform />
+            <MarketPlayers />
+          </div>
+          <div className="flex flex-col w-full gap-3 mt-10">
             <Button
               size="full"
               variant="primary"

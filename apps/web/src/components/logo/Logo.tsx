@@ -12,7 +12,7 @@ interface LogoProps {
 const Logo = ({
   width = 117,
   height = 30,
-  className = 'w-[100px]',
+  className,
 }: LogoProps): React.ReactElement => (
   <Link href="/" className="flex items-center">
     <Image

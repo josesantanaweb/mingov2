@@ -14,8 +14,8 @@ const Match = (): React.ReactElement => {
   return (
     <MatchWrapper betSummary={betSummary} pageType="MATCH">
       {markets?.length === 0 && (
-        <div className="flex items-center w-full justify-center">
-          <p className="text-base font-medium text-white">
+        <div className="flex items-center justify-center w-full">
+          <p className="text-sm font-medium text-white">
             No hay mercados disponibles para este partido.
           </p>
         </div>
