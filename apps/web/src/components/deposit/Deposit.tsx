@@ -1,10 +1,8 @@
 'use client';
 import React from 'react';
 import type { ReactElement } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { ButtonIcon } from '@mingo/ui';
-import { faAdd, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 interface DepositProps {
   amount: number;
@@ -36,7 +34,7 @@ const Deposit = ({ amount, isLoading }: DepositProps): ReactElement => {
             aria-label="Abrir menú"
             type="button"
           >
-            <FontAwesomeIcon icon={faChevronDown} fontSize={12} width={12} />
+            <span className="icon-chevron-down" />
           </button>
         </div>
       </div>
@@ -46,7 +44,7 @@ const Deposit = ({ amount, isLoading }: DepositProps): ReactElement => {
         variant="primary"
         aria-label="Agregar depósito"
       >
-        <FontAwesomeIcon icon={faAdd} fontSize={14} width={14} />
+        <span className="icon-plus" />
       </ButtonIcon>
     </div>
   );

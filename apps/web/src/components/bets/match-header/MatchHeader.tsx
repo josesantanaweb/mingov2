@@ -1,6 +1,5 @@
 'use client';
 import React, { useState } from 'react';
-
 import MatchCard from '@/components/bets/match-card';
 import TotalBox from '@/components/bets/total-box';
 import FavoriteButton from '@/components/bets/favorite-button';
@@ -41,12 +40,14 @@ const MatchHeader = ({
           {pageType === 'MATCH' && (
             <LikeButton isLiked={isLiked} count={count} onClick={toggleLike} />
           )}
-          {pageType === 'MARKET' && <CommentButton onClick={handleOpenModal} commentsCount={10} />}
+          {pageType === 'MARKET' && (
+            <CommentButton onClick={handleOpenModal} commentsCount={10} />
+          )}
         </div>
         {pageType === 'MATCH' && (
           <FavoriteButton
             isFavorite={isFavorite}
-            setIsfavorite={setIsFavorite}
+            setIsFavorite={setIsFavorite}
           />
         )}
       </div>

@@ -10,6 +10,7 @@ interface AmountInputProps {
   maxValue?: number;
   disabled?: boolean;
   className?: string;
+  variant?: 'modal' | 'default';
 }
 
 const AmountInput = ({
@@ -20,6 +21,7 @@ const AmountInput = ({
   maxValue,
   disabled = false,
   className,
+  variant = 'default',
 }: AmountInputProps): React.ReactElement => {
   const [inputValue, setInputValue] = useState<string>(value.toString());
 
@@ -44,14 +46,26 @@ const AmountInput = ({
   };
 
   const inputClass = cn(
-    'w-full rounded-lg h-11 px-4 text-base-300 border border-base-600 bg-transparent placeholder:text-base-300 focus:outline-none focus:border-primary-500 transition-colors',
+    'w-full rounded-lg h-12 px-4 text-base-300 border border-base-600 bg-transparent placeholder:text-base-300 focus:outline-none focus:border-primary-500 transition-colors',
     disabled && 'opacity-50 cursor-not-allowed',
     className,
   );
 
+  const variantButtonClass =
+    variant === 'modal'
+      ? 'bg-base-700 text-base-300 hover:bg-base-600'
+      : 'bg-base-800 text-base-300 hover:bg-base-700';
+
+  const disabledButtonClass = disabled && 'opacity-50 cursor-not-allowed';
+
+  const defaultButtonClass = cn(
+    'absolute right-[3px] top-[3px] px-4 text-base-300 font-semibold h-[42px] bg-base-700 rounded-lg cursor-pointer transition-colors',
+  );
+
   const maxButtonClass = cn(
-    'absolute right-[3px] top-[3px] px-4 text-base-300 h-[38px] bg-base-700 rounded-lg cursor-pointer transition-colors',
-    disabled && 'opacity-50 cursor-not-allowed',
+    defaultButtonClass,
+    variantButtonClass,
+    disabledButtonClass,
   );
 
   return (

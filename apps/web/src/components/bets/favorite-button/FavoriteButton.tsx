@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 
 interface FavoriteButtonProps {
   isFavorite: boolean;
-  setIsfavorite: (isFavorite) => void;
+  setIsFavorite: (isFavorite) => void;
 }
 
 const FavoriteButton = ({
   isFavorite,
-  setIsfavorite,
+  setIsFavorite,
 }: FavoriteButtonProps): React.ReactElement => {
-  const handleFavorite = () => setIsfavorite(!isFavorite);
+  const handleFavorite = () => setIsFavorite(!isFavorite);
 
   return (
     <motion.button
@@ -33,7 +33,7 @@ const FavoriteButton = ({
         }}
       />
       <motion.p
-        className="text-sm font-medium"
+        className="text-base font-medium"
         animate={{ opacity: [0.7, 1] }}
         transition={{ duration: 0.3 }}
       >

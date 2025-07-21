@@ -51,10 +51,10 @@ const Market = (): React.ReactElement => {
           </div>
           <div className="flex flex-col w-full gap-3 mt-10">
             <Button
-              size="full"
               variant="primary"
               onClick={handleOpenModal}
               disabled={!marketOption}
+              isFull
             >
               Crear Reto
             </Button>

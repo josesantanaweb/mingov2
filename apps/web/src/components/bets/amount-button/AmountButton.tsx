@@ -6,19 +6,22 @@ interface AmountButtonProps {
   amount: number;
   isSelected?: boolean;
   onClick: (amount: number) => void;
+  variant?: 'modal' | 'default';
 }
 
 const AmountButton = ({
   amount,
   isSelected,
   onClick,
+  variant = 'default',
 }: AmountButtonProps): React.ReactElement => {
-  const buttonClass = cn(
-    'flex items-center justify-center rounded-lg h-11 cursor-pointer transition-all font-medium',
-    isSelected
-      ? 'bg-primary-600 text-white'
-      : 'bg-base-700 text-base-300 hover:bg-base-600',
-  );
+  const baseClass = 'flex items-center justify-center rounded-lg h-12 cursor-pointer transition-all font-semibold';
+  const variantClass = variant === 'modal'
+    ? 'bg-base-700 text-base-300 hover:bg-base-600'
+    : 'bg-base-800 text-base-300 hover:bg-base-700';
+  const selectedClass = isSelected ? 'bg-primary-600 text-white' : '';
+
+  const buttonClass = cn(baseClass, variantClass, selectedClass);
 
   return (
     <button className={buttonClass} onClick={() => onClick(amount)}>

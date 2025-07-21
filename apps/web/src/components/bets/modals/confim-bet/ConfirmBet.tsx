@@ -44,6 +44,7 @@ const ConfirmBet = ({
             onChange={setSelectedAmount}
             maxValue={1000}
             placeholder="0"
+            variant="modal"
           />
           <div className="grid grid-cols-4 items-center gap-3">
             {predefinedAmounts.map(amount => (
@@ -52,6 +53,7 @@ const ConfirmBet = ({
                 amount={amount}
                 isSelected={selectedAmount === amount}
                 onClick={handleAmountSelect}
+                variant="modal"
               />
             ))}
           </div>
@@ -79,12 +81,12 @@ const ConfirmBet = ({
         </div>
 
         <div className="flex gap-3">
-          <Button size="full" onClick={onClose} className="bg-base-700">
+          <Button isFull onClick={onClose} className="bg-base-700">
             Cancelar
           </Button>
           <Button
             variant="primary"
-            size="full"
+            isFull
             disabled={!selectedAmount || selectedAmount === 0}
           >
             Aceptar

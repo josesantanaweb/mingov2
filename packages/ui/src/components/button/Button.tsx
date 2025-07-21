@@ -11,7 +11,8 @@ interface ButtonProps {
   className?: string;
   disabled?: boolean;
   variant?: 'default' | 'primary' | 'danger' | 'success';
-  size?: 'sm' | 'md' | 'lg' | 'full';
+  size?: 'sm' | 'md' | 'lg';
+  isFull?: boolean;
 }
 
 const variants = {
@@ -25,7 +26,6 @@ const sizes = {
   sm: 'h-9 px-3 text-sm',
   md: 'h-11 px-5 text-sm',
   lg: 'h-12 px-6 text-base',
-  full: 'w-full h-14 px-5 text-base',
 };
 
 const Button = ({
@@ -35,10 +35,13 @@ const Button = ({
   className,
   disabled,
   variant = 'default',
-  size = 'md',
+  size = 'lg',
+  isFull = false,
 }: ButtonProps): ReactElement => {
   const baseClass =
-    'rounded-lg font-medium transition-all flex gap-2 items-center justify-center uppercase whitespace-nowrap';
+    'rounded-lg font-semibold transition-all flex gap-2 items-center justify-center uppercase whitespace-nowrap';
+
+  const fullClass = isFull ? 'w-full' : 'auto';
 
   const disabledClass = disabled
     ? 'opacity-50 cursor-not-allowed pointer-events-none'
@@ -49,6 +52,7 @@ const Button = ({
     variants[variant],
     sizes[size],
     disabledClass,
+    fullClass,
     className,
   );
 

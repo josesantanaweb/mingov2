@@ -8,6 +8,8 @@ interface FooterItemProps {
   icon: string;
   isActive?: boolean;
   isMain?: boolean;
+  isMenu?: boolean;
+  onClick?: () => void;
 }
 
 const FooterItem = ({
@@ -15,7 +17,23 @@ const FooterItem = ({
   icon,
   isActive,
   isMain = false,
+  isMenu = false,
+  onClick,
 }: FooterItemProps): React.ReactElement => {
+  if (isMenu) {
+    return (
+      <button
+        onClick={onClick}
+        className={`w-16 flex flex-col items-center justify-center h-full gap-1 ${isActive ? 'text-white' : 'text-base-300'} hover:text-white transition-colors duration-200`}
+      >
+        <span
+          className={`icon-${icon} text-xl flex items-center justify-center`}
+        />
+        <p className="text-xs capitalize">{name}</p>
+      </button>
+    );
+  }
+
   if (isMain) {
     return (
       <Link
@@ -23,7 +41,7 @@ const FooterItem = ({
         className="flex h-full flex-col items-center justify-center text-white relative"
       >
         <div className="bg-primary-600 w-12 h-12 rounded-xl relative rotate-45 -top-4 flex items-center justify-center">
-          <span className={`icon-${icon} text-2xl`}/>
+          <span className={`icon-${icon} text-2xl`} />
         </div>
       </Link>
     );
@@ -32,7 +50,7 @@ const FooterItem = ({
   return (
     <Link
       href={BETS_ROUTE}
-      className={`w-16 flex flex-col items-center justify-center h-full gap-1 ${isActive ? 'text-white' : 'text-base-300'} hover:bg-base-700 transition-colors duration-200`}
+      className={`w-16 flex flex-col items-center justify-center h-full gap-1 ${isActive ? 'text-white' : 'text-base-300'} hover:text-white transition-colors duration-200`}
     >
       <span
         className={`icon-${icon} text-xl flex items-center justify-center`}
