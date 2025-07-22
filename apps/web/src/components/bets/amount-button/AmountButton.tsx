@@ -19,7 +19,7 @@ const AmountButton = ({
   const variantClass = variant === 'modal'
     ? 'bg-base-700 text-base-300 hover:bg-base-600'
     : 'bg-base-800 text-base-300 hover:bg-base-700';
-  const selectedClass = isSelected ? 'bg-primary-600 text-white' : '';
+  const selectedClass = isSelected ? 'bg-base-700 text-white' : '';
 
   const buttonClass = cn(baseClass, variantClass, selectedClass);
 
