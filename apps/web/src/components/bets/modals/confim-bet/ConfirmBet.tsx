@@ -2,8 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from '@mingo/ui';
 import MarketItem from '@/components/bets/market-item';
-import AmountInput from '@/components/bets/amount-input/AmountInput';
-import AmountButton from '@/components/bets/amount-button/AmountButton';
+import SelectAmount from '@/components/bets/select-amount';
 import { IMarket, IMarketOption } from '@/types/market';
 import Modal from '../Modal';
 
@@ -20,14 +19,11 @@ const ConfirmBet = ({
   market,
   marketOption,
 }: ConfirmBetProps): React.ReactElement => {
-  const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
-  const predefinedAmounts = [10, 20, 50, 100];
+  const [selectedAmount, setSelectedAmount] = useState<number>(0);
   const estimatedProfit =
     selectedAmount && marketOption
       ? (selectedAmount * marketOption.odds).toFixed(2)
       : '0.00';
-
-  const handleAmountSelect = (amount: number) => setSelectedAmount(amount);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -38,26 +34,7 @@ const ConfirmBet = ({
 
         <MarketItem market={market} asNavigate={false} />
 
-        <div className="flex flex-col gap-2">
-          <AmountInput
-            value={selectedAmount || 0}
-            onChange={setSelectedAmount}
-            maxValue={1000}
-            placeholder="0"
-            variant="modal"
-          />
-          <div className="grid grid-cols-4 items-center gap-3">
-            {predefinedAmounts.map(amount => (
-              <AmountButton
-                key={amount}
-                amount={amount}
-                isSelected={selectedAmount === amount}
-                onClick={handleAmountSelect}
-                variant="modal"
-              />
-            ))}
-          </div>
-        </div>
+        <SelectAmount  amount={selectedAmount} setAmount={setSelectedAmount}/>
 
         <div className="flex flex-col gap-2">
           <div className="flex justify-between items-center">

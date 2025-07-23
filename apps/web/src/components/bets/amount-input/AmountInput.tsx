@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '@/utils/cn';
 
 interface AmountInputProps {
-  value?: number;
+  value: number;
   onChange?: (value: number) => void;
   onMaxClick?: () => void;
   placeholder?: string;
@@ -23,10 +23,10 @@ const AmountInput = ({
   className,
   variant = 'default',
 }: AmountInputProps): React.ReactElement => {
-  const [inputValue, setInputValue] = useState<string>(value.toString());
+  const [inputValue, setInputValue] = useState<string>(value?.toString());
 
   useEffect(() => {
-    setInputValue(value.toString());
+    setInputValue(value?.toString());
   }, [value]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,13 +53,13 @@ const AmountInput = ({
 
   const variantButtonClass =
     variant === 'modal'
-      ? 'bg-base-700 text-base-300 hover:bg-base-600'
-      : 'bg-base-800 text-base-300 hover:bg-base-700';
+      ? 'bg-base-700 hover:bg-base-600'
+      : 'bg-base-800 hover:bg-base-700';
 
   const disabledButtonClass = disabled && 'opacity-50 cursor-not-allowed';
 
   const defaultButtonClass = cn(
-    'absolute right-[3px] top-[3px] px-4 text-base-300 font-semibold h-[42px] bg-base-700 rounded-lg cursor-pointer transition-colors',
+    'absolute right-[4px] top-[4px] px-4 text-base-300 font-semibold h-[40px] rounded-lg cursor-pointer transition-colors',
   );
 
   const maxButtonClass = cn(
