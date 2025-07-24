@@ -1,5 +1,11 @@
-'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useTransform,
+  animate,
+} from 'framer-motion';
 import { CoinResultEnum } from '@/types/coin-flip';
 
 interface MultiplierLabelProps {
@@ -13,12 +19,43 @@ const MultiplierLabel = ({
   selectedAmount,
   multiplier,
 }: MultiplierLabelProps): React.ReactElement => {
+  const motionValue = useMotionValue(0);
+  const animatedValue = useTransform(motionValue, value => value.toFixed(2));
+  const [displayValue, setDisplayValue] = useState('0.00');
 
-  const calculateMultiplier = (): string => {
-    if (selectedAmount === null) return '0.00';
+  useEffect(() => {
+    const unsubscribe = animatedValue.on('change', v => setDisplayValue(v));
+    return () => unsubscribe();
+  }, [animatedValue]);
 
-    return multiplier.toFixed(2);
-  };
+  useEffect(() => {
+    if (selectedAmount === null) return;
+
+    let from = 0;
+    let to = multiplier;
+
+    if (result === CoinResultEnum.LOSE) {
+      from = multiplier;
+      to = 0;
+    }
+
+    motionValue.set(from);
+    animate(motionValue, to, {
+      duration: 0.6,
+      ease: 'easeOut',
+    });
+
+    // Sonido
+    if (result === CoinResultEnum.WIN) {
+      const audio = new Audio('/sounds/coin-flip/multiplier-win.mp3');
+      audio.play();
+    }
+    if (result === CoinResultEnum.LOSE) {
+      const audio = new Audio('/sounds/coin-flip/multiplier-lose.mp3');
+      audio.play();
+    }
+    // eslint-disable-next-line
+  }, [multiplier, result, selectedAmount]);
 
   const getMultiplierColor = (): string => {
     switch (result) {
@@ -31,20 +68,28 @@ const MultiplierLabel = ({
     }
   };
 
-  const multiplierValue = calculateMultiplier();
   const colorClass = getMultiplierColor();
 
   return (
-    <div className="flex flex-col justify-center items-center gap-1 absolute right-0 top-1/2 -translate-y-1/2">
-      <div className="flex items-center gap-1">
-        <p className={`text-xl font-bold ${colorClass}`}>
-          x{multiplierValue}
-        </p>
-      </div>
-
-      <p className="text-base-300 text-xs font-medium">
-        Multiplicador
-      </p>
+    <div className="flex-1 h-[50px] overflow-hidden">
+      <AnimatePresence>
+        <motion.div
+          key={result + multiplier}
+          initial={{ opacity: 0, y: 70, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 70, scale: 0.95 }}
+          transition={{
+            type: 'spring',
+            stiffness: 400,
+            damping: 30,
+            duration: 0.4,
+          }}
+          className="flex items-center gap-1 flex-col"
+        >
+          <p className={`text-xl font-bold ${colorClass}`}>x{displayValue}</p>
+          <p className="text-base-300 text-xs font-medium">Multiplicador</p>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };
