@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import AmountInput from '@/components/common/amount-input/AmountInput';
-import AmountButton from '@/components/common/amount-button/AmountButton';
+import AmountInput from '../amount-input';
+import AmountButton from '../amount-button';
 
 interface SelectAmountProps {
   amount: number;

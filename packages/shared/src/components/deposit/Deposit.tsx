@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import type { ReactElement } from 'react';
-
 import { ButtonIcon } from '@mingo/ui';
 
 interface DepositProps {

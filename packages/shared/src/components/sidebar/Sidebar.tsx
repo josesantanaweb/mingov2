@@ -1,15 +1,16 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MENU } from '@/constants/routes';
 import SidebarItem from './SidebarItem';
+import { Item } from '../../types/shared';
 
 interface SidebarProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
+  menu?: Item[];
 }
 
-const Sidebar = ({ isOpen, setIsOpen }: SidebarProps): React.ReactElement => {
+const Sidebar = ({ isOpen, setIsOpen, menu = [] }: SidebarProps): React.ReactElement => {
   const [openDropdowns, setOpenDropdowns] = useState<Set<string>>(new Set());
 
   const toggleMenu = (label: string) => {
@@ -46,7 +47,7 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps): React.ReactElement => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm top-[70px] z-50 flex items-end justify-center"
+          className="fixed inset-0 bg-black bg-opacity-50 w-full md:max-w-md left-1/2 -translate-x-1/2 backdrop-blur-sm top-[70px] z-50 flex items-end justify-center"
           onClick={handleClose}
         >
           <motion.div
@@ -54,7 +55,7 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps): React.ReactElement => {
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="flex items-start justify-start flex-col px-6 w-2/3 h-full bg-base-900 z-50 fixed left-0 top-0"
+            className="flex items-start justify-start flex-col px-6 w-2/3 md:w-[340px] h-full bg-base-900 z-50 fixed left-0 top-0"
             onClick={e => e.stopPropagation()}
           >
             <div className="flex items-center justify-between py-3 w-full">
@@ -66,7 +67,7 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps): React.ReactElement => {
               </button>
             </div>
             <div className="flex flex-col w-full">
-              {MENU.map((item, index) => (
+              {menu.map((item, index) => (
                 <SidebarItem
                   key={index}
                   item={item}

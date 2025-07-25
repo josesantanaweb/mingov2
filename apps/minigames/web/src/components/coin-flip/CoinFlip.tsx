@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { Button } from '@mingo/ui';
-import SelectAmount from '@/components/common/select-amount';
+import { SelectAmount } from '@mingo/shared';
 import GameFooter from '@/components/coin-flip/game-footer';
 import MultiplierHistory from '@/components/coin-flip/multiplier-history';
 import CoinFlipping from '@/components/coin-flip/coin-flipping';

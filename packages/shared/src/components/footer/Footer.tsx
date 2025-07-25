@@ -1,9 +1,14 @@
 'use client';
 import React, { useState } from 'react';
 import FooterItem from './FooterItem';
-import Sidebar from '@/components/common/sidebar'
+import Sidebar from '../sidebar';
+import { Item } from '../../types/shared';
 
-const Footer = (): React.ReactElement => {
+interface FooterProps {
+  menu?: Item[];
+}
+
+const Footer = ({ menu }: FooterProps): React.ReactElement => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleSidebar = () => setIsOpen(!isOpen);
@@ -17,7 +22,7 @@ const Footer = (): React.ReactElement => {
         <FooterItem name="ranking" icon="ranking" />
         <FooterItem name="profile" icon="user" />
       </div>
-      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} menu={menu} />
     </>
   );
 };

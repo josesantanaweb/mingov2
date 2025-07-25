@@ -1,5 +1,5 @@
 // tailwind config is required for editor support
-
+import path from 'path';
 import type { Config } from 'tailwindcss';
 import sharedConfig from '@mingo/tailwind-config';
 
@@ -8,7 +8,8 @@ const config: Config = {
     './app/**/*.tsx',
     './src/**/*.tsx',
     './components/**/*.tsx',
-    '../../packages/ui/**/*.{ts,tsx}',
+    path.join(__dirname, '../../../packages/shared/src/**/*.{ts,tsx}'),
+    path.join(__dirname, '../../../packages/ui/src/**/*.{ts,tsx}'),
   ],
   safelist: ['text-yellow-500', 'text-gray-400', 'text-orange-700'],
   presets: [sharedConfig],

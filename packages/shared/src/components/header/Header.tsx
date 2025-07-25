@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
 import { Avatar } from '@mingo/ui';
-import Deposit from '@/components/common/deposit';
-import Logo from '@/components/common/logo';
+import Deposit from '../deposit';
+import Logo from '../logo';
 
 const Header = (): React.ReactElement => {
   return (

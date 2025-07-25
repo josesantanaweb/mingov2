@@ -1,5 +1,4 @@
 'use client';
-import { BETS_ROUTE } from '@/constants';
 import Link from 'next/link';
 import React from 'react';
 
@@ -37,7 +36,7 @@ const FooterItem = ({
   if (isMain) {
     return (
       <Link
-        href={BETS_ROUTE}
+        href="/"
         className="flex h-full flex-col items-center justify-center text-white relative"
       >
         <div className="bg-primary-600 w-12 h-12 rounded-xl relative rotate-45 -top-4 flex items-center justify-center">
@@ -49,7 +48,7 @@ const FooterItem = ({
 
   return (
     <Link
-      href={BETS_ROUTE}
+      href="/"
       className={`w-16 flex flex-col items-center justify-center h-full gap-1 ${isActive ? 'text-white' : 'text-base-300'} hover:text-white transition-colors duration-200`}
     >
       <span

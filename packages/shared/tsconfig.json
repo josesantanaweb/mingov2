@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "module": "Node16",
+    "target": "esnext",
+    // "moduleResolution": "node",
+    "moduleResolution": "node16",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "baseUrl": "src",
+    "paths": {
+      "@mingo/shared": ["src/index.ts"]
+    },
+  },
+  "include": ["src"]
+}
