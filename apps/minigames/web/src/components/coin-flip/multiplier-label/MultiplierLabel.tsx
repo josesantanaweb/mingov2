@@ -7,6 +7,7 @@ import {
   animate,
 } from 'framer-motion';
 import { CoinResultEnum } from '@/types/coin-flip';
+import { playSound } from '@/utils/play-sound';
 
 interface MultiplierLabelProps {
   result: CoinResultEnum | null;
@@ -45,16 +46,12 @@ const MultiplierLabel = ({
       ease: 'easeOut',
     });
 
-    // Sonido
     if (result === CoinResultEnum.WIN) {
-      const audio = new Audio('/sounds/coin-flip/multiplier-win.mp3');
-      audio.play();
+      playSound('/sounds/coin-flip/multiplier-win.mp3');
     }
     if (result === CoinResultEnum.LOSE) {
-      const audio = new Audio('/sounds/coin-flip/multiplier-lose.mp3');
-      audio.play();
+      playSound('/sounds/coin-flip/multiplier-lose.mp3');
     }
-    // eslint-disable-next-line
   }, [multiplier, result, selectedAmount]);
 
   const getMultiplierColor = (): string => {

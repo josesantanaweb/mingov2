@@ -5,6 +5,7 @@ import {
   calculateWinAmount,
   getMultiplier,
 } from '@/utils/coin-flip';
+import { playSound } from '@/utils/play-sound';
 
 const BASE_MULTIPLIER = 1.2;
 const BONUS_PER_WIN = 0.15;
@@ -26,8 +27,7 @@ export const useCoinFlip = () => {
   const handleStart = () => {
     if (!selectedAmount) return;
     setGameStarted(true);
-    const audio = new Audio('/sounds/coin-flip/start.mp3');
-    audio.play();
+    playSound('/sounds/coin-flip/start.mp3');
     setResult(null);
     setChoice(null);
     setCoinHistory([]);
@@ -39,8 +39,7 @@ export const useCoinFlip = () => {
 
     setChoice(choice);
     setFlipping(true);
-    const audio = new Audio('/sounds/coin-flip/flip.mp3');
-    audio.play();
+    playSound('/sounds/coin-flip/flip.mp3');
     setResult(null);
 
     setTimeout(() => {
@@ -73,8 +72,7 @@ export const useCoinFlip = () => {
   };
 
   const handleRetire = () => {
-    const audio = new Audio('/sounds/coin-flip/win.mp3');
-    audio.play();
+    playSound('/sounds/coin-flip/win.mp3');
     setMultiplierHistory(prev => [...prev, multiplier]);
     resetGame();
   };

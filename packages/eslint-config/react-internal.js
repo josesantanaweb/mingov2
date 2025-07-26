@@ -31,4 +31,7 @@ module.exports = {
   },
   ignorePatterns: ['.*.js', 'node_modules/', 'dist/'],
   overrides: [{ files: ['*.js?(x)', '*.ts?(x)'] }],
+  rules: {
+    'no-console': 'error',
+  },
 };
