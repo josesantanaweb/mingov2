@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { Button } from '@mingo/ui';
+import { Button } from '@mingo/components';
 import MarketItem from '@/components/bets/market-item';
 import SelectAmount from '@/components/bets/select-amount';
 import { IMarket, IMarketOption } from '@/types/market';

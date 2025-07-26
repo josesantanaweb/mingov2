@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import type { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { ButtonIcon } from '@mingo/ui';
+import { ButtonIcon } from '@mingo/components';
 
 const Search = (): ReactElement => {
   const [open, setOpen] = useState<boolean>(false);

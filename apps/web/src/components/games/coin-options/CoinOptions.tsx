@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import { Button } from '@mingo/ui';
+import { Button } from '@mingo/components';
 import { CoinTypeEnum } from '@/types/coin-flip';
 import { getCoinImage, getCoinName } from '@/utils/coin-flip';
 

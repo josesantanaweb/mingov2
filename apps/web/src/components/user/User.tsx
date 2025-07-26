@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { cn } from '@/utils/cn';
-import { Avatar } from '@mingo/ui';
+import { Avatar } from '@mingo/components';
 import type { User as UserType } from '@/__generated__/graphql';
 import { getRankingColor } from '@/utils/getRankingColor';
 

@@ -1,1 +1,1 @@
-// export { default as useCountdown } from './useCountdown';
+export { useCoinFlip } from './coin-flip';

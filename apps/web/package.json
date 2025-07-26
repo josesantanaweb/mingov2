@@ -17,7 +17,7 @@
         "@apollo/experimental-nextjs-app-support": "^0.11.2",
         "@formkit/tempo": "^0.1.2",
         "@hookform/resolvers": "^3.9.1",
-        "@mingo/ui": "workspace:*",
+        "@mingo/components": "workspace:*",
         "@types/axios": "^0.14.4",
         "axios": "^1.8.4",
         "clsx": "^2.1.1",

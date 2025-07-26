@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { Button } from '@mingo/ui';
+import { Button } from '@mingo/components';
 import { useParams } from 'next/navigation';
 import { useMarket } from '@/hooks/markets/useMarket';
 import MatchWrapper from '@/components/bets/match-wrapper';

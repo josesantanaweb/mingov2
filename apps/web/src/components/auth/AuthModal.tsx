@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-import { Modal, ButtonIcon } from '@mingo/ui';
+import { Modal, ButtonIcon } from '@mingo/components';
 import { IAuthModal } from '@/types/auth';
 
 import AuthForm from './AuthForm';

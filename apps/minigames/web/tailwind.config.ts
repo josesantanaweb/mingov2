@@ -8,7 +8,7 @@ const config: Config = {
     './app/**/*.tsx',
     './src/**/*.tsx',
     './components/**/*.tsx',
-    path.join(__dirname, '../../../packages/shared/src/**/*.{ts,tsx}'),
+    path.join(__dirname, '../../../packages/mingo-components/src/**/*.{ts,tsx}'),
     path.join(__dirname, '../../../packages/ui/src/**/*.{ts,tsx}'),
   ],
   safelist: ['text-yellow-500', 'text-gray-400', 'text-orange-700'],

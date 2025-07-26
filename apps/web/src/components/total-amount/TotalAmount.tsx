@@ -2,7 +2,7 @@
 import type { FC } from 'react';
 import React from 'react';
 
-import { Button } from '@mingo/ui';
+import { Button } from '@mingo/components';
 import AmountBox from '@/components/amount-box';
 
 const TotalAmount: FC<{

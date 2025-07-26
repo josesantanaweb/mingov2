@@ -1,8 +1,0 @@
-{
-  "extends": "@mingo/typescript-config/react-library.json",
-  "compilerOptions": {
-    "outDir": "dist"
-  },
-  "include": ["src", "turbo", "jest.config.ts", "tailwind.config.ts"],
-  "exclude": ["node_modules", "dist"]
-}

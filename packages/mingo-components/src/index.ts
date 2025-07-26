@@ -6,3 +6,6 @@ export { default as Logo } from './components/logo';
 export { default as SelectAmount } from './components/select-amount';
 export { default as AmountButton } from './components/amount-button';
 export { default as AmountInput } from './components/amount-input';
+export { default as Button } from './components/button';
+export { default as ButtonIcon } from './components/button-icon';
+export { default as Avatar } from './components/avatar';

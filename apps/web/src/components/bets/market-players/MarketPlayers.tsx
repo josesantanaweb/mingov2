@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Avatar } from '@mingo/ui';
+import { Avatar } from '@mingo/components';
 
 const AVATARS = [
   '/images/users/03.png',

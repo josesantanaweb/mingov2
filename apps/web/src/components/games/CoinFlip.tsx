@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Button } from '@mingo/ui';
+import { Button } from '@mingo/components';
 import SelectAmount from '@/components/bets/select-amount';
 import GameFooter from '@/components/games/game-footer';
 import MultiplierHistory from '@/components/games/multiplier-history';

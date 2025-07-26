@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Avatar } from '@mingo/ui';
+import { Avatar } from '@mingo/components';
 import ReplyItem from '@/components/bets/reply-item';
 import { IComment } from '@/types/comment';
 import { formatRelativeTime } from '@/utils/date';

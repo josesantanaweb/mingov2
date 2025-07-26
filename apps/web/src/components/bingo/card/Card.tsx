@@ -1,7 +1,7 @@
 'use client';
 import React, { memo, useState } from 'react';
 
-import { Button } from '@mingo/ui';
+import { Button } from '@mingo/components';
 import Number from '@/components/bingo/number';
 import Letter from '@/components/bingo/letter';
 import { isBoardFull, transposeMatrix } from '@/utils/board';

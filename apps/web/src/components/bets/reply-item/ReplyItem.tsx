@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Avatar } from '@mingo/ui';
+import { Avatar } from '@mingo/components';
 import { IReply } from '@/types/comment';
 import { formatRelativeTime } from '@/utils/date';
 

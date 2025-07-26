@@ -13,7 +13,7 @@ import Configuration from '@/components/configuration';
 import Search from '@/components/search';
 import Deposit from '@/components/deposit';
 import UserDropdown from '@/components/user-dropdown';
-import { Button, ButtonIcon } from '@mingo/ui';
+import { Button, ButtonIcon } from '@mingo/components';
 import Auth from '@/components/auth';
 import { IAuthModal } from '@/types/auth';
 

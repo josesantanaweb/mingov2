@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Avatar } from '@mingo/ui';
+import Avatar from '../avatar';
 import Deposit from '../deposit';
 import Logo from '../logo';
 

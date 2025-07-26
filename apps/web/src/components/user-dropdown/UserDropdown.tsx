@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import type { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Avatar } from '@mingo/ui';
+import { Avatar } from '@mingo/components';
 import { faWallet } from '@fortawesome/free-solid-svg-icons';
 import { signOut } from 'next-auth/react';
 import { motion, AnimatePresence } from 'framer-motion';
