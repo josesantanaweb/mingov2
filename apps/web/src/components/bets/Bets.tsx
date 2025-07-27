@@ -19,7 +19,7 @@ const Bets = (): React.ReactElement => {
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
-            <h6 className="text-base font-medium text-white">En vivo</h6>
+            <h6 className="text-base font-bold text-white">En vivo</h6>
             <button className="text-sm font-medium text-base-300">
               Ver todos
             </button>
@@ -34,7 +34,7 @@ const Bets = (): React.ReactElement => {
         </div>
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
-            <h6 className="text-base font-medium text-white">Próximo</h6>
+            <h6 className="text-base font-bold text-white">Próximo</h6>
             <button className="text-sm font-medium text-base-300">
               Ver todos
             </button>

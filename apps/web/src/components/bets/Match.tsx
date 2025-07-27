@@ -22,7 +22,7 @@ const Match = (): React.ReactElement => {
       )}
       {markets?.length > 0 && (
         <div className="flex items-center w-full">
-          <p className="text-base font-medium text-white">
+          <p className="text-base font-bold text-white">
             Selecciona un mercado
           </p>
         </div>

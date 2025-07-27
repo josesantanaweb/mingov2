@@ -7,23 +7,34 @@ interface LogoProps {
   width?: number;
   height?: number;
   className?: string;
+  variant?: 'default' | 'white' | 'saturated';
 }
 
 const Logo = ({
   width = 117,
   height = 30,
   className,
-}: LogoProps): React.ReactElement => (
-  <Link href="/" className="flex items-center">
-    <Image
-      src="/images/logo.svg"
-      alt="Mingo Logo"
-      width={width}
-      height={height}
-      className={className}
-      priority
-    />
-  </Link>
-);
+  variant = 'default',
+}: LogoProps): React.ReactElement => {
+  const logoSrcMap: Record<NonNullable<LogoProps['variant']>, string> = {
+    default: '/images/logo.svg',
+    white: '/images/logo-white.svg',
+    saturated: '/images/logo-saturated.svg',
+  };
+
+  const logoSrc = logoSrcMap[variant];
+
+  return (
+    <Link href="/" className={`flex items-center ${className}`}>
+      <Image
+        src={logoSrc}
+        alt="Mingo Logo"
+        width={width}
+        height={height}
+        className="object-contain"
+      />
+    </Link>
+  );
+};
 
 export default Logo;

@@ -8,10 +8,12 @@ import CoinFlipping from '@/components/coin-flip/coin-flipping';
 import CoinHistory from '@/components/coin-flip/coin-history';
 import MultiplierLabel from '@/components/coin-flip/multiplier-label';
 import CoinOptions from '@/components/coin-flip/coin-options';
-import { useCoinFlip } from '@/hooks';
+import { useCoinFlip, useGames } from '@/hooks';
 import { CoinResultEnum } from '@/types/coin-flip';
+import TopGames from './top-games';
 
 const CoinFlip = (): React.ReactElement => {
+  const { data: games } = useGames();
   const {
     flipping,
     selectedAmount,
@@ -81,26 +83,7 @@ const CoinFlip = (): React.ReactElement => {
           </div>
           <GameFooter />
         </div>
-
-        <div className="flex flex-col gap-3">
-          <h6 className="text-white text-lg font-medium">
-            Juegos Recomendados
-          </h6>
-          <div className="flex items-center gap-3 max-w-full overflow-x-auto scrollbar-transparent">
-            <div className="bg-base-400 rounded-lg h-[180px] flex-shrink-0 w-[140px]">
-              1
-            </div>
-            <div className="bg-base-400 rounded-lg h-[180px] flex-shrink-0 w-[140px]">
-              1
-            </div>
-            <div className="bg-base-400 rounded-lg h-[180px] flex-shrink-0 w-[140px]">
-              1
-            </div>
-            <div className="bg-base-400 rounded-lg h-[180px] flex-shrink-0 w-[140px]">
-              1
-            </div>
-          </div>
-        </div>
+        <TopGames games={games} />
       </div>
     </section>
   );

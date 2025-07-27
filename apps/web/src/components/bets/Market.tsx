@@ -27,7 +27,7 @@ const Market = (): React.ReactElement => {
     <MatchWrapper betSummary={betSummary} pageType="MARKET">
       <div className="flex flex-col items-start w-full gap-6 pb-20">
         <div className="flex flex-col">
-          <h6 className="text-base font-medium text-white">
+          <h6 className="text-base font-bold text-white">
             {market?.marketType?.name}
           </h6>
           <p className="text-sm font-medium text-base-300">

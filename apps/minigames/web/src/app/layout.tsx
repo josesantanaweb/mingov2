@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
-import '@/styles/globals.css';
+import '@mingo/components/styles/globals.css'
 import { Footer, Header } from '@mingo/components';
 import { MENU } from '@/constants/routes';
 

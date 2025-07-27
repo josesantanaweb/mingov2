@@ -150,6 +150,13 @@ input[type='number'] {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Outfit';
+  src: url('../../public/font/outfit/Outfit-Black.ttf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   font-family: "fontello";
