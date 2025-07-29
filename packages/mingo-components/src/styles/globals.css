@@ -135,193 +135,47 @@ input[type='number'] {
 }
 
 
-.icon-calculator:before {
-  content: '\e800';
-}
-
-/* '' */
-.icon-bets:before {
-  content: '\e801';
-}
-
-/* '' */
-.icon-sort-alt:before {
-  content: '\e802';
-}
-
-/* '' */
-.icon-pie-chart:before {
-  content: '\e803';
-}
-
-/* '' */
-.icon-crow:before {
-  content: '\e804';
-}
-
-/* '' */
-.icon-home:before {
-  content: '\e805';
-}
-
-/* '' */
-.icon-live:before {
-  content: '\e806';
-}
-
-/* '' */
-.icon-star-line:before {
-  content: '\e807';
-}
-
-/* '' */
-.icon-chat:before {
-  content: '\e808';
-}
-
-/* '' */
-.icon-ranking:before {
-  content: '\e809';
-}
-
-/* '' */
-.icon-user:before {
-  content: '\e80a';
-}
-
-/* '' */
-.icon-menu:before {
-  content: '\e80b';
-}
-
-/* '' */
-.icon-star:before {
-  content: '\e80c';
-}
-
-/* '' */
-.icon-heart:before {
-  content: '\e80d';
-}
-
-/* '' */
-.icon-sound:before {
-  content: '\e80e';
-}
-
-/* '' */
-.icon-volumen:before {
-  content: '\e80f';
-}
-
-/* '' */
-.icon-shared:before {
-  content: '\e810';
-}
-
-/* '' */
-.icon-baseball:before {
-  content: '\e811';
-}
-
-/* '' */
-.icon-boxeo:before {
-  content: '\e812';
-}
-
-/* '' */
-.icon-football:before {
-  content: '\e813';
-}
-
-/* '' */
-.icon-hockey:before {
-  content: '\e814';
-}
-
-/* '' */
-.icon-horse:before {
-  content: '\e815';
-}
-
-/* '' */
-.icon-directions:before {
-  content: '\e816';
-}
-
-/* '' */
-.icon-tennis:before {
-  content: '\e817';
-}
-
-/* '' */
-.icon-soccer:before {
-  content: '\e818';
-}
-
-/* '' */
-.icon-send:before {
-  content: '\e819';
-}
-
-/* '' */
-.icon-coin:before {
-  content: '\e81a';
-}
-
-/* '' */
-.icon-challenge:before {
-  content: '\e81b';
-}
-
-/* '' */
-.icon-heart-line:before {
-  content: '\e81c';
-}
-
-/* '' */
-.icon-history:before {
-  content: '\e81d';
-}
-
-/* '' */
-.icon-arrow:before {
-  content: '\e81e';
-}
-
-/* '' */
-.icon-affiliates:before {
-  content: '\e81f';
-}
-
-/* '' */
-.icon-lottery:before {
-  content: '\e820';
-}
-
-/* '' */
-.icon-cards:before {
-  content: '\e821';
-}
-
-/* '' */
-.icon-gift:before {
-  content: '\e822';
-}
-
-/* '' */
-.icon-support:before {
-  content: '\e823';
-}
-
-.icon-chevrons-left:before {
-  content: '\e824';
-}
-
-.icon-chevron-down:before {
-  content: '\e825';
-}
-
-.icon-plus:before {
-  content: '\e826';
-}
+icon-calculator:before { content: '\e800'; } /* '' */
+.icon-bets:before { content: '\e801'; } /* '' */
+.icon-sort-alt:before { content: '\e802'; } /* '' */
+.icon-pie-chart:before { content: '\e803'; } /* '' */
+.icon-crow:before { content: '\e804'; } /* '' */
+.icon-home:before { content: '\e805'; } /* '' */
+.icon-live:before { content: '\e806'; } /* '' */
+.icon-star-line:before { content: '\e807'; } /* '' */
+.icon-chat:before { content: '\e808'; } /* '' */
+.icon-ranking:before { content: '\e809'; } /* '' */
+.icon-user:before { content: '\e80a'; } /* '' */
+.icon-menu:before { content: '\e80b'; } /* '' */
+.icon-star:before { content: '\e80c'; } /* '' */
+.icon-heart:before { content: '\e80d'; } /* '' */
+.icon-sound:before { content: '\e80e'; } /* '' */
+.icon-volumen:before { content: '\e80f'; } /* '' */
+.icon-shared:before { content: '\e810'; } /* '' */
+.icon-baseball:before { content: '\e811'; } /* '' */
+.icon-boxeo:before { content: '\e812'; } /* '' */
+.icon-football:before { content: '\e813'; } /* '' */
+.icon-hockey:before { content: '\e814'; } /* '' */
+.icon-horse:before { content: '\e815'; } /* '' */
+.icon-directions:before { content: '\e816'; } /* '' */
+.icon-tennis:before { content: '\e817'; } /* '' */
+.icon-soccer:before { content: '\e818'; } /* '' */
+.icon-send:before { content: '\e819'; } /* '' */
+.icon-coin:before { content: '\e81a'; } /* '' */
+.icon-challenge:before { content: '\e81b'; } /* '' */
+.icon-heart-line:before { content: '\e81c'; } /* '' */
+.icon-history:before { content: '\e81d'; } /* '' */
+.icon-arrow:before { content: '\e81e'; } /* '' */
+.icon-affiliates:before { content: '\e81f'; } /* '' */
+.icon-lottery:before { content: '\e820'; } /* '' */
+.icon-cards:before { content: '\e821'; } /* '' */
+.icon-gift:before { content: '\e822'; } /* '' */
+.icon-support:before { content: '\e823'; } /* '' */
+.icon-chevrons-left:before { content: '\e824'; } /* '' */
+.icon-chevron-down:before { content: '\e825'; } /* '' */
+.icon-plus:before { content: '\e826'; } /* '' */
+.icon-info-circle:before { content: '\e827'; } /* '' */
+.icon-volumen:before { content: '\e828'; } /* '' */
+.icon-mute:before { content: '\e829'; } /* '' */
+.icon-hide:before { content: '\e82a'; } /* '' */
+.icon-show:before { content: '\e82b'; } /* '' */

@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { cn } from '@/utils/cn';
+import { cn } from '../../utils/cn';
 
 interface AmountInputProps {
   value: number;
@@ -46,7 +46,7 @@ const AmountInput = ({
   };
 
   const inputClass = cn(
-    'w-full rounded-lg h-12 px-4 text-base-300 border border-base-600 bg-transparent placeholder:text-base-300 focus:outline-none focus:border-primary-500 transition-colors',
+    'w-full rounded-lg h-12 px-4 text-base-300 text-base border border-base-600 bg-transparent placeholder:text-base-300 focus:outline-none focus:border-primary-500 transition-colors',
     disabled && 'opacity-50 cursor-not-allowed',
     className,
   );

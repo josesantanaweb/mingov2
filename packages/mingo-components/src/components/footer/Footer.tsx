@@ -15,7 +15,7 @@ const Footer = ({ menu }: FooterProps): React.ReactElement => {
 
   return (
     <>
-      <div className="flex items-center justify-between bg-base-800 h-[60px] fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-20">
+      <div className="flex items-center justify-between bg-base-800 h-[60px] fixed bottom-0 left-1/2 -translate-x-1/2 w-full md:max-w-md z-20">
         <FooterItem name="menu" icon="menu" onClick={handleSidebar} isMenu />
         <FooterItem name="deportes" icon="soccer" />
         <FooterItem name="" icon="challenge" isMain />

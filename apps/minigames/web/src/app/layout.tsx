@@ -19,7 +19,7 @@ export default async function RootLayout({ children }: Props) {
     <html lang="es">
       <body>
         <main className="relative w-full flex items-center justify-center bg-black">
-          <div className="bg-base-900 w-full md:max-w-md h-full flex flex-col min-h-screen relative">
+          <div className="bg-base-900 w-full md:max-w-md flex flex-col min-h-screen relative">
             <Header />
             {children}
             <Footer menu={MENU} />

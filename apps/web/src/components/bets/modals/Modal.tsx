@@ -51,7 +51,7 @@ const Modal = ({
               stiffness: 300,
               opacity: { duration: 0.2 },
             }}
-            className="bg-base-800 rounded-t-2xl w-full max-w-md p-6 pb-8 shadow-2xl"
+            className="bg-base-800 rounded-t-2xl w-full md:max-w-md p-6 pb-8 shadow-2xl"
           >
             <div className="flex justify-center mb-4">
               <div className="w-12 h-1 bg-base-700 rounded-full"></div>
