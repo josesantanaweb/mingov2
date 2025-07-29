@@ -16,8 +16,19 @@ const Register = () => {
 
   const handleRegister = async (data: RegisterInput) => {
     const { email, password, name, code } = data;
-    console.log(email, password, name, code);
-    // Aquí iría la lógica de registro
+    
+    try {
+      // Aquí iría la lógica de registro con tu mutation de GraphQL
+      // Por ejemplo:
+      // const result = await registerUser({
+      //   variables: { email, password, name, code }
+      // });
+      
+      // Después del registro exitoso, redirigir al login
+      router.push('/login');
+    } catch (error) {
+      console.error('Registration error:', error);
+    }
   };
 
   const handleNavigate = () => {
