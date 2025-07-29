@@ -1,32 +1,24 @@
 import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
 
 import '@mingo/components/styles/globals.css';
-import { Footer, Header } from '@mingo/components';
+import Layout from '@/components/common/Layout';
 import Providers from '@/components/providers';
-import { MENU } from '@/constants/routes';
-
-type Props = {
-  children: ReactNode;
-};
 
 export const metadata: Metadata = {
   title: 'Mingo',
   description: 'Mingo is a platform for betting on the outcome of AI models.',
 };
 
-export default async function RootLayout({ children }: Props) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="es">
       <body>
         <Providers>
-          <main className="relative w-full flex items-center justify-center bg-black">
-            <div className="bg-base-900 w-full md:max-w-md flex flex-col min-h-screen relative">
-              <Header />
-              {children}
-              <Footer menu={MENU} />
-            </div>
-          </main>
+          <Layout>{children}</Layout>
         </Providers>
       </body>
     </html>

@@ -22,8 +22,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
               login(input: $input) {
                 user {
                   id
+                  email
                   username
                   name
+                  image
                 }
                 accessToken
                 refreshToken
@@ -52,7 +54,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             email: loginData.user.email,
             name: loginData.user.name,
             username: loginData.user.username,
-            image: null,
+            image: loginData.user.image || null,
           };
         } catch (error) {
           console.error('Authentication error:', error);
