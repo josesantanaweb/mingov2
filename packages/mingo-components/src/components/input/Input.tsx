@@ -29,7 +29,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     ref,
   ) => {
     const inputClass = cn(
-      'h-12 w-full text-base text-primary-600 border border-base-600 rounded-lg bg-transparent placeholder:text-base-300 focus:outline-none focus:border-primary-500 transition-colors transition-colors px-4 outline-none placeholder-base-300',
+      'h-12 w-full text-base text-white border border-base-600 rounded-lg bg-transparent placeholder:text-base-300 focus:outline-none transition-colors transition-colors px-4 outline-none placeholder-base-300',
       icon && iconPosition === 'right' && 'pr-10',
       icon && iconPosition === 'left' && 'pl-10',
       className,
