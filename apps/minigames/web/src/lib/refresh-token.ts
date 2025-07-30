@@ -17,8 +17,14 @@ interface RefreshTokenResponse {
 
 export async function refreshAccessToken(
   userId: string,
-  refreshToken: string
+  refreshToken: string,
 ): Promise<RefreshTokenResponse | null> {
+  if (!userId || !refreshToken) {
+    // eslint-disable-next-line no-console
+    console.warn('Missing userId or refreshToken for token refresh');
+    return null;
+  }
+
   try {
     const refreshTokenQuery = gql`
       query RefreshToken($id: String!, $refreshToken: String!) {
