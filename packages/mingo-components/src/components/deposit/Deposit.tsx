@@ -4,11 +4,11 @@ import type { ReactElement } from 'react';
 import ButtonIcon from '../button-icon';
 
 interface DepositProps {
-  amount: number;
+  balance: number;
   isLoading?: boolean;
 }
 
-const Deposit = ({ amount, isLoading }: DepositProps): ReactElement => {
+const Deposit = ({ balance, isLoading }: DepositProps): ReactElement => {
   if (isLoading) {
     return (
       <div className="rounded-lg border-2 w-[200px] h-[40px] border-base-500 flex items-center justify-between p-1 animate-pulse">
@@ -27,7 +27,9 @@ const Deposit = ({ amount, isLoading }: DepositProps): ReactElement => {
           V
         </span>
         <div className="flex items-center gap-2 text-white">
-          <h4 className="uppercase text-sm font-semibold">{amount || 0} VES</h4>
+          <h4 className="uppercase text-sm font-semibold">
+            {balance || 0} VES
+          </h4>
           <button
             className="cursor-pointer"
             aria-label="Abrir menú"
