@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useSession } from 'next-auth/react';
+import { useProfile } from '@/hooks/users/useProfile';
 import { CoinTypeEnum, CoinResultEnum } from '@/types/coin-flip';
 import {
   getCoinOutcome,
@@ -6,11 +8,28 @@ import {
   getMultiplier,
 } from '@/utils/coin-flip';
 import { playSound } from '@/utils/play-sound';
+import { useUpdateUser } from '@/hooks/users/useUpdate';
 
 const BASE_MULTIPLIER = 1.2;
 const BONUS_PER_WIN = 0.15;
 
 export const useCoinFlip = () => {
+  const { data: session } = useSession();
+  const { data: profile } = useProfile();
+  const { updateUser } = useUpdateUser();
+
+  const updateBalance = async (amount: number) => {
+    if (!session?.user?.id || !profile) return;
+
+    const newBalance = (profile.balance || 0) + amount;
+
+    try {
+      await updateUser(session.user.id, { balance: newBalance });
+    } catch (error) {
+      console.error('Error updating balance:', error);
+    }
+  };
+
   const [flipping, setFlipping] = useState<boolean>(false);
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [gameStarted, setGameStarted] = useState<boolean>(false);
@@ -26,12 +45,16 @@ export const useCoinFlip = () => {
 
   const handleStart = () => {
     if (!selectedAmount) return;
+
+    updateBalance(-selectedAmount);
+
     setGameStarted(true);
     playSound('/sounds/coin-flip/start.mp3');
     setResult(null);
     setChoice(null);
     setCoinHistory([]);
     setCoinResult(CoinTypeEnum.GOLD);
+    setTotalWinnings(selectedAmount);
   };
 
   const handleFlip = (choice: CoinTypeEnum) => {
@@ -59,11 +82,12 @@ export const useCoinFlip = () => {
 
       if (didWin) {
         setWinStreak(prev => prev + 1);
-        setTotalWinnings(prev => prev + winAmount);
+        setTotalWinnings(prev => prev * currentMultiplier);
         setChoice(null);
       } else {
         setTimeout(() => {
           setMultiplierHistory(prev => [...prev, 0]);
+          setTotalWinnings(0);
           resetGame();
           setResult(null);
         }, 2200);
@@ -74,7 +98,9 @@ export const useCoinFlip = () => {
   const handleRetire = () => {
     playSound('/sounds/coin-flip/win.mp3');
     setMultiplierHistory(prev => [...prev, multiplier]);
+    updateBalance(totalWinnings);
     resetGame();
+    setResult(null);
   };
 
   const resetGame = () => {
@@ -102,5 +128,8 @@ export const useCoinFlip = () => {
     handleRetire,
     totalWinnings,
     multiplierHistory,
+    winStreak,
+    resetGame,
+    balance: profile?.balance ?? 0,
   };
 };

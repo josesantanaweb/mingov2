@@ -6,11 +6,13 @@ import AmountButton from '../amount-button';
 interface SelectAmountProps {
   amount: number;
   setAmount: (amount: number) => void;
+  disabled?: boolean;
 }
 
 const SelectAmount = ({
   amount,
   setAmount,
+  disabled,
 }: SelectAmountProps): React.ReactElement => {
   const predefinedAmounts = [10, 20, 50, 100];
 
@@ -24,6 +26,7 @@ const SelectAmount = ({
         maxValue={1000}
         placeholder="0"
         variant="modal"
+        disabled={disabled}
       />
       <div className="grid grid-cols-4 items-center gap-3">
         {predefinedAmounts.map(predefinedAmount => (
@@ -33,6 +36,7 @@ const SelectAmount = ({
             isSelected={amount === predefinedAmount}
             onClick={handleAmountSelect}
             variant="modal"
+            disabled={disabled}
           />
         ))}
       </div>

@@ -47,7 +47,7 @@ const AmountInput = ({
 
   const inputClass = cn(
     'w-full rounded-lg h-12 px-4 text-base-300 text-base border border-base-600 bg-transparent placeholder:text-base-300 focus:outline-none focus:border-primary-500 transition-colors',
-    disabled && 'opacity-50 cursor-not-allowed',
+    disabled && 'opacity-80 cursor-not-allowed',
     className,
   );
 
