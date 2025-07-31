@@ -71,6 +71,7 @@ const AmountInput = ({
   return (
     <div className="relative">
       <input
+        data-testid="input-amount"
         type="number"
         value={inputValue}
         onChange={handleInputChange}

@@ -29,6 +29,7 @@ const AmountButton = ({
 
   return (
     <button
+      data-testid={`amount-${amount}`}
       className={buttonClass}
       onClick={() => onClick(amount)}
       disabled={disabled}

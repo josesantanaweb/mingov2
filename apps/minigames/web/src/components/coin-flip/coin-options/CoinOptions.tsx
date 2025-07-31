@@ -33,6 +33,7 @@ const CoinOptions = ({
     <div className="flex items-center gap-3 w-full">
       {options.map(option => (
         <Button
+          data-testid={`side-head-${option.value}`}
           key={option.value}
           variant={getVariant(option.value)}
           onClick={() => onClick(option.value)}

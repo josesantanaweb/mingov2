@@ -13,6 +13,7 @@ interface ButtonProps {
   variant?: 'default' | 'primary' | 'danger' | 'success';
   size?: 'sm' | 'md' | 'lg';
   isFull?: boolean;
+  'data-testid'?: string;
 }
 
 const variants = {
@@ -37,6 +38,7 @@ const Button = ({
   variant = 'default',
   size = 'lg',
   isFull = false,
+  'data-testid': dataTestId,
 }: ButtonProps): ReactElement => {
   const baseClass =
     'rounded-lg font-semibold transition-all flex gap-2 items-center justify-center uppercase whitespace-nowrap';
@@ -62,6 +64,7 @@ const Button = ({
       disabled={disabled}
       onClick={onClick}
       className={customClass}
+      data-testid={dataTestId}
     >
       {children}
     </button>

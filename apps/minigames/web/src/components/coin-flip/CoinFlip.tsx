@@ -34,17 +34,26 @@ const CoinFlip = (): React.ReactElement => {
   } = useCoinFlip();
 
   const handleBet = totalWinnings > 0 ? handleRetire : handleStart;
-  const isRetired = winStreak > 0;
+  const canRetire = winStreak > 0;
+  const isFlipping = flipping;
+  const isNoAmount = !selectedAmount;
+  const isLost = result === CoinResultEnum.LOSE;
+  const isWaitingToRetire = gameStarted && winStreak === 0;
+  const isBalanceInsufficient =
+    !canRetire && (balance <= 0 || balance < selectedAmount);
+
   const buttonBetDisabled =
-  flipping ||
-  !selectedAmount ||
-  result === CoinResultEnum.LOSE ||
-  (gameStarted && winStreak === 0) ||
-  (!isRetired && (balance <= 0 || balance < selectedAmount));
+    isFlipping ||
+    isNoAmount ||
+    isLost ||
+    isWaitingToRetire ||
+    isBalanceInsufficient;
   const coinOptionsDisabled =
-    flipping || !gameStarted || result === CoinResultEnum.LOSE;
-  const buttonBetLabel =
-    isRetired ? `Retirar  ${totalWinnings.toFixed(2)} ves` : 'Apuesta';
+    isFlipping || !gameStarted || isLost;
+
+  const buttonBetLabel = canRetire
+    ? `Retirar  ${totalWinnings.toFixed(2)} ves`
+    : 'Apuesta';
 
   return (
     <section className="coin-flip w-full relative p-4 mb-[100px]">
@@ -77,6 +86,7 @@ const CoinFlip = (): React.ReactElement => {
             />
 
             <Button
+              data-testid="submit-bet"
               isFull
               variant="primary"
               onClick={handleBet}
