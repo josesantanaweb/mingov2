@@ -7,7 +7,7 @@ import { setContext } from '@apollo/client/link/context';
 import { getMainDefinition } from '@apollo/client/utilities';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { createClient } from 'graphql-ws';
-import { getSession } from 'next-auth/react';
+import { tokenStorage } from '@/utils/tokenStorage';
 
 export function makeClient(): ApolloClient<InMemoryCache> {
   const httpLink = new HttpLink({
@@ -18,8 +18,7 @@ export function makeClient(): ApolloClient<InMemoryCache> {
   const authLink = setContext(async (_, { headers }) => {
     if (typeof window === 'undefined') return { headers };
 
-    const session = await getSession();
-    const token = session?.refreshToken;
+    const token = tokenStorage.getAccessToken();
 
     return {
       headers: {
@@ -35,8 +34,7 @@ export function makeClient(): ApolloClient<InMemoryCache> {
           createClient({
             url: `${process.env.NEXT_PUBLIC_API_WS_URL}/graphql`,
             connectionParams: async () => {
-              const session = await getSession();
-              const token = session?.refreshToken;
+              const token = tokenStorage.getAccessToken();
               return {
                 authorization: token ? `Bearer ${token}` : '',
               };

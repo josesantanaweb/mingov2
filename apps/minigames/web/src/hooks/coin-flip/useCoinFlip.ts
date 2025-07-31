@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { useSession } from 'next-auth/react';
+import { useAuth } from '@/hooks/useAuth';
 import { useProfile } from '@/hooks/users/useProfile';
 import { CoinTypeEnum, CoinResultEnum } from '@/types/coin-flip';
 import {
   getCoinOutcome,
-  calculateWinAmount,
   getMultiplier,
 } from '@/utils/coin-flip';
 import { playSound } from '@/utils/play-sound';
@@ -14,19 +13,21 @@ const BASE_MULTIPLIER = 1.2;
 const BONUS_PER_WIN = 0.15;
 
 export const useCoinFlip = () => {
-  const { data: session } = useSession();
+  const { getCurrentUser } = useAuth();
   const { data: profile } = useProfile();
   const { updateUser } = useUpdateUser();
 
+  const user = getCurrentUser();
+
   const updateBalance = async (amount: number) => {
-    if (!session?.user?.id || !profile) return;
+    if (!user?.id || !profile) return;
 
     const newBalance = (profile.balance || 0) + amount;
 
     try {
-      await updateUser(session.user.id, { balance: newBalance });
-    } catch (error) {
-      console.error('Error updating balance:', error);
+      await updateUser(user.id, { balance: newBalance });
+    } catch {
+      // Error updating balance
     }
   };
 
@@ -73,7 +74,6 @@ export const useCoinFlip = () => {
         BONUS_PER_WIN,
         winStreak,
       );
-      const winAmount = calculateWinAmount(selectedAmount, currentMultiplier);
 
       setCoinResult(outcome);
       setCoinHistory(prev => [...prev, outcome]);
