@@ -17,9 +17,15 @@ export class AuthService {
     private readonly configService: ConfigService,
   ) {}
 
-  private getAccessToken(userId: string): string {
+  private getAccessToken(user: User): string {
     return this.jwtService.sign(
-      { id: userId },
+      {
+        id: user.id,
+        email: user.email,
+        username: user.username,
+        name: user.name,
+        image: user.image,
+      },
       { expiresIn: process.env.JWT_EXPIRES_IN },
     );
   }
@@ -33,7 +39,7 @@ export class AuthService {
 
   async register(input: RegisterInput): Promise<AuthResponse> {
     const user = await this.usersService.create(input);
-    const accessToken = this.getAccessToken(user.id);
+    const accessToken = this.getAccessToken(user);
     const refreshToken = this.getRefreshToken(user.id);
     return { user, accessToken, refreshToken };
   }
@@ -51,7 +57,7 @@ export class AuthService {
       throw new UnauthorizedException('Credenciales inválidas');
     }
 
-    const accessToken = this.getAccessToken(user.id);
+    const accessToken = this.getAccessToken(user);
     const refreshToken = this.getRefreshToken(user.id);
 
     await this.usersService.update(user.id, {
@@ -76,7 +82,7 @@ export class AuthService {
       throw new UnauthorizedException('Refresh token inválido');
     }
 
-    const newAccessToken = this.getAccessToken(user.id);
+    const newAccessToken = this.getAccessToken(user);
     const newRefreshToken = this.getRefreshToken(user.id);
 
     await this.usersService.update(user.id, {

@@ -40,7 +40,9 @@ export const useAuth = () => {
 
   const checkAuthStatus = useCallback(() => {
     const token = tokenStorage.getAccessToken();
-    if (!token) {
+    const refreshToken = tokenStorage.getRefreshToken();
+
+    if (!token || !refreshToken) {
       setIsAuthenticated(false);
       setCurrentUser(null);
       return;
@@ -48,17 +50,26 @@ export const useAuth = () => {
 
     try {
       const decoded = jwtDecode<{ exp: number } & User>(token);
-      const isValid = decoded.exp * 1000 > Date.now();
+      const refreshDecoded = jwtDecode<{ exp: number }>(refreshToken);
+      const now = Math.floor(Date.now() / 1000);
 
-      setIsAuthenticated(isValid);
-      setCurrentUser(isValid ? {
+      if (refreshDecoded.exp <= now) {
+        tokenStorage.removeTokens();
+        setIsAuthenticated(false);
+        setCurrentUser(null);
+        return;
+      }
+
+      setIsAuthenticated(true);
+      setCurrentUser({
         id: decoded.id,
         email: decoded.email,
-        name: decoded.name,
         username: decoded.username,
-        image: decoded.image
-      } : null);
+        name: decoded.name,
+        image: decoded.image,
+      });
     } catch {
+      tokenStorage.removeTokens();
       setIsAuthenticated(false);
       setCurrentUser(null);
     }
@@ -159,12 +170,20 @@ export const useAuth = () => {
     return currentUser;
   };
 
+  const testRefreshToken = async () => {
+    const result = await refreshAccessToken();
+    if (result) {
+      checkAuthStatus();
+    }
+  };
+
   return {
     login,
     register,
     logout,
     refreshAccessToken,
     isAuthenticated,
-    getCurrentUser
+    getCurrentUser,
+    testRefreshToken,
   };
 };
