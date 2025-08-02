@@ -1,5 +1,5 @@
- 'use client';
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import { Button } from '@mingo/components';
 import { SelectAmount } from '@mingo/components';
 import MultiplierHistory from '@/components/coin-flip/multiplier-history';
@@ -11,8 +11,10 @@ import GameWrapper from '@/components/common/game-wrapper';
 import { useCoinFlip, useGames } from '@/hooks';
 import { CoinResultEnum } from '@/types/coin-flip';
 import TopGames from './top-games';
+import GameWin from './game-win';
 
 const CoinFlip = (): React.ReactElement => {
+  const [showWinModal, setShowWinModal] = useState<boolean>(false);
   const { data: games } = useGames();
   const {
     flipping,
@@ -27,6 +29,7 @@ const CoinFlip = (): React.ReactElement => {
     handleStart,
     handleRetire,
     totalWinnings,
+    winAmount,
     multiplierHistory,
     winStreak,
     balance,
@@ -34,22 +37,23 @@ const CoinFlip = (): React.ReactElement => {
     setChoice,
   } = useCoinFlip();
 
-
   const handleBet = () => {
     if (totalWinnings > 0) {
+      setShowWinModal(true);
       handleRetire();
+      setTimeout(() => setShowWinModal(false), 2000);
     } else if (choice !== null && selectedAmount) {
       handleStart();
       handleFlip(choice);
     }
-  }
+  };
 
   const handleChoice = (opt: typeof choice) => {
     setChoice(opt);
     if (result === CoinResultEnum.WIN) {
       handleFlip(opt);
     }
-  }
+  };
 
   const canRetire = totalWinnings > 0;
   const isFlipping = flipping;
@@ -58,13 +62,11 @@ const CoinFlip = (): React.ReactElement => {
   const isBalanceInsufficient =
     balance <= 0 || (selectedAmount !== null && balance < selectedAmount);
 
-
   const buttonBetDisabled = canRetire
     ? isFlipping || winStreak <= 0 || isLost
     : isFlipping || isAmountMissing || choice === null || isBalanceInsufficient;
 
-  const coinOptionsDisabled =
-    isFlipping || isLost || isAmountMissing;
+  const coinOptionsDisabled = isFlipping || isLost || isAmountMissing;
 
   const buttonBetLabel = canRetire
     ? `Retirar  ${totalWinnings.toFixed(2)} ves`
@@ -72,8 +74,13 @@ const CoinFlip = (): React.ReactElement => {
 
   return (
     <section className="coin-flip w-full relative p-4 mb-[100px]">
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 relative w-full">
         <GameWrapper>
+          <GameWin
+            amount={winAmount}
+            multiplier={multiplier}
+            open={showWinModal}
+          />
           <MultiplierHistory history={multiplierHistory} />
           <div className="py-6 w-full flex flex-col gap-6 items-center">
             <div className="flex w-full justify-center items-center h-full relative">

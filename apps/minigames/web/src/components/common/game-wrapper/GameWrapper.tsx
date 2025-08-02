@@ -7,8 +7,8 @@ interface GameWrapperProps {
 
 const GameWrapper = ({ children}: GameWrapperProps): React.ReactElement => {
   return (
-    <div className="flex flex-col">
-      <div className="flex flex-col bg-base-800 p-5 w-full rounded-t-xl">
+    <div className="flex flex-col relative w-full">
+      <div className="flex flex-col bg-base-800 p-5 w-full rounded-t-xl relative">
         {children}
       </div>
       <GameFooter />
