@@ -2,10 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '../../utils/cn';
 
+export const MIN_BET_AMOUNT = 1;
+
 interface AmountInputProps {
   value: number;
   onChange?: (value: number) => void;
-  onMaxClick?: () => void;
   placeholder?: string;
   maxValue?: number;
   disabled?: boolean;
@@ -16,7 +17,6 @@ interface AmountInputProps {
 const AmountInput = ({
   value = 0,
   onChange,
-  onMaxClick,
   placeholder = '0',
   maxValue,
   disabled = false,
@@ -37,16 +37,27 @@ const AmountInput = ({
     onChange?.(numericValue);
   };
 
-  const handleMaxClick = () => {
-    if (maxValue) {
-      setInputValue(maxValue.toString());
-      onChange?.(maxValue);
-    }
-    onMaxClick?.();
+  const handleMinClick = () => {
+    setInputValue(MIN_BET_AMOUNT.toString());
+    onChange?.(MIN_BET_AMOUNT);
+  };
+
+  const handleHalfClick = () => {
+    const current = parseFloat(inputValue) || 0;
+    const half = Math.max(MIN_BET_AMOUNT, Math.floor(current / 2));
+    setInputValue(half.toString());
+    onChange?.(half);
+  };
+
+  const handleDoubleClick = () => {
+    const current = parseFloat(inputValue) || 0;
+    const double = maxValue ? Math.min(maxValue, current * 2) : current * 2;
+    setInputValue(double.toString());
+    onChange?.(double);
   };
 
   const inputClass = cn(
-    'w-full rounded-lg h-12 px-4 text-base-300 text-base border border-base-600 bg-transparent placeholder:text-base-300 focus:outline-none focus:border-primary-500 transition-colors',
+    'w-full rounded-lg h-[50px] px-4 text-base-300 text-base border border-base-600 bg-transparent placeholder:text-base-300 focus:outline-none focus:border-primary-500 transition-colors',
     disabled && 'opacity-80 cursor-not-allowed',
     className,
   );
@@ -59,7 +70,7 @@ const AmountInput = ({
   const disabledButtonClass = disabled && 'opacity-50 cursor-not-allowed';
 
   const defaultButtonClass = cn(
-    'absolute right-[4px] top-[4px] text-sm px-4 text-white font-medium h-[40px] rounded-lg cursor-pointer transition-colors',
+    'text-sm px-4 text-white font-medium h-[42px] rounded-lg cursor-pointer transition-colors',
   );
 
   const maxButtonClass = cn(
@@ -81,14 +92,32 @@ const AmountInput = ({
         min="0"
         step="0.01"
       />
-      <button
-        type="button"
-        className={maxButtonClass}
-        onClick={handleMaxClick}
-        disabled={disabled || !maxValue}
-      >
-        Max
-      </button>
+      <div className="flex items-center gap-1 absolute right-[4px] top-[4px]">
+        <button
+          type="button"
+          className={maxButtonClass}
+          onClick={handleMinClick}
+          disabled={disabled}
+        >
+          Min
+        </button>
+        <button
+          type="button"
+          className={maxButtonClass}
+          onClick={handleHalfClick}
+          disabled={disabled || !maxValue}
+        >
+          1/2
+        </button>
+        <button
+          type="button"
+          className={maxButtonClass}
+          onClick={handleDoubleClick}
+          disabled={disabled || !maxValue}
+        >
+          X2
+        </button>
+      </div>
     </div>
   );
 };

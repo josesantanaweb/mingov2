@@ -99,6 +99,7 @@ const CoinFlip = (): React.ReactElement => {
               amount={selectedAmount}
               setAmount={setSelectedAmount}
               disabled={gameStarted}
+              maxValue={balance}
             />
 
             <CoinOptions

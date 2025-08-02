@@ -18,7 +18,7 @@ const AmountButton = ({
   disabled = false,
 }: AmountButtonProps): React.ReactElement => {
   const baseClass = cn(
-    'flex items-center justify-center rounded-lg h-12 text-base-300 cursor-pointer transition-all font-medium text-white',
+    'flex items-center justify-center rounded-lg h-[45px] text-base-300 cursor-pointer transition-all font-medium text-white text-sm',
     disabled && 'opacity-50 cursor-not-allowed',
   );
   const variantClass =

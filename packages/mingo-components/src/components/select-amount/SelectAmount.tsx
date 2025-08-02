@@ -7,23 +7,25 @@ interface SelectAmountProps {
   amount: number;
   setAmount: (amount: number) => void;
   disabled?: boolean;
+  maxValue?: number;
 }
 
 const SelectAmount = ({
   amount,
   setAmount,
   disabled,
+  maxValue,
 }: SelectAmountProps): React.ReactElement => {
   const predefinedAmounts = [10, 20, 50, 100];
 
   const handleAmountSelect = (amount: number) => setAmount(amount);
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-3">
       <AmountInput
         value={amount || 0}
         onChange={setAmount}
-        maxValue={1000}
+        maxValue={maxValue}
         placeholder="0"
         variant="modal"
         disabled={disabled}
