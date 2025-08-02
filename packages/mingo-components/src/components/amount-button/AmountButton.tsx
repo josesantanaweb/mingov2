@@ -18,12 +18,12 @@ const AmountButton = ({
   disabled = false,
 }: AmountButtonProps): React.ReactElement => {
   const baseClass = cn(
-    'flex items-center justify-center rounded-lg h-12 text-base-300 cursor-pointer transition-all font-semibold',
+    'flex items-center justify-center rounded-lg h-12 text-base-300 cursor-pointer transition-all font-medium text-white',
     disabled && 'opacity-50 cursor-not-allowed',
   );
   const variantClass =
     variant === 'modal' ? 'bg-base-700' : 'bg-base-800 hover:bg-base-700';
-  const selectedClass = isSelected ? 'bg-base-700 text-white' : '';
+  const selectedClass = isSelected ? 'bg-base-600' : '';
 
   const buttonClass = cn(baseClass, variantClass, selectedClass);
 

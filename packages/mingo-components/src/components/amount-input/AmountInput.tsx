@@ -59,7 +59,7 @@ const AmountInput = ({
   const disabledButtonClass = disabled && 'opacity-50 cursor-not-allowed';
 
   const defaultButtonClass = cn(
-    'absolute right-[4px] top-[4px] px-4 text-base-300 font-semibold h-[40px] rounded-lg cursor-pointer transition-colors',
+    'absolute right-[4px] top-[4px] text-sm px-4 text-white font-medium h-[40px] rounded-lg cursor-pointer transition-colors',
   );
 
   const maxButtonClass = cn(

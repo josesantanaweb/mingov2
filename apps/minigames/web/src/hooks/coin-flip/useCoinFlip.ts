@@ -131,5 +131,6 @@ export const useCoinFlip = () => {
     winStreak,
     resetGame,
     balance: profile?.balance ?? 0,
+    setChoice,
   };
 };

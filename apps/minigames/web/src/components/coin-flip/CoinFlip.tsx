@@ -1,4 +1,4 @@
-'use client';
+ 'use client';
 import React from 'react';
 import { Button } from '@mingo/components';
 import { SelectAmount } from '@mingo/components';
@@ -19,7 +19,6 @@ const CoinFlip = (): React.ReactElement => {
     selectedAmount,
     setSelectedAmount,
     gameStarted,
-    choice,
     coinResult,
     result,
     coinHistory,
@@ -31,25 +30,41 @@ const CoinFlip = (): React.ReactElement => {
     multiplierHistory,
     winStreak,
     balance,
+    choice,
+    setChoice,
   } = useCoinFlip();
 
-  const handleBet = totalWinnings > 0 ? handleRetire : handleStart;
-  const canRetire = winStreak > 0;
-  const isFlipping = flipping;
-  const isNoAmount = !selectedAmount;
-  const isLost = result === CoinResultEnum.LOSE;
-  const isWaitingToRetire = gameStarted && winStreak === 0;
-  const isBalanceInsufficient =
-    !canRetire && (balance <= 0 || balance < selectedAmount);
 
-  const buttonBetDisabled =
-    isFlipping ||
-    isNoAmount ||
-    isLost ||
-    isWaitingToRetire ||
-    isBalanceInsufficient;
+  const handleBet = () => {
+    if (totalWinnings > 0) {
+      handleRetire();
+    } else if (choice !== null && selectedAmount) {
+      handleStart();
+      handleFlip(choice);
+    }
+  }
+
+  const handleChoice = (opt: typeof choice) => {
+    setChoice(opt);
+    if (result === CoinResultEnum.WIN) {
+      handleFlip(opt);
+    }
+  }
+
+  const canRetire = totalWinnings > 0;
+  const isFlipping = flipping;
+  const isAmountMissing = !selectedAmount;
+  const isLost = result === CoinResultEnum.LOSE;
+  const isBalanceInsufficient =
+    balance <= 0 || (selectedAmount !== null && balance < selectedAmount);
+
+
+  const buttonBetDisabled = canRetire
+    ? isFlipping || winStreak <= 0 || isLost
+    : isFlipping || isAmountMissing || choice === null || isBalanceInsufficient;
+
   const coinOptionsDisabled =
-    isFlipping || !gameStarted || isLost;
+    isFlipping || isLost || isAmountMissing;
 
   const buttonBetLabel = canRetire
     ? `Retirar  ${totalWinnings.toFixed(2)} ves`
@@ -81,7 +96,7 @@ const CoinFlip = (): React.ReactElement => {
 
             <CoinOptions
               choice={choice}
-              onClick={handleFlip}
+              onClick={handleChoice}
               disabled={coinOptionsDisabled}
             />
 
