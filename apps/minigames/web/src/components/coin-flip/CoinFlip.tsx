@@ -2,16 +2,16 @@
 import React, { useState } from 'react';
 import { Button } from '@mingo/components';
 import { SelectAmount } from '@mingo/components';
-import MultiplierHistory from '@/components/coin-flip/multiplier-history';
+import MultiplierHistory from '@/components/common/multiplier-history';
 import CoinFlipping from '@/components/coin-flip/coin-flipping';
 import CoinHistory from '@/components/coin-flip/coin-history';
 import MultiplierLabel from '@/components/coin-flip/multiplier-label';
 import CoinOptions from '@/components/coin-flip/coin-options';
 import GameWrapper from '@/components/common/game-wrapper';
+import ModalGameWin from '@/components/common/modals/game-win';
 import { useCoinFlip, useGames } from '@/hooks';
 import { CoinResultEnum } from '@/types/coin-flip';
-import TopGames from './top-games';
-import GameWin from './game-win';
+import TopGames from '../common/top-games';
 
 const CoinFlip = (): React.ReactElement => {
   const [showWinModal, setShowWinModal] = useState<boolean>(false);
@@ -76,14 +76,9 @@ const CoinFlip = (): React.ReactElement => {
     <section className="coin-flip w-full relative p-4 mb-[100px]">
       <div className="flex flex-col gap-6 relative w-full">
         <GameWrapper>
-          <GameWin
-            amount={winAmount}
-            multiplier={multiplier}
-            open={showWinModal}
-          />
-          <MultiplierHistory history={multiplierHistory} />
+          <MultiplierHistory multiplierHistory={multiplierHistory} />
           <div className="py-6 w-full flex flex-col gap-6 items-center">
-            <div className="flex w-full justify-center items-center h-full relative">
+            <div className="flex w-full justify-center items-center h-full relative min-h-[230px]">
               <span className="flex-1" />
               <CoinFlipping flipping={flipping} coinResult={coinResult} />
               <MultiplierLabel
@@ -118,6 +113,12 @@ const CoinFlip = (): React.ReactElement => {
               {buttonBetLabel}
             </Button>
           </div>
+
+          <ModalGameWin
+            amount={winAmount}
+            multiplier={multiplier}
+            open={showWinModal}
+          />
         </GameWrapper>
         <TopGames games={games} />
       </div>

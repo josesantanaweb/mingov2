@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { cn } from '@/utils/cn';
+import { cn } from '../../utils/cn';
 
 interface AmountButtonProps {
   amount: number;
@@ -18,12 +18,12 @@ const AmountButton = ({
   disabled = false,
 }: AmountButtonProps): React.ReactElement => {
   const baseClass = cn(
-    'flex items-center justify-center rounded-lg h-[45px] text-base-300 cursor-pointer transition-all font-medium text-white text-sm',
+    'flex items-center justify-center rounded-lg h-[45px] cursor-pointer transition-all font-medium text-sm',
     disabled && 'opacity-50 cursor-not-allowed',
   );
   const variantClass =
     variant === 'modal' ? 'bg-base-700' : 'bg-base-800 hover:bg-base-700';
-  const selectedClass = isSelected ? 'bg-base-600' : '';
+  const selectedClass = isSelected ? 'bg-base-600 text-white' : 'text-base-100';
 
   const buttonClass = cn(baseClass, variantClass, selectedClass);
 

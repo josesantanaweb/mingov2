@@ -1,13 +1,13 @@
 'use client';
 import React from 'react';
-import AmountInput from '../amount-input';
+import NumberInput from '../number-input';
 import AmountButton from '../amount-button';
 
 interface SelectAmountProps {
   amount: number;
   setAmount: (amount: number) => void;
   disabled?: boolean;
-  maxValue?: number;
+  maxValue: number;
 }
 
 const SelectAmount = ({
@@ -22,7 +22,7 @@ const SelectAmount = ({
 
   return (
     <div className="flex flex-col gap-3">
-      <AmountInput
+      <NumberInput
         value={amount || 0}
         onChange={setAmount}
         maxValue={maxValue}
