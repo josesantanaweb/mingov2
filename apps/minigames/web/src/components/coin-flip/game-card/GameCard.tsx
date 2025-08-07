@@ -19,7 +19,7 @@ const GameCard = ({ game }: GameCardProps): React.ReactElement => {
       style={gradient}
       className="rounded-xl h-[190px] py-4 flex-shrink-0 w-[140px] flex items-center justify-center flex-col gap-6"
     >
-      <div className="flex flex-col gap-2 justify-center items-center flex-1">
+      <div className="flex flex-col gap-3 justify-center items-center flex-1">
         <div className="relative w-[120px] h-[72px]">
           <Image
             src={logo}

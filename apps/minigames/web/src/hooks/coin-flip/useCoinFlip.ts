@@ -34,7 +34,7 @@ export const useCoinFlip = () => {
   const [gameStarted, setGameStarted] = useState<boolean>(false);
   const [choice, setChoice] = useState<CoinTypeEnum | null>(null);
   const [result, setResult] = useState<CoinResultEnum | null>(null);
-  const [coinResult, setCoinResult] = useState<CoinTypeEnum>(CoinTypeEnum.GOLD);
+  const [coinResult, setCoinResult] = useState<CoinTypeEnum>(CoinTypeEnum.HEADS);
   const [totalWinnings, setTotalWinnings] = useState<number>(0);
   const [winAmount, setWinAmount] = useState<number>(0);
   const [coinHistory, setCoinHistory] = useState<CoinTypeEnum[]>([]);
@@ -53,7 +53,7 @@ export const useCoinFlip = () => {
     setResult(null);
     setChoice(null);
     setCoinHistory([]);
-    setCoinResult(CoinTypeEnum.GOLD);
+    setCoinResult(CoinTypeEnum.HEADS);
     setTotalWinnings(selectedAmount);
     setWinAmount(selectedAmount);
   };
@@ -118,7 +118,7 @@ export const useCoinFlip = () => {
     setChoice(null);
     setTotalWinnings(0);
     setCoinHistory([]);
-    setCoinResult(CoinTypeEnum.GOLD);
+    setCoinResult(CoinTypeEnum.HEADS);
     setWinStreak(0);
   };
 

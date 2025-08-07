@@ -8,7 +8,19 @@
     },
     {
       "id": "2",
-      "name": "Cara o Cruz",
+      "name": "Limbo",
+      "logo": "/images/mini-games/limbo/logo.png",
+      "colors": { "from": "#A40326", "to": "#FF2353" }
+    },
+    {
+      "id": "3",
+      "name": "Cara o Sello",
+      "logo": "/images/mini-games/coin-flip/logo.png",
+      "colors": { "from": "#5E0616", "to": "#D80027" }
+    },
+    {
+      "id": "2",
+      "name": "Cara o Sello",
       "logo": "/images/mini-games/coin-flip/logo.png",
       "colors": { "from": "#5E0616", "to": "#D80027" }
     },

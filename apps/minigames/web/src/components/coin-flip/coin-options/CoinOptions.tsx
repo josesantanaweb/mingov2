@@ -22,8 +22,8 @@ const CoinOptions = ({
   onClick,
 }: CoinOptionsProps): React.ReactElement => {
   const options: IOption[] = [
-    { label: 'cara', value: CoinTypeEnum.GOLD },
-    { label: 'cruz', value: CoinTypeEnum.SILVER },
+    { label: 'cara', value: CoinTypeEnum.HEADS },
+    { label: 'sello', value: CoinTypeEnum.TAILS },
   ];
 
   const getVariant = (value: CoinTypeEnum) =>

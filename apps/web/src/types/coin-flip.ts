@@ -1,6 +1,6 @@
 export enum CoinTypeEnum {
-  GOLD = 'GOLD',
-  SILVER = 'SILVER',
+  HEADS = 'HEADS',
+  TAILS = 'TAILS',
 }
 
 export enum CoinResultEnum {
