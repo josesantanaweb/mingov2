@@ -2,7 +2,7 @@
 import AuthForm from '@/components/common/auth-form';
 import { registerSchema } from '@/validations/auth';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/hooks';
 
 interface RegisterInput {
   email: string;

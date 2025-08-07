@@ -1,6 +1,11 @@
 import { useMutation, useLazyQuery } from '@apollo/client';
 import { useState, useEffect, useCallback } from 'react';
-import { LOGIN, REGISTER, REFRESH_TOKEN, LOGOUT } from '@/api/graphql/mutations/auth';
+import {
+  LOGIN,
+  REGISTER,
+  REFRESH_TOKEN,
+  LOGOUT,
+} from '@/api/graphql/mutations/auth';
 import { tokenStorage } from '@/utils/tokenStorage';
 import { jwtDecode } from 'jwt-decode';
 
@@ -37,6 +42,7 @@ export const useAuth = () => {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const checkAuthStatus = useCallback(() => {
     const token = tokenStorage.getAccessToken();
@@ -45,6 +51,7 @@ export const useAuth = () => {
     if (!token || !refreshToken) {
       setIsAuthenticated(false);
       setCurrentUser(null);
+      setIsLoading(false);
       return;
     }
 
@@ -57,6 +64,7 @@ export const useAuth = () => {
         tokenStorage.removeTokens();
         setIsAuthenticated(false);
         setCurrentUser(null);
+        setIsLoading(false);
         return;
       }
 
@@ -68,10 +76,12 @@ export const useAuth = () => {
         name: decoded.name,
         image: decoded.image,
       });
+      setIsLoading(false);
     } catch {
       tokenStorage.removeTokens();
       setIsAuthenticated(false);
       setCurrentUser(null);
+      setIsLoading(false);
     }
   }, []);
 
@@ -99,7 +109,7 @@ export const useAuth = () => {
 
   const login = async (input: LoginInput): Promise<AuthResponse> => {
     const { data } = await loginMutation({
-      variables: { input }
+      variables: { input },
     });
 
     const authData = data.login;
@@ -112,7 +122,7 @@ export const useAuth = () => {
 
   const register = async (input: RegisterInput): Promise<AuthResponse> => {
     const { data } = await registerMutation({
-      variables: { input }
+      variables: { input },
     });
 
     const authData = data.register;
@@ -126,7 +136,7 @@ export const useAuth = () => {
   const logout = async (userId: string): Promise<void> => {
     try {
       await logoutMutation({
-        variables: { id: userId }
+        variables: { id: userId },
       });
 
       tokenStorage.removeTokens();
@@ -150,8 +160,8 @@ export const useAuth = () => {
       const { data } = await refreshTokenQuery({
         variables: {
           id: decoded.id,
-          refreshToken
-        }
+          refreshToken,
+        },
       });
 
       const authData = data.refreshToken;
@@ -185,5 +195,6 @@ export const useAuth = () => {
     isAuthenticated,
     getCurrentUser,
     testRefreshToken,
+    isLoading,
   };
 };

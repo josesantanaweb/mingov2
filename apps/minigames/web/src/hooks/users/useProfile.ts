@@ -1,5 +1,5 @@
 import { useProfileQuery } from '@/__generated__/graphql';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/hooks/auth/useAuth';
 
 export const useProfile = () => {
   const { isAuthenticated } = useAuth();

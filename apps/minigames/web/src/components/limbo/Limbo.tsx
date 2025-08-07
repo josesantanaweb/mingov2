@@ -2,21 +2,22 @@
 import { useState, useEffect } from 'react';
 import { motion, useMotionValue, animate } from 'framer-motion';
 import { Button, SelectAmount, NumberInput } from '@mingo/components';
+
 import GameWrapper from '@/components/common/game-wrapper';
 import TopGames from '@/components/common/top-games';
 import ModalGameWin from '@/components/common/modals/game-win';
-import MultiplierHistory, { type IMultiplierHistory }  from '@/components/common/multiplier-history';
-import { useGames } from '@/hooks';
-import { useAuth } from '@/hooks/useAuth';
-import { useProfile } from '@/hooks/users/useProfile';
-import { useUpdateUser } from '@/hooks/users/useUpdate';
+import MultiplierHistory, {
+  type IMultiplierHistory,
+} from '@/components/common/multiplier-history';
 
-const DEFAULT_MULTIPLIER = 2.0;
-const MIN_MULTIPLIER = 1.01;
-const MAX_MULTIPLIER = 9.0;
-const DEFAULT_WIN_CHANCE = 48.5;
-const MAX_WIN_CHANCE = 96.04;
-
+import { useGames, useAuth, useProfile, useUpdateUser } from '@/hooks';
+import {
+  DEFAULT_MULTIPLIER,
+  MIN_MULTIPLIER,
+  MAX_MULTIPLIER,
+  DEFAULT_WIN_CHANCE,
+  MAX_WIN_CHANCE,
+} from '@/constants/config';
 
 const Limbo = (): React.ReactElement => {
   const [showWinModal, setShowWinModal] = useState<boolean>(false);
@@ -30,9 +31,9 @@ const Limbo = (): React.ReactElement => {
   const [result, setResult] = useState<'WIN' | 'LOSE' | null>(null);
   const [winAmount, setWinAmount] = useState<number>(0);
   const [totalWinnings, setTotalWinnings] = useState<number>(0);
-  const [multiplierHistory, setMultiplierHistory] = useState<IMultiplierHistory[]>(
-    [],
-  );
+  const [multiplierHistory, setMultiplierHistory] = useState<
+    IMultiplierHistory[]
+  >([]);
 
   const animatedValue = useMotionValue(multiplier);
   const { data: games } = useGames();

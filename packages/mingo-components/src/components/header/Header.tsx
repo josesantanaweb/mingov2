@@ -4,6 +4,7 @@ import Avatar from '../avatar';
 import Deposit from '../deposit';
 import Logo from '../logo';
 import Button from '../button';
+import Skeleton from './Skeleton';
 
 interface HeaderProps {
   profile: {
@@ -11,6 +12,7 @@ interface HeaderProps {
     image: string;
     hasSession: boolean;
     isLoading: boolean;
+    isAuthenticating?: boolean;
   };
   actions: {
     onLogin: () => void;
@@ -26,15 +28,19 @@ const Header = ({ profile, actions }: HeaderProps): React.ReactElement => {
   return (
     <div className="flex px-4 items-center w-full bg-base-900 h-[70px] border-b border-base-700 justify-between sticky top-0 z-50">
       <Logo />
-      {hasSession && (
+
+      {isLoading && <Skeleton />}
+
+      {!isLoading && hasSession && (
         <div className="flex gap-2">
-          <Deposit balance={balance} isLoading={isLoading && hasSession} />
+          <Deposit balance={balance} />
           <div className="cursor-pointer" onClick={onLogout}>
-            <Avatar src={image} size={35} isLoading={isLoading && hasSession} />
+            <Avatar src={image} size={35} />
           </div>
         </div>
       )}
-      {!hasSession && (
+
+      {!isLoading && !hasSession && (
         <div className="flex gap-6">
           <button
             className="text-xs text-white uppercase font-medium"

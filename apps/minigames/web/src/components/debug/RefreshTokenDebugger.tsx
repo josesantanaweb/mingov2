@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import { tokenStorage } from '@/utils/tokenStorage';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/hooks/auth/useAuth';
 import ForceRefreshButton from './ForceRefreshButton';
 import ManualRefreshButton from './ManualRefreshButton';
 import RefreshStatusIndicator from './RefreshStatusIndicator';

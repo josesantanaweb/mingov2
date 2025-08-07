@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { useAuth } from '@/hooks/useAuth';
-import { useProfile } from '@/hooks/users/useProfile';
+import { useAuth, useProfile, useUpdateUser } from '@/hooks';
+
 import { CoinTypeEnum, CoinResultEnum } from '@/types/coin-flip';
+
 import { getCoinOutcome, getMultiplier } from '@/utils/coin-flip';
 import { playSound } from '@/utils/play-sound';
-import { useUpdateUser } from '@/hooks/users/useUpdate';
+
 import type { IMultiplierHistory } from '@/components/common/multiplier-history';
 
-const BASE_MULTIPLIER = 1.2;
-const BONUS_PER_WIN = 0.15;
+import { BASE_MULTIPLIER, BONUS_PER_WIN } from '@/constants';
 
 export const useCoinFlip = () => {
   const { getCurrentUser } = useAuth();

@@ -5,21 +5,9 @@ import ButtonIcon from '../button-icon';
 
 interface DepositProps {
   balance: number;
-  isLoading?: boolean;
 }
 
-const Deposit = ({ balance, isLoading }: DepositProps): ReactElement => {
-  if (isLoading) {
-    return (
-      <div className="rounded-lg border-2 w-[200px] h-[40px] border-base-500 flex items-center justify-between p-1 animate-pulse">
-        <div className="flex items-center gap-2">
-          <span className="w-7 h-7 bg-base-500 rounded-full" />
-          <div className="w-16 h-4 bg-base-500 rounded" />
-        </div>
-      </div>
-    );
-  }
-
+const Deposit = ({ balance }: DepositProps): ReactElement => {
   return (
     <div className="rounded-lg border w-[180px] h-[px] border-base-500 flex items-center justify-between p-0.5">
       <div className="flex items-center gap-2">

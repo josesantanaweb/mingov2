@@ -2,16 +2,20 @@
 import React, { useState } from 'react';
 import { Button } from '@mingo/components';
 import { SelectAmount } from '@mingo/components';
-import MultiplierHistory from '@/components/common/multiplier-history';
+
 import CoinFlipping from '@/components/coin-flip/coin-flipping';
 import CoinHistory from '@/components/coin-flip/coin-history';
 import MultiplierLabel from '@/components/coin-flip/multiplier-label';
 import CoinOptions from '@/components/coin-flip/coin-options';
+
+import MultiplierHistory from '@/components/common/multiplier-history';
 import GameWrapper from '@/components/common/game-wrapper';
 import ModalGameWin from '@/components/common/modals/game-win';
+import TopGames from '@/components/common/top-games';
+
 import { useCoinFlip, useGames } from '@/hooks';
 import { CoinResultEnum } from '@/types/coin-flip';
-import TopGames from '../common/top-games';
+import { MODAL_WIN_TIMEOUT } from '@/constants';
 
 const CoinFlip = (): React.ReactElement => {
   const [showWinModal, setShowWinModal] = useState<boolean>(false);
@@ -41,7 +45,7 @@ const CoinFlip = (): React.ReactElement => {
     if (totalWinnings > 0) {
       setShowWinModal(true);
       handleRetire();
-      setTimeout(() => setShowWinModal(false), 2000);
+      setTimeout(() => setShowWinModal(false), MODAL_WIN_TIMEOUT);
     } else if (choice !== null && selectedAmount) {
       handleStart();
       handleFlip(choice);
