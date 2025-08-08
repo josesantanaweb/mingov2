@@ -1,4 +1,4 @@
-import { CoinTypeEnum } from '@/types/coin-flip';
+import { CoinTypeEnum } from '@/types/common';
 
 export const coinAssets = {
   [CoinTypeEnum.HEADS]: {

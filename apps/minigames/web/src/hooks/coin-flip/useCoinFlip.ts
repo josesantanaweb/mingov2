@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAuth, useProfile, useUpdateUser } from '@/hooks';
 
-import { CoinTypeEnum, CoinResultEnum } from '@/types/coin-flip';
+import { CoinTypeEnum, ResultEnum } from '@/types/common';
 
 import { getCoinOutcome, getMultiplier } from '@/utils/coin-flip';
 import { playSound } from '@/utils/play-sound';
@@ -33,7 +33,7 @@ export const useCoinFlip = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [gameStarted, setGameStarted] = useState<boolean>(false);
   const [choice, setChoice] = useState<CoinTypeEnum | null>(null);
-  const [result, setResult] = useState<CoinResultEnum | null>(null);
+  const [result, setResult] = useState<ResultEnum | null>(null);
   const [coinResult, setCoinResult] = useState<CoinTypeEnum>(CoinTypeEnum.HEADS);
   const [totalWinnings, setTotalWinnings] = useState<number>(0);
   const [winAmount, setWinAmount] = useState<number>(0);
@@ -78,7 +78,7 @@ export const useCoinFlip = () => {
       setCoinResult(outcome);
       setCoinHistory(prev => [...prev, outcome]);
       setFlipping(false);
-      setResult(didWin ? CoinResultEnum.WIN : CoinResultEnum.LOSE);
+      setResult(didWin ? ResultEnum.WIN : ResultEnum.LOSE);
 
       if (didWin) {
         setWinStreak(prev => prev + 1);
@@ -89,7 +89,7 @@ export const useCoinFlip = () => {
         setTimeout(() => {
           setMultiplierHistory(prev => [
             ...prev,
-            { value: currentMultiplier, result: CoinResultEnum.LOSE },
+            { value: currentMultiplier, result: ResultEnum.LOSE },
           ]);
           setTotalWinnings(0);
           setWinAmount(0);
@@ -104,7 +104,7 @@ export const useCoinFlip = () => {
     playSound('/sounds/coin-flip/win.mp3');
     setMultiplierHistory(prev => [
       ...prev,
-      { value: multiplier, result: CoinResultEnum.WIN },
+      { value: multiplier, result: ResultEnum.WIN },
     ]);
     setWinStreak(0);
     updateBalance(totalWinnings);

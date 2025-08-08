@@ -6,11 +6,11 @@ import {
   useTransform,
   animate,
 } from 'framer-motion';
-import { CoinResultEnum } from '@/types/coin-flip';
+import { ResultEnum } from '@/types/common';
 import { playSound } from '@/utils/play-sound';
 
 interface MultiplierLabelProps {
-  result: CoinResultEnum | null;
+  result: ResultEnum | null;
   selectedAmount: number | null;
   multiplier: number;
 }
@@ -35,7 +35,7 @@ const MultiplierLabel = ({
     let from = 0;
     let to = multiplier;
 
-    if (result === CoinResultEnum.LOSE) {
+    if (result === ResultEnum.LOSE) {
       from = multiplier;
       to = 0;
     }
@@ -46,19 +46,19 @@ const MultiplierLabel = ({
       ease: 'easeOut',
     });
 
-    if (result === CoinResultEnum.WIN) {
+    if (result === ResultEnum.WIN) {
       playSound('/sounds/coin-flip/multiplier-win.mp3');
     }
-    if (result === CoinResultEnum.LOSE) {
+    if (result === ResultEnum.LOSE) {
       playSound('/sounds/coin-flip/multiplier-lose.mp3');
     }
   }, [multiplier, result, selectedAmount]);
 
   const getMultiplierColor = (): string => {
     switch (result) {
-      case CoinResultEnum.WIN:
+      case ResultEnum.WIN:
         return 'text-green-500';
-      case CoinResultEnum.LOSE:
+      case ResultEnum.LOSE:
         return 'text-red-500';
       default:
         return 'text-base-300';

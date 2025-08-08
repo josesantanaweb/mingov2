@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Button } from '@mingo/components';
-import { CoinTypeEnum } from '@/types/coin-flip';
+import { CoinTypeEnum } from '@/types/common';
 import { getCoinImage, getCoinName } from '@/utils/coin-flip';
 
 interface IOption {

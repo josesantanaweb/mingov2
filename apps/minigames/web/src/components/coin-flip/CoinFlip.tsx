@@ -14,7 +14,7 @@ import ModalGameWin from '@/components/common/modals/game-win';
 import TopGames from '@/components/common/top-games';
 
 import { useCoinFlip, useGames } from '@/hooks';
-import { CoinResultEnum } from '@/types/coin-flip';
+import { ResultEnum } from '@/types/common';
 import { MODAL_WIN_TIMEOUT } from '@/constants';
 
 const CoinFlip = (): React.ReactElement => {
@@ -54,7 +54,7 @@ const CoinFlip = (): React.ReactElement => {
 
   const handleChoice = (opt: typeof choice) => {
     setChoice(opt);
-    if (result === CoinResultEnum.WIN) {
+    if (result === ResultEnum.WIN) {
       handleFlip(opt);
     }
   };
@@ -62,7 +62,7 @@ const CoinFlip = (): React.ReactElement => {
   const canRetire = totalWinnings > 0;
   const isFlipping = flipping;
   const isAmountMissing = !selectedAmount;
-  const isLost = result === CoinResultEnum.LOSE;
+  const isLost = result === ResultEnum.LOSE;
   const isBalanceInsufficient =
     balance <= 0 || (selectedAmount !== null && balance < selectedAmount);
 

@@ -21,16 +21,16 @@ export function createActionButtons(
     },
     {
       key: 'half',
-      className: maxButtonClass(disabled || !maxValue),
+      className: maxButtonClass(disabled || parseFloat(inputValue) <= 0),
       onClick: handleHalf,
-      disabled: disabled || !maxValue,
+      disabled: disabled || parseFloat(inputValue) <= 0,
       label: '1/2',
     },
     {
       key: 'double',
-      className: maxButtonClass(disabled || !maxValue),
+      className: maxButtonClass(disabled || parseFloat(inputValue) <= 0),
       onClick: handleDouble,
-      disabled: disabled || !maxValue,
+      disabled: disabled || parseFloat(inputValue) <= 0,
       label: 'x2',
     },
     {
