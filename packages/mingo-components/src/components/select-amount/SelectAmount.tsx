@@ -29,6 +29,7 @@ const SelectAmount = ({
         placeholder="0"
         variant="modal"
         disabled={disabled}
+        actionsType="min-half-2x"
       />
       <div className="grid grid-cols-4 items-center gap-3">
         {predefinedAmounts.map(predefinedAmount => (

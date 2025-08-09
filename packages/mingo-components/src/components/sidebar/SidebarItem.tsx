@@ -14,16 +14,22 @@ interface SidebarItemProps {
   item: Item;
   isOpen: boolean;
   toggleMenu: (label: string) => void;
+  onClose?: () => void;
 }
 
 const SidebarItem = ({
   item,
   isOpen,
   toggleMenu,
+  onClose,
 }: SidebarItemProps): React.ReactElement => {
   const { label, icon, submenu, path } = item;
 
   const handleMenu = () => toggleMenu(item.label);
+
+  const handleLink = () => {
+    if (onClose) onClose();
+  };
 
   const content = (
     <>
@@ -42,12 +48,18 @@ const SidebarItem = ({
           {content}
         </div>
       ) : (
-        <Link href={path} className="flex items-center justify-between">
+        <Link
+          href={path}
+          className="flex items-center justify-between"
+          onClick={handleLink}
+        >
           {content}
         </Link>
       )}
 
-      {submenu && <SidebarMenu submenu={submenu} isOpen={isOpen} />}
+      {submenu && (
+        <SidebarMenu submenu={submenu} isOpen={isOpen} onClick={onClose} />
+      )}
     </div>
   );
 };

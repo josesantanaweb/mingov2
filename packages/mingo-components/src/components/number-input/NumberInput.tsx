@@ -5,15 +5,17 @@ import { createActionButtons } from '../amount-button/actions';
 
 export const MIN_BET_AMOUNT = 1;
 
+type ActionType = 'none' | 'plus-minus' | 'min-half-2x';
+
 interface NumberInputProps {
   value: number;
   onChange?: (value: number) => void;
   placeholder?: string;
   maxValue: number;
   disabled?: boolean;
-  showPlusMinus?: boolean;
   className?: string;
   variant?: 'modal' | 'default';
+  actionsType?: ActionType;
 }
 
 const NumberInput = ({
@@ -22,7 +24,7 @@ const NumberInput = ({
   placeholder = '0',
   maxValue,
   disabled = false,
-  showPlusMinus = false,
+  actionsType = 'none',
   className,
   variant = 'default',
 }: NumberInputProps): React.ReactElement => {
@@ -94,7 +96,7 @@ const NumberInput = ({
 
   const defaultButtonClass = cn(
     'text-sm px-4 text-base-100 font-medium h-[42px] rounded-lg cursor-pointer transition-colors flex items-center justify-center',
-    showPlusMinus ? 'w-[42px]' : 'w-auto',
+    actionsType === 'plus-minus' ? 'w-[42px]' : 'w-auto',
   );
 
   const maxButtonClass = (isDisabled: boolean) =>
@@ -113,40 +115,43 @@ const NumberInput = ({
         min="0"
         step="0.01"
       />
-      <div className="flex items-center gap-1 absolute right-[4px] top-[4px]">
-        {(() => {
-          const keysToShow = showPlusMinus
-            ? ['minus', 'plus']
-            : ['min', 'half', 'double'];
-          return createActionButtons(
-            disabled,
-            maxValue,
-            maxButtonClass,
-            inputValue,
-            handleMin,
-            handleHalf,
-            handleDouble,
-            handleMinus,
-            handlePlus,
-          )
-            .filter(btn => keysToShow.includes(btn.key))
-            .map(button => (
-              <button
-                key={button.key}
-                className={button.className}
-                onClick={button.onClick}
-                disabled={button.disabled}
-                title={button.label}
-              >
-                {button.icon ? (
-                  <span className={`icon-${button.icon}`}></span>
-                ) : (
-                  button.label
-                )}
-              </button>
-            ));
-        })()}
-      </div>
+      {actionsType !== 'none' && (
+        <div className="flex items-center gap-1 absolute right-[4px] top-[4px]">
+          {(() => {
+            const keysToShow =
+              actionsType === 'plus-minus'
+                ? ['minus', 'plus']
+                : ['min', 'half', 'double'];
+            return createActionButtons(
+              disabled,
+              maxValue,
+              maxButtonClass,
+              inputValue,
+              handleMin,
+              handleHalf,
+              handleDouble,
+              handleMinus,
+              handlePlus,
+            )
+              .filter(btn => keysToShow.includes(btn.key))
+              .map(button => (
+                <button
+                  key={button.key}
+                  className={button.className}
+                  onClick={button.onClick}
+                  disabled={button.disabled}
+                  title={button.label}
+                >
+                  {button.icon ? (
+                    <span className={`icon-${button.icon}`}></span>
+                  ) : (
+                    button.label
+                  )}
+                </button>
+              ));
+          })()}
+        </div>
+      )}
     </div>
   );
 };

@@ -3,6 +3,7 @@ import AuthForm from '@/components/common/auth-form';
 import { loginSchema } from '@/validations/auth';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks';
+import { ROUTES } from '@/constants';
 
 interface LoginInput {
   email: string;
@@ -16,11 +17,11 @@ const Login = () => {
   const handleLogin = async (data: LoginInput) => {
     const { email, password } = data;
     await login({ email, password });
-    router.push('/coin-flip');
+    router.push(ROUTES.MINI_GAMES.COIN_FLIP);
   };
 
   const handleNavigate = () => {
-    router.push('/register');
+    router.push(ROUTES.REGISTER);
   };
 
   return (

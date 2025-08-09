@@ -185,7 +185,7 @@ const Limbo = (): React.ReactElement => {
               maxValue={MAX_MULTIPLIER}
               placeholder="0.00"
               variant="modal"
-              showPlusMinus={true}
+              actionsType="plus-minus"
             />
 
             <NumberInput
@@ -194,7 +194,8 @@ const Limbo = (): React.ReactElement => {
               maxValue={MAX_WIN_CHANCE}
               placeholder="0.00"
               variant="modal"
-              showPlusMinus={true}
+              actionsType="none"
+              disabled
             />
 
             <Button

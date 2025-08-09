@@ -10,7 +10,11 @@ interface SidebarProps {
   menu?: Item[];
 }
 
-const Sidebar = ({ isOpen, setIsOpen, menu = [] }: SidebarProps): React.ReactElement => {
+const Sidebar = ({
+  isOpen,
+  setIsOpen,
+  menu = [],
+}: SidebarProps): React.ReactElement => {
   const [openDropdowns, setOpenDropdowns] = useState<Set<string>>(new Set());
 
   const toggleMenu = (label: string) => {
@@ -73,6 +77,7 @@ const Sidebar = ({ isOpen, setIsOpen, menu = [] }: SidebarProps): React.ReactEle
                   item={item}
                   toggleMenu={toggleMenu}
                   isOpen={openDropdowns.has(item.label)}
+                  onClose={handleClose}
                 />
               ))}
             </div>
