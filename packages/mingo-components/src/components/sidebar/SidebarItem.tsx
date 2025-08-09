@@ -1,11 +1,13 @@
 'use client';
 import React from 'react';
+import Link from 'next/link';
 import SidebarMenu from './SidebarMenu';
 
 interface Item {
   label: string;
   icon: string;
-  submenu?: { label: string; icon: string }[];
+  path: string;
+  submenu?: { label: string; icon: string; path: string }[];
 }
 
 interface SidebarItemProps {
@@ -14,27 +16,38 @@ interface SidebarItemProps {
   toggleMenu: (label: string) => void;
 }
 
-const SidebarItem = ({ item, isOpen, toggleMenu }: SidebarItemProps): React.ReactElement => {
-  const { label, icon, submenu } = item;
+const SidebarItem = ({
+  item,
+  isOpen,
+  toggleMenu,
+}: SidebarItemProps): React.ReactElement => {
+  const { label, icon, submenu, path } = item;
 
-  const handleMenu = () => toggleMenu(item.label)
+  const handleMenu = () => toggleMenu(item.label);
+
+  const content = (
+    <>
+      <div className="flex items-center gap-2">
+        <span className={`icon-${icon} text-xl`} />
+        <p className="text-base font-semibold">{label}</p>
+      </div>
+      {submenu && <span className={`icon-chevron-down text-xl`} />}
+    </>
+  );
 
   return (
     <div className="flex flex-col py-3 px-2 rounded-lg text-base-300 w-full cursor-pointer transition-all">
-      <div className="flex items-center justify-between" onClick={handleMenu}>
-        <div className="flex items-center gap-2">
-          <span className={`icon-${icon} text-xl`} />
-          <p className="text-base font-semibold">{label}</p>
+      {submenu ? (
+        <div className="flex items-center justify-between" onClick={handleMenu}>
+          {content}
         </div>
-        {submenu && <span className={`icon-chevron-down text-xl`} />}
-      </div>
-
-      {submenu && (
-        <SidebarMenu
-          submenu={submenu}
-          isOpen={isOpen}
-        />
+      ) : (
+        <Link href={path} className="flex items-center justify-between">
+          {content}
+        </Link>
       )}
+
+      {submenu && <SidebarMenu submenu={submenu} isOpen={isOpen} />}
     </div>
   );
 };

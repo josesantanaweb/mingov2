@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SidebarItem from './SidebarItem';
-import { Item } from '../../types/shared';
+import { Item } from '../../types';
 
 interface SidebarProps {
   isOpen: boolean;

@@ -1,16 +1,14 @@
 'use client';
 import React from 'react';
 import clsx from 'clsx';
+import Link from 'next/link';
 
 interface SidebarMenuProps {
-  submenu: { label: string; icon: string }[];
+  submenu: { label: string; icon: string; path: string }[];
   isOpen: boolean;
 }
 
-const SidebarMenu: React.FC<SidebarMenuProps> = ({
-  submenu,
-  isOpen,
-}) => {
+const SidebarMenu: React.FC<SidebarMenuProps> = ({ submenu, isOpen }) => {
   return (
     <ul
       className={clsx(
@@ -19,7 +17,8 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({
       )}
     >
       {submenu.map(subitem => (
-        <li
+        <Link
+          href={subitem.path}
           key={subitem.label}
           data-tooltip-id={`tooltip-${subitem.label}`}
           data-tooltip-content={subitem.label}
@@ -27,9 +26,9 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({
             'flex items-center gap-3 text-base-300 hover:text-white p-3 cursor-pointer rounded-lg w-full',
           )}
         >
-          {/* <span className={`icon-${subitem.icon}`}></span> */}
+          <span className={`icon-${subitem.icon}`}></span>
           <span className="font-medium text-base">{subitem.label}</span>
-        </li>
+        </Link>
       ))}
     </ul>
   );

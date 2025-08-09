@@ -40,7 +40,7 @@ const FooterItem = ({
         className="flex h-full flex-col items-center justify-center text-white relative"
       >
         <div className="bg-primary-600 w-12 h-12 rounded-xl relative rotate-45 -top-4 flex items-center justify-center">
-          <span className={`icon-${icon} text-2xl`} />
+          <span className={`icon-${icon} text-xl -rotate-45 mr-1`} />
         </div>
       </Link>
     );

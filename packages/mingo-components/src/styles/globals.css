@@ -134,8 +134,7 @@ input[type='number'] {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-icon-calculator:before { content: '\e800'; } /* '' */
+.icon-calculator:before { content: '\e800'; } /* '' */
 .icon-bets:before { content: '\e801'; } /* '' */
 .icon-sort-alt:before { content: '\e802'; } /* '' */
 .icon-pie-chart:before { content: '\e803'; } /* '' */
@@ -144,7 +143,6 @@ icon-calculator:before { content: '\e800'; } /* '' */
 .icon-live:before { content: '\e806'; } /* '' */
 .icon-star-line:before { content: '\e807'; } /* '' */
 .icon-chat:before { content: '\e808'; } /* '' */
-.icon-ranking:before { content: '\e809'; } /* '' */
 .icon-user:before { content: '\e80a'; } /* '' */
 .icon-menu:before { content: '\e80b'; } /* '' */
 .icon-star:before { content: '\e80c'; } /* '' */
@@ -174,11 +172,14 @@ icon-calculator:before { content: '\e800'; } /* '' */
 .icon-chevrons-left:before { content: '\e824'; } /* '' */
 .icon-chevron-down:before { content: '\e825'; } /* '' */
 .icon-plus:before { content: '\e826'; } /* '' */
-.icon-info-circle:before { content: '\e827'; } /* '' */
-.icon-volumen:before { content: '\e828'; } /* '' */
+.icon-info-circle.svg:before { content: '\e827'; } /* '' */
+.icon-volumen.svg:before { content: '\e828'; } /* '' */
 .icon-mute:before { content: '\e829'; } /* '' */
 .icon-hide:before { content: '\e82a'; } /* '' */
 .icon-show:before { content: '\e82b'; } /* '' */
 .icon-minus:before { content: '\e82c'; } /* '' */
 .icon-plus:before { content: '\e82d'; } /* '' */
-
+.icon-trophy:before { content: '\e82e'; } /* '' */
+.icon-leaderboard:before { content: '\e82f'; } /* '' */
+.icon-coin-flip:before { content: '\e830'; } /* '' */
+.icon-limbo:before { content: '\e831'; } /* '' */
