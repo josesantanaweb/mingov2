@@ -1,14 +1,18 @@
 /// <reference types="cypress" />
+import { TEST_CONFIG } from './constants';
+import { ROUTES } from '@/constants';
 
+// Comando para login con credenciales específicas
 Cypress.Commands.add('loginWithCredentials', (email: string, password: string) => {
-  cy.visit('/login');
+  cy.visit(ROUTES.LOGIN);
   cy.get('input[placeholder="Correo electrónico"]').type(email);
   cy.get('input[placeholder="Contraseña"]').type(password);
   cy.get('button[type="submit"]').click();
 });
 
+// Comando para login con credenciales por defecto
 Cypress.Commands.add('loginDefault', () => {
-  cy.loginWithCredentials('user@mingo.com', '12345678');
+  cy.loginWithCredentials(TEST_CONFIG.DEFAULT_EMAIL, TEST_CONFIG.DEFAULT_PASSWORD);
 });
 
 Cypress.Commands.add('mockLoginSuccess', () => {

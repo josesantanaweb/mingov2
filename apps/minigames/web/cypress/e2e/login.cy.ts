@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { URLS } from '../support/constants';
+import { ROUTES } from '@/constants';
 describe('Complete Login & Authentication Flow', () => {
   beforeEach(() => {
     // Limpiar localStorage antes de cada test
@@ -8,7 +8,7 @@ describe('Complete Login & Authentication Flow', () => {
 
   describe('Form Validation', () => {
     it('should validate login form correctly', () => {
-      cy.visit(URLS.LOGIN); // Ahora usa baseUrl automáticamente
+      cy.visit(ROUTES.LOGIN); // Ahora usa baseUrl automáticamente
 
       // Verificar que la página se carga correctamente
       cy.contains('Acceder').should('be.visible');
@@ -38,7 +38,7 @@ describe('Complete Login & Authentication Flow', () => {
     });
 
     it('should toggle password visibility', () => {
-      cy.visit('/login');
+      cy.visit(ROUTES.LOGIN);
 
       // Ingresar contraseña
       cy.get('input[placeholder="Contraseña"]').type('mypassword');
@@ -92,7 +92,7 @@ describe('Complete Login & Authentication Flow', () => {
       cy.wait('@loginErrorRequest');
 
       // Verificar que permanece en login
-      cy.url().should('include', '/login');
+      cy.url().should('include', ROUTES.LOGIN);
 
       // Verificar que no hay tokens en localStorage
       cy.window().then((window) => {
@@ -112,7 +112,7 @@ describe('Complete Login & Authentication Flow', () => {
       });
 
       // Visitar página protegida
-      cy.visit('/coin-flip');
+      cy.visit(ROUTES.MINI_GAMES.COIN_FLIP);
 
       // Hacer logout (asumiendo que hay un botón de logout)
       cy.get('[data-testid="logout-button"]').click();
@@ -127,13 +127,13 @@ describe('Complete Login & Authentication Flow', () => {
       });
 
       // Verificar redirección a login
-      cy.url().should('include', '/login');
+      cy.url().should('include', ROUTES.LOGIN);
     });
   });
 
   describe('Navigation', () => {
     it('should navigate to register page', () => {
-      cy.visit('/login');
+      cy.visit(ROUTES.LOGIN);
 
       // Hacer click en el link de registro
       cy.contains('Regístrate').click();
@@ -144,10 +144,10 @@ describe('Complete Login & Authentication Flow', () => {
 
     it('should redirect to login when accessing protected route without token', () => {
       // Intentar acceder a ruta protegida sin autenticación
-      cy.visit('/coin-flip');
+      cy.visit(ROUTES.MINI_GAMES.COIN_FLIP);
 
       // Debería redirigir a login
-      cy.url().should('include', '/login');
+      cy.url().should('include', ROUTES.LOGIN);
     });
   });
 
@@ -169,7 +169,7 @@ describe('Complete Login & Authentication Flow', () => {
 
           if (responseBody.data?.login) {
             // Login exitoso - verificar redirección
-            cy.url().should('include', '/coin-flip');
+            cy.url().should('include', ROUTES.MINI_GAMES.COIN_FLIP);
 
             // Verificar que hay tokens reales
             cy.window().then((window) => {
@@ -182,7 +182,7 @@ describe('Complete Login & Authentication Flow', () => {
           }
         } else {
           // Backend no disponible o error - verificar que maneja bien
-          cy.url().should('include', '/login');
+          cy.url().should('include', ROUTES.LOGIN);
         }
       });
     });
@@ -193,7 +193,7 @@ describe('Complete Login & Authentication Flow', () => {
       // Test del flujo completo desde perspectiva del usuario
 
       // 1. Usuario llega a login
-      cy.visit('/login');
+      cy.visit(ROUTES.LOGIN);
       cy.contains('Acceder').should('be.visible');
 
       // 2. Usuario intenta enviar formulario vacío
@@ -216,7 +216,7 @@ describe('Complete Login & Authentication Flow', () => {
 
       // 7. Usuario es redirigido exitosamente
       cy.wait('@loginRequest');
-      cy.url().should('include', '/coin-flip');
+      cy.url().should('include', ROUTES.MINI_GAMES.COIN_FLIP);
 
       // 8. Usuario ve la página de destino
       cy.contains('Coin Flip').should('be.visible');

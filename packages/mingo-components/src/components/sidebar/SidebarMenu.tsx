@@ -12,7 +12,7 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({ submenu, isOpen }) => {
   return (
     <ul
       className={clsx(
-        'w-full rounded-lg overflow-hidden transition-all duration-300 flex flex-col pl-6',
+        'w-full rounded-lg overflow-hidden transition-all duration-300 flex flex-col pl-3',
         isOpen ? 'max-h-96 opacity-100 pt-3' : 'max-h-0 opacity-0',
       )}
     >

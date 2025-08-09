@@ -20,9 +20,9 @@
     },
     {
       "id": "2",
-      "name": "Cara o Sello",
-      "logo": "/images/mini-games/coin-flip/logo.png",
-      "colors": { "from": "#5E0616", "to": "#D80027" }
+      "name": "Slides",
+      "logo": "/images/mini-games/slides/logo.png",
+      "colors": { "from": "#6FD0FF", "to": "#0091D7" }
     },
     {
       "id": "3",
