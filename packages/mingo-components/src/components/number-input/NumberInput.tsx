@@ -65,7 +65,7 @@ const NumberInput = ({
     const current = parseFloat(inputValue) || 0;
     const minus = Math.max(
       MIN_BET_AMOUNT,
-      parseFloat((current - 0.1).toFixed(2)),
+      parseFloat((current - 1).toFixed(2)),
     );
     setInputValue(minus.toString());
     onChange?.(minus);
@@ -74,8 +74,8 @@ const NumberInput = ({
   const handlePlus = () => {
     const current = parseFloat(inputValue) || 0;
     const plus = maxValue
-      ? Math.min(maxValue, parseFloat((current + 0.1).toFixed(2)))
-      : parseFloat((current + 0.1).toFixed(2));
+      ? Math.min(maxValue, parseFloat((current + 1).toFixed(2)))
+      : parseFloat((current + 1).toFixed(2));
     setInputValue(plus.toString());
     onChange?.(plus);
   };

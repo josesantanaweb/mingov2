@@ -19,19 +19,19 @@
       "colors": { "from": "#5E0616", "to": "#D80027" }
     },
     {
-      "id": "2",
+      "id": "4",
       "name": "Slides",
       "logo": "/images/mini-games/slides/logo.png",
       "colors": { "from": "#6FD0FF", "to": "#0091D7" }
     },
     {
-      "id": "3",
+      "id": "5",
       "name": "Minas",
       "logo": "/images/mini-games/mines/logo.svg",
       "colors": { "from": "#FF9000", "to": "#FFB800" }
     },
     {
-      "id": "4",
+      "id": "6",
       "name": "Dice",
       "logo": "/images/mini-games/dice/logo.png",
       "colors": { "from": "#FF9000", "to": "#FFB800" }
