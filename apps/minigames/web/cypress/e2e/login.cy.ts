@@ -112,7 +112,7 @@ describe('Complete Login & Authentication Flow', () => {
       });
 
       // Visitar página protegida
-      cy.visit(ROUTES.MINI_GAMES.COIN_FLIP);
+      cy.visit(ROUTES.MINI_GAMES.COINFLIP);
 
       // Hacer logout (asumiendo que hay un botón de logout)
       cy.get('[data-testid="logout-button"]').click();
@@ -144,7 +144,7 @@ describe('Complete Login & Authentication Flow', () => {
 
     it('should redirect to login when accessing protected route without token', () => {
       // Intentar acceder a ruta protegida sin autenticación
-      cy.visit(ROUTES.MINI_GAMES.COIN_FLIP);
+      cy.visit(ROUTES.MINI_GAMES.COINFLIP);
 
       // Debería redirigir a login
       cy.url().should('include', ROUTES.LOGIN);
@@ -169,7 +169,7 @@ describe('Complete Login & Authentication Flow', () => {
 
           if (responseBody.data?.login) {
             // Login exitoso - verificar redirección
-            cy.url().should('include', ROUTES.MINI_GAMES.COIN_FLIP);
+            cy.url().should('include', ROUTES.MINI_GAMES.COINFLIP);
 
             // Verificar que hay tokens reales
             cy.window().then((window) => {
@@ -216,7 +216,7 @@ describe('Complete Login & Authentication Flow', () => {
 
       // 7. Usuario es redirigido exitosamente
       cy.wait('@loginRequest');
-      cy.url().should('include', ROUTES.MINI_GAMES.COIN_FLIP);
+      cy.url().should('include', ROUTES.MINI_GAMES.COINFLIP);
 
       // 8. Usuario ve la página de destino
       cy.contains('Coin Flip').should('be.visible');

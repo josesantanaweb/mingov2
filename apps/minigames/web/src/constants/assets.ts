@@ -1,6 +1,6 @@
 export const ASSETS = {
   SOUNDS: {
-    COIN_FLIP: {
+    COINFLIP: {
       START: '/sounds/coin-flip/start.mp3',
       FLIP: '/sounds/coin-flip/flip.mp3',
       WIN: '/sounds/coin-flip/win.mp3',
@@ -10,9 +10,12 @@ export const ASSETS = {
     },
   },
   IMAGES: {
-    COIN_FLIP: {
+    COINFLIP: {
       HEADS: '/images/mini-games/coin-flip/heads.png',
       TAILS: '/images/mini-games/coin-flip/tails.png',
     },
+    SLIDES: {
+      INDICATOR: '/images/mini-games/slides/indicator.png'
+    }
   },
 };

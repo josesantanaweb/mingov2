@@ -112,11 +112,11 @@ const CoinFlip = (): React.ReactElement => {
     });
 
     if (result === ResultEnum.WIN) {
-      playSound(ASSETS.SOUNDS.COIN_FLIP.MULTIPLIER_WIN);
+      playSound(ASSETS.SOUNDS.COINFLIP.MULTIPLIER_WIN);
     }
 
     if (result === ResultEnum.LOSE) {
-      playSound(ASSETS.SOUNDS.COIN_FLIP.MULTIPLIER_LOSE);
+      playSound(ASSETS.SOUNDS.COINFLIP.MULTIPLIER_LOSE);
     }
   }, [multiplier, result, betAmount]);
 

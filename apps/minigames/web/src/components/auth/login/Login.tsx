@@ -17,7 +17,7 @@ const Login = () => {
   const handleLogin = async (data: LoginInput) => {
     const { email, password } = data;
     await login({ email, password });
-    router.push(ROUTES.MINI_GAMES.COIN_FLIP);
+    router.push(ROUTES.MINI_GAMES.COINFLIP);
   };
 
   const handleNavigate = () => {

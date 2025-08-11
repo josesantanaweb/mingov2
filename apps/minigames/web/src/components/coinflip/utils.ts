@@ -4,11 +4,11 @@ import { ASSETS } from '@/constants';
 
 export const coinAssets = {
   [CoinTypeEnum.HEADS]: {
-    image: ASSETS.IMAGES.COIN_FLIP.HEADS,
+    image: ASSETS.IMAGES.COINFLIP.HEADS,
     name: 'Cara',
   },
   [CoinTypeEnum.TAILS]: {
-    image: ASSETS.IMAGES.COIN_FLIP.TAILS,
+    image: ASSETS.IMAGES.COINFLIP.TAILS,
     name: 'Sello',
   },
 };

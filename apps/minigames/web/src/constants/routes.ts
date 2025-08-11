@@ -11,7 +11,7 @@ export const ROUTES = {
   MINI_GAMES: {
     ROOT: '/mini-games',
     LIMBO: '/mini-games/limbo',
-    COIN_FLIP: '/mini-games/coin-flip',
+    COINFLIP: '/mini-games/coinflip',
     SLIDES: '/mini-games/slides',
   },
   LOTTERIES: '/lotteries',
@@ -58,7 +58,7 @@ export const MENU = [
       {
         icon: 'coin-flip',
         label: 'Cara o Sello',
-        path: ROUTES.MINI_GAMES.COIN_FLIP,
+        path: ROUTES.MINI_GAMES.COINFLIP,
       },
       {
         icon: 'slides',

@@ -32,7 +32,7 @@ export const useCoinFlip = () => {
     adjustBalance(-betAmount);
 
     setGameStarted(true);
-    playSound(ASSETS.SOUNDS.COIN_FLIP.START);
+    playSound(ASSETS.SOUNDS.COINFLIP.START);
     setResult(null);
     setChoice(null);
     setCoinHistory([]);
@@ -46,7 +46,7 @@ export const useCoinFlip = () => {
 
     setChoice(choice);
     setFlipping(true);
-    playSound(ASSETS.SOUNDS.COIN_FLIP.FLIP);
+    playSound(ASSETS.SOUNDS.COINFLIP.FLIP);
     setResult(null);
 
     setTimeout(() => {
@@ -84,7 +84,7 @@ export const useCoinFlip = () => {
   };
 
   const handleRetire = () => {
-    playSound(ASSETS.SOUNDS.COIN_FLIP.WIN);
+    playSound(ASSETS.SOUNDS.COINFLIP.WIN);
     setMultiplierHistory(prev => [
       ...prev,
       { value: multiplier, result: ResultEnum.WIN },
