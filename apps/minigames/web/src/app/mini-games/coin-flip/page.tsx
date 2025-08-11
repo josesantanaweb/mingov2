@@ -1,4 +1,4 @@
-import CoinFlip from '@/components/coin-flip/CoinFlip';
+import CoinFlip from '@/components/coinflip/CoinFlip';
 
 const CoinFlipPage = () => <CoinFlip />;
 

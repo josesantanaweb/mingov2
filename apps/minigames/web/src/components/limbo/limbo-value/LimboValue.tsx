@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { ResultEnum } from '@/types';
-import { getResultTextColor } from '@/utils/limbo';
+import { getResultTextColor } from '../utils';
 
 interface LimboValueProps {
   value: string;

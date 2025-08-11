@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import GameCard from '@/components/coin-flip/game-card';
+import GameCard from '@/components/coinflip/game-card';
 import type { IGame } from '@/types/game';
 
 interface TopGamesProps {

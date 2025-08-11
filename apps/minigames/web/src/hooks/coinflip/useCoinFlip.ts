@@ -1,36 +1,18 @@
 import { useState } from 'react';
-import { useAuth, useProfile, useUpdateUser } from '@/hooks';
+import { useAdjustBalance } from '@/hooks';
 
 import { CoinTypeEnum, ResultEnum } from '@/types/common';
 
-import { getCoinOutcome, getMultiplier } from '@/utils/coin-flip';
+import { getCoinOutcome, getMultiplier } from '@/components/coinflip/utils';
 import { playSound } from '@/utils/play-sound';
 
 import type { IMultiplierHistory } from '@/components/common/multiplier-history';
 
-import { BASE_MULTIPLIER, BONUS_PER_WIN } from '@/constants';
+import { ASSETS, BASE_MULTIPLIER, BONUS_PER_WIN } from '@/constants';
 
 export const useCoinFlip = () => {
-  const { getCurrentUser } = useAuth();
-  const { data: profile } = useProfile();
-  const { updateUser } = useUpdateUser();
-
-  const user = getCurrentUser();
-
-  const updateBalance = async (amount: number) => {
-    if (!user?.id || !profile) return;
-
-    const newBalance = (profile.balance || 0) + amount;
-
-    try {
-      await updateUser(user.id, { balance: newBalance });
-    } catch {
-      // Error updating balance
-    }
-  };
-
   const [flipping, setFlipping] = useState<boolean>(false);
-  const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
+  const [betAmount, setBetAmount] = useState<number | null>(null);
   const [gameStarted, setGameStarted] = useState<boolean>(false);
   const [choice, setChoice] = useState<CoinTypeEnum | null>(null);
   const [result, setResult] = useState<ResultEnum | null>(null);
@@ -42,28 +24,29 @@ export const useCoinFlip = () => {
   const [winStreak, setWinStreak] = useState<number>(0);
 
   const multiplier = getMultiplier(BASE_MULTIPLIER, BONUS_PER_WIN, winStreak);
+  const { adjustBalance, balance } = useAdjustBalance();
 
-  const handleStart = () => {
-    if (!selectedAmount) return;
+  const startRound = () => {
+    if (!betAmount) return;
 
-    updateBalance(-selectedAmount);
+    adjustBalance(-betAmount);
 
     setGameStarted(true);
-    playSound('/sounds/coin-flip/start.mp3');
+    playSound(ASSETS.SOUNDS.COIN_FLIP.START);
     setResult(null);
     setChoice(null);
     setCoinHistory([]);
     setCoinResult(CoinTypeEnum.HEADS);
-    setTotalWinnings(selectedAmount);
-    setWinAmount(selectedAmount);
+    setTotalWinnings(betAmount);
+    setWinAmount(betAmount);
   };
 
   const handleFlip = (choice: CoinTypeEnum) => {
-    if (!selectedAmount || flipping) return;
+    if (!betAmount || flipping) return;
 
     setChoice(choice);
     setFlipping(true);
-    playSound('/sounds/coin-flip/flip.mp3');
+    playSound(ASSETS.SOUNDS.COIN_FLIP.FLIP);
     setResult(null);
 
     setTimeout(() => {
@@ -101,20 +84,20 @@ export const useCoinFlip = () => {
   };
 
   const handleRetire = () => {
-    playSound('/sounds/coin-flip/win.mp3');
+    playSound(ASSETS.SOUNDS.COIN_FLIP.WIN);
     setMultiplierHistory(prev => [
       ...prev,
       { value: multiplier, result: ResultEnum.WIN },
     ]);
     setWinStreak(0);
-    updateBalance(totalWinnings);
+    adjustBalance(totalWinnings);
     resetGame();
     setResult(null);
   };
 
   const resetGame = () => {
     setGameStarted(false);
-    setSelectedAmount(null);
+    setBetAmount(null);
     setChoice(null);
     setTotalWinnings(0);
     setCoinHistory([]);
@@ -124,23 +107,25 @@ export const useCoinFlip = () => {
 
   return {
     flipping,
-    selectedAmount,
-    setSelectedAmount,
+    betAmount,
+    setBetAmount,
     gameStarted,
     choice,
     coinResult,
     result,
     coinHistory,
     multiplier,
-    handleFlip,
-    handleStart,
-    handleRetire,
     totalWinnings,
-    winAmount,
     multiplierHistory,
     winStreak,
+    winAmount,
+
+    handleFlip,
+    startRound,
+    handleRetire,
     resetGame,
-    balance: profile?.balance ?? 0,
     setChoice,
+
+    balance,
   };
 };

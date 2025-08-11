@@ -1,12 +1,14 @@
 import { CoinTypeEnum } from '@/types/common';
+import { ResultEnum } from '../../types/common';
+import { ASSETS } from '@/constants';
 
 export const coinAssets = {
   [CoinTypeEnum.HEADS]: {
-    image: '/images/mini-games/coin-flip/heads.png',
+    image: ASSETS.IMAGES.COIN_FLIP.HEADS,
     name: 'Cara',
   },
   [CoinTypeEnum.TAILS]: {
-    image: '/images/mini-games/coin-flip/tails.png',
+    image: ASSETS.IMAGES.COIN_FLIP.TAILS,
     name: 'Sello',
   },
 };
@@ -20,5 +22,16 @@ export const getCoinOutcome = (): CoinTypeEnum =>
 export const getMultiplier = (
   base: number,
   bonus: number,
-  winStreak: number
+  winStreak: number,
 ): number => base + winStreak * bonus;
+
+export const getMultiplierColor = (result: ResultEnum): string => {
+  switch (result) {
+    case ResultEnum.WIN:
+      return 'text-green-500';
+    case ResultEnum.LOSE:
+      return 'text-red-500';
+    default:
+      return 'text-base-300';
+  }
+};

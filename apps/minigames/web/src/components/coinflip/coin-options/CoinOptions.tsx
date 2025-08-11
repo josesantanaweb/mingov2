@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Button } from '@mingo/components';
 import { CoinTypeEnum } from '@/types/common';
-import { getCoinImage, getCoinName } from '@/utils/coin-flip';
+import { getCoinImage, getCoinName } from '@/components/coinflip/utils';
 
 interface IOption {
   label: string;

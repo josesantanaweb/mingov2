@@ -1,12 +1,17 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import {
+  useMotionValue,
+  useTransform,
+  animate,
+} from 'framer-motion';
 import { Button } from '@mingo/components';
 import { SelectAmount } from '@mingo/components';
 
-import CoinFlipping from '@/components/coin-flip/coin-flipping';
-import CoinHistory from '@/components/coin-flip/coin-history';
-import MultiplierLabel from '@/components/coin-flip/multiplier-label';
-import CoinOptions from '@/components/coin-flip/coin-options';
+import CoinFlipping from '@/components/coinflip/coin-flipping';
+import CoinHistory from '@/components/coinflip/coin-history';
+import MultiplierLabel from '@/components/coinflip/multiplier-label';
+import CoinOptions from '@/components/coinflip/coin-options';
 
 import MultiplierHistory from '@/components/common/multiplier-history';
 import GameWrapper from '@/components/common/game-wrapper';
@@ -15,22 +20,28 @@ import TopGames from '@/components/common/top-games';
 
 import { useCoinFlip, useGames } from '@/hooks';
 import { ResultEnum } from '@/types/common';
-import { MODAL_WIN_TIMEOUT } from '@/constants';
+import { MODAL_WIN_TIMEOUT, ASSETS } from '@/constants';
+import { playSound } from '@/utils/play-sound';
 
 const CoinFlip = (): React.ReactElement => {
   const [showWinModal, setShowWinModal] = useState<boolean>(false);
   const { data: games } = useGames();
+  const [animatedMultiplier, setAnimatedMultiplier] = useState<string>('0.00');
+  const motionValue = useMotionValue(0);
+
+  const animatedValue = useTransform(motionValue, value => value.toFixed(2));
+
   const {
     flipping,
-    selectedAmount,
-    setSelectedAmount,
+    betAmount,
+    setBetAmount,
     gameStarted,
     coinResult,
     result,
     coinHistory,
     multiplier,
     handleFlip,
-    handleStart,
+    startRound,
     handleRetire,
     totalWinnings,
     winAmount,
@@ -46,8 +57,8 @@ const CoinFlip = (): React.ReactElement => {
       setShowWinModal(true);
       handleRetire();
       setTimeout(() => setShowWinModal(false), MODAL_WIN_TIMEOUT);
-    } else if (choice !== null && selectedAmount) {
-      handleStart();
+    } else if (choice !== null && betAmount) {
+      startRound();
       handleFlip(choice);
     }
   };
@@ -61,10 +72,10 @@ const CoinFlip = (): React.ReactElement => {
 
   const canRetire = totalWinnings > 0;
   const isFlipping = flipping;
-  const isAmountMissing = !selectedAmount;
+  const isAmountMissing = !betAmount;
   const isLost = result === ResultEnum.LOSE;
   const isBalanceInsufficient =
-    balance <= 0 || (selectedAmount !== null && balance < selectedAmount);
+    balance <= 0 || (betAmount !== null && balance < betAmount);
 
   const buttonBetDisabled = canRetire
     ? isFlipping || winStreak <= 0 || isLost
@@ -75,6 +86,39 @@ const CoinFlip = (): React.ReactElement => {
   const buttonBetLabel = canRetire
     ? `Retirar  ${totalWinnings.toFixed(2)} ves`
     : 'Apuesta';
+
+  useEffect(() => {
+    const unsubscribe = animatedValue.on('change', v =>
+      setAnimatedMultiplier(v),
+    );
+    return () => unsubscribe();
+  }, [animatedValue]);
+
+  useEffect(() => {
+    if (betAmount === null) return;
+
+    let from = 0;
+    let to = multiplier;
+
+    if (result === ResultEnum.LOSE) {
+      from = multiplier;
+      to = 0;
+    }
+
+    motionValue.set(from);
+    animate(motionValue, to, {
+      duration: 0.6,
+      ease: 'easeOut',
+    });
+
+    if (result === ResultEnum.WIN) {
+      playSound(ASSETS.SOUNDS.COIN_FLIP.MULTIPLIER_WIN);
+    }
+
+    if (result === ResultEnum.LOSE) {
+      playSound(ASSETS.SOUNDS.COIN_FLIP.MULTIPLIER_LOSE);
+    }
+  }, [multiplier, result, betAmount]);
 
   return (
     <section className="coin-flip w-full relative p-4 mb-[100px]">
@@ -87,16 +131,16 @@ const CoinFlip = (): React.ReactElement => {
               <CoinFlipping flipping={flipping} coinResult={coinResult} />
               <MultiplierLabel
                 result={result}
-                selectedAmount={selectedAmount}
                 multiplier={multiplier}
+                value={animatedMultiplier}
               />
             </div>
             <CoinHistory history={coinHistory} />
           </div>
           <div className="flex flex-col gap-3">
             <SelectAmount
-              amount={selectedAmount}
-              setAmount={setSelectedAmount}
+              amount={betAmount}
+              setAmount={setBetAmount}
               disabled={gameStarted}
               maxValue={balance}
             />
