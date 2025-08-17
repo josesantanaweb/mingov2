@@ -11,7 +11,7 @@ import { SelectAmount } from '@mingo/components';
 import CoinFlipping from '@/components/coinflip/coin-flipping';
 import CoinHistory from '@/components/coinflip/coin-history';
 import MultiplierLabel from '@/components/coinflip/multiplier-label';
-import CoinOption from '@/components/coinflip/coin-option';
+import CoinOptions from '@/components/coinflip/coin-options';
 
 import MultiplierHistory from '@/components/common/multiplier-history';
 import GameWrapper from '@/components/common/game-wrapper';
@@ -145,7 +145,7 @@ const CoinFlip = (): React.ReactElement => {
               maxValue={balance}
             />
 
-            <CoinOption
+            <CoinOptions
               choice={choice}
               onClick={handleChoice}
               disabled={coinOptionsDisabled}

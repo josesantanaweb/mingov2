@@ -21,7 +21,7 @@ import {
   WIN_MODAL_TIMEOUT,
 } from '@/constants';
 import SlideItem from './slide-item';
-import SlideOption from './slide-option/SlideOption';
+import SlideOptions from './slide-options/SlideOptions';
 import Image from 'next/image';
 import { SlideEnum } from '@/types/common';
 
@@ -45,7 +45,7 @@ const Slides = (): React.ReactElement => {
   const [multiplierHistory, setMultiplierHistory] = useState<
     IMultiplierHistory[]
   >([]);
-  const [multiplier, setMultiplier] = useState<{
+  const [choice, setChoice] = useState<{
     multiplier: number;
     type: SlideEnum;
   } | null>(null);
@@ -54,7 +54,7 @@ const Slides = (): React.ReactElement => {
 
   const isBalanceInsufficient = balance <= 0 || betAmount > balance;
   const buttonBetDisabled =
-    gameStarted || !betAmount || isBalanceInsufficient || !multiplier;
+    gameStarted || !betAmount || isBalanceInsufficient || !choice;
   const containerRef = useRef<HTMLDivElement>(null);
   const spinTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -103,13 +103,13 @@ const Slides = (): React.ReactElement => {
   const resetGame = () => {
     setGameStarted(false);
     setBetAmount(null);
-    setMultiplier(null);
+    setChoice(null);
     setProfitAmount(0);
     setIsWinModalVisible(false);
   };
 
   const startSpin = () => {
-    if (isSpinning || !betAmount || !multiplier) return;
+    if (isSpinning || !betAmount || !choice) return;
 
     adjustBalance(-betAmount);
     setGameStarted(true);
@@ -122,13 +122,13 @@ const Slides = (): React.ReactElement => {
     const candidateSlides = isWin
       ? SLIDES.filter(
           s =>
-            s.multiplier === multiplier.multiplier &&
-            s.type === multiplier.type,
+            s.multiplier === choice.multiplier &&
+            s.type === choice.type,
         )
       : SLIDES.filter(
           s =>
-            s.multiplier !== multiplier.multiplier ||
-            s.type !== multiplier.type,
+            s.multiplier !== choice.multiplier ||
+            s.type !== choice.type,
         );
 
     const winnerIndex = Math.floor(Math.random() * candidateSlides.length);
@@ -155,14 +155,14 @@ const Slides = (): React.ReactElement => {
       setMultiplierHistory(prev => [
         ...prev,
         {
-          value: multiplier.multiplier,
+          value: choice.multiplier,
           result: isWin ? ResultEnum.WIN : ResultEnum.LOSE,
         },
       ]);
 
       if (isWin) {
         const totalPayout = parseFloat(
-          (betAmount * multiplier.multiplier).toFixed(2),
+          (betAmount * choice.multiplier).toFixed(2),
         );
 
         const netProfit = parseFloat((totalPayout - betAmount).toFixed(2));
@@ -182,6 +182,8 @@ const Slides = (): React.ReactElement => {
       }, 2000);
     }, SPIN_DURATION * 1000);
   };
+
+  const handleChoice = (type: SlideEnum, multiplier: number) => setChoice({ multiplier, type });
 
   return (
     <section className="limbo w-full relative p-4 mb-[100px]">
@@ -226,29 +228,11 @@ const Slides = (): React.ReactElement => {
               disabled={gameStarted}
             />
 
-            <div className="flex items-center gap-3">
-              <SlideOption
-                type={SlideEnum.BLACK}
-                multiplier={2}
-                selected={multiplier?.type === SlideEnum.BLACK}
-                disabled={!betAmount || gameStarted}
-                onClick={() => setMultiplier({ multiplier: 2, type: SlideEnum.BLACK })}
-              />
-              <SlideOption
-                type={SlideEnum.VIOLET}
-                multiplier={14}
-                selected={multiplier?.type === SlideEnum.VIOLET}
-                disabled={!betAmount || gameStarted}
-                onClick={() => setMultiplier({ multiplier: 14, type: SlideEnum.VIOLET })}
-              />
-              <SlideOption
-                type={SlideEnum.RED}
-                multiplier={2}
-                selected={multiplier?.type === SlideEnum.RED}
-                disabled={!betAmount || gameStarted}
-                onClick={() => setMultiplier({ multiplier: 2, type: SlideEnum.RED })}
-              />
-            </div>
+            <SlideOptions
+              disabled={!betAmount || gameStarted}
+              type={choice?.type}
+              onClick={handleChoice}
+            />
 
             <div className="flex gap-3">
               <Button
@@ -264,7 +248,7 @@ const Slides = (): React.ReactElement => {
           </div>
           <ModalGameWin
             amount={profitAmount}
-            multiplier={multiplier?.multiplier}
+            multiplier={choice?.multiplier || 0}
             open={isWinModalVisible}
           />
         </GameWrapper>

@@ -10,24 +10,24 @@ interface IOption {
   value: CoinEnum;
 }
 
-interface CoinOptionProps {
+interface CoinOptionsProps {
   disabled: boolean;
   choice: CoinEnum | null;
   onClick: (option: CoinEnum) => void;
 }
 
-const CoinOption = ({
+const CoinOptions = ({
   disabled,
   choice,
   onClick,
-}: CoinOptionProps): React.ReactElement => {
+}: CoinOptionsProps): React.ReactElement => {
   const options: IOption[] = [
     { label: 'cara', value: CoinEnum.HEADS },
     { label: 'sello', value: CoinEnum.TAILS },
   ];
 
   const getVariant = (value: CoinEnum) =>
-    choice === value ? 'primary' : 'default';
+    choice === value ? 'bg-base-600' : '';
 
   return (
     <div className="flex items-center gap-3 w-full">
@@ -35,7 +35,7 @@ const CoinOption = ({
         <Button
           data-testid={`side-head-${option.value}`}
           key={option.value}
-          variant={getVariant(option.value)}
+          className={getVariant(option.value)}
           onClick={() => onClick(option.value)}
           disabled={disabled}
           isFull
@@ -55,4 +55,4 @@ const CoinOption = ({
   );
 };
 
-export default CoinOption;
+export default CoinOptions;
