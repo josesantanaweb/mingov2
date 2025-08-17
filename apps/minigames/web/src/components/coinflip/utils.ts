@@ -1,23 +1,23 @@
-import { CoinTypeEnum } from '@/types/common';
+import { CoinEnum } from '@/types/common';
 import { ResultEnum } from '../../types/common';
 import { ASSETS } from '@/constants';
 
 export const coinAssets = {
-  [CoinTypeEnum.HEADS]: {
+  [CoinEnum.HEADS]: {
     image: ASSETS.IMAGES.COINFLIP.HEADS,
     name: 'Cara',
   },
-  [CoinTypeEnum.TAILS]: {
+  [CoinEnum.TAILS]: {
     image: ASSETS.IMAGES.COINFLIP.TAILS,
     name: 'Sello',
   },
 };
 
-export const getCoinImage = (coin: CoinTypeEnum) => coinAssets[coin].image;
-export const getCoinName = (coin: CoinTypeEnum) => coinAssets[coin].name;
+export const getCoinImage = (coin: CoinEnum) => coinAssets[coin].image;
+export const getCoinName = (coin: CoinEnum) => coinAssets[coin].name;
 
-export const getCoinOutcome = (): CoinTypeEnum =>
-  Math.random() < 0.5 ? CoinTypeEnum.HEADS : CoinTypeEnum.TAILS;
+export const getCoinOutcome = (): CoinEnum =>
+  Math.random() < 0.5 ? CoinEnum.HEADS : CoinEnum.TAILS;
 
 export const getMultiplier = (
   base: number,

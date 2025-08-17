@@ -3,7 +3,13 @@ export enum ResultEnum {
   LOSE = 'LOSE',
 }
 
-export enum CoinTypeEnum {
+export enum CoinEnum {
   HEADS = 'HEADS',
   TAILS = 'TAILS',
+}
+
+export enum SlideEnum {
+  RED = 'RED',
+  BLACK = 'BLACK',
+  VIOLET = 'VIOLET',
 }

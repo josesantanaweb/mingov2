@@ -1,12 +1,12 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import { CoinTypeEnum } from '@/types/coin-flip';
+import { CoinEnum } from '@/types/coin-flip';
 import { getCoinImage, getCoinName } from '@/utils/coin-flip';
 
 interface CoinFlippingProps {
   flipping: boolean;
-  coinResult: CoinTypeEnum;
+  coinResult: CoinEnum;
 }
 
 const CoinFlipping = ({

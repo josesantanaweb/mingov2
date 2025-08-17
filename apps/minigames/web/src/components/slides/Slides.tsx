@@ -1,152 +1,186 @@
 'use client';
-import { Button, SelectAmount, NumberInput } from '@mingo/components';
+import { Button, SelectAmount } from '@mingo/components';
 import { motion } from 'framer-motion';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 import GameWrapper from '@/components/common/game-wrapper';
 import TopGames from '@/components/common/top-games';
+import { ResultEnum } from '@/types/common';
+import MultiplierHistory, {
+  IMultiplierHistory,
+} from '@/components/common/multiplier-history';
 import ModalGameWin from '@/components/common/modals/game-win';
-import MultiplierHistory from '@/components/common/multiplier-history';
-
-import { useGames, useLimbo } from '@/hooks';
-import { MAX_MULTIPLIER, MAX_WIN_CHANCE, ASSETS } from '@/constants';
+import { useAdjustBalance, useGames } from '@/hooks';
+import {
+  ASSETS,
+  SLIDE_WIDTH,
+  TOTAL_SLIDE_WIDTH,
+  REPEAT_COUNT,
+  SPIN_DURATION,
+  ROTATIONS,
+  WIN_MODAL_TIMEOUT,
+} from '@/constants';
 import SlideItem from './slide-item';
+import SlideOption from './slide-option/SlideOption';
 import Image from 'next/image';
+import { SlideEnum } from '@/types/common';
+
+interface ISlide {
+  id: number;
+  multiplier: number;
+  color: string;
+  type: SlideEnum;
+}
 
 const Slides = (): React.ReactElement => {
   const { data: games } = useGames();
-  const {
-    targetMultiplier,
-    winChancePercentage,
-    betAmount,
-    setBetAmount,
-    gameStarted,
-    profitAmount,
-    multiplierHistory,
-    balance,
-    buttonBetDisabled,
-    handleBet,
-    setTargetMultiplierAndChance,
-    setWinChanceAndMultiplier,
-    isWinModalVisible,
-  } = useLimbo();
 
+  const [isWinModalVisible, setIsWinModalVisible] = useState<boolean>(false);
   const [isSpinning, setIsSpinning] = useState(false);
   const [spinOffset, setSpinOffset] = useState(0);
+  const [spinDuration, setSpinDuration] = useState(0);
+  const [profitAmount, setProfitAmount] = useState<number>(0);
+  const [betAmount, setBetAmount] = useState<number | null>(null);
+  const [gameStarted, setGameStarted] = useState<boolean>(false);
+  const [multiplierHistory, setMultiplierHistory] = useState<
+    IMultiplierHistory[]
+  >([]);
+  const [multiplier, setMultiplier] = useState<{
+    multiplier: number;
+    type: SlideEnum;
+  } | null>(null);
+
+  const { adjustBalance, balance } = useAdjustBalance();
+
+  const isBalanceInsufficient = balance <= 0 || betAmount > balance;
+  const buttonBetDisabled =
+    gameStarted || !betAmount || isBalanceInsufficient || !multiplier;
   const containerRef = useRef<HTMLDivElement>(null);
+  const spinTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Calcular el ancho total de un slide (incluyendo gap)
-  const SLIDE_WIDTH = 86; // ancho del slide
-  const SLIDE_GAP = 12; // gap entre slides (gap-3 = 12px)
-  const TOTAL_SLIDE_WIDTH = SLIDE_WIDTH + SLIDE_GAP;
-
-  const SLIDES = [
-    {
-      id: 1,
-      multiplier: 2,
-      color: 'bg-base-700',
-    },
-    {
-      id: 2,
-      multiplier: 2,
-      color: 'bg-red-500',
-    },
-    {
-      id: 3,
-      multiplier: 2,
-      color: 'bg-base-700',
-    },
-    {
-      id: 4,
-      multiplier: 2,
-      color: 'bg-red-500',
-    },
-    {
-      id: 5,
-      multiplier: 2,
-      color: 'bg-base-700',
-    },
-    {
-      id: 6,
-      multiplier: 2,
-      color: 'bg-red-500',
-    },
-    {
-      id: 7,
-      multiplier: 2,
-      color: 'bg-base-700',
-    },
-    {
-      id: 8,
-      multiplier: 2,
-      color: 'bg-red-500',
-    },
-    {
-      id: 9,
-      multiplier: 2,
-      color: 'bg-base-700',
-    },
-    {
-      id: 10,
-      multiplier: 2,
-      color: 'bg-red-500',
-    },
-    {
-      id: 11,
-      multiplier: 2,
-      color: 'bg-base-700',
-    },
-    {
-      id: 12,
-      multiplier: 2,
-      color: 'bg-red-500',
-    },
-    {
-      id: 13,
-      multiplier: 14,
-      color: 'bg-primary-600',
-    },
-    {
-      id: 14,
-      multiplier: 2,
-      color: 'bg-red-500',
-    },
-    {
-      id: 15,
-      multiplier: 2,
-      color: 'bg-base-700',
-    },
+  const SLIDES: ISlide[] = [
+    { id: 1, multiplier: 2, color: 'bg-base-700', type: SlideEnum.BLACK },
+    { id: 2, multiplier: 2, color: 'bg-red-500', type: SlideEnum.RED },
+    { id: 3, multiplier: 2, color: 'bg-base-700', type: SlideEnum.BLACK },
+    { id: 4, multiplier: 2, color: 'bg-red-500', type: SlideEnum.RED },
+    { id: 5, multiplier: 2, color: 'bg-base-700', type: SlideEnum.BLACK },
+    { id: 6, multiplier: 2, color: 'bg-red-500', type: SlideEnum.RED },
+    { id: 7, multiplier: 2, color: 'bg-base-700', type: SlideEnum.BLACK },
+    { id: 8, multiplier: 2, color: 'bg-red-500', type: SlideEnum.RED },
+    { id: 9, multiplier: 2, color: 'bg-base-700', type: SlideEnum.BLACK },
+    { id: 10, multiplier: 2, color: 'bg-red-500', type: SlideEnum.RED },
+    { id: 11, multiplier: 2, color: 'bg-base-700', type: SlideEnum.BLACK },
+    { id: 12, multiplier: 2, color: 'bg-red-500', type: SlideEnum.RED },
+    { id: 13, multiplier: 2, color: 'bg-base-700', type: SlideEnum.BLACK },
+    { id: 14, multiplier: 14, color: 'bg-primary-600', type: SlideEnum.VIOLET },
+    { id: 15, multiplier: 2, color: 'bg-red-500', type: SlideEnum.RED },
   ];
 
-  // Crear slides duplicados para efecto infinito
-  const INFINITE_SLIDES = [...SLIDES, ...SLIDES, ...SLIDES, ...SLIDES, ...SLIDES];
+  const INFINITE_SLIDES = Array(REPEAT_COUNT)
+    .fill(null)
+    .flatMap(() => SLIDES);
 
-  // Función para resetear el offset cuando sea necesario
-  const resetOffset = () => {
-    if (spinOffset > TOTAL_SLIDE_WIDTH * SLIDES.length) {
-      setSpinOffset(0);
+  const loopWidth = TOTAL_SLIDE_WIDTH * SLIDES.length;
+
+  useEffect(() => {
+    const maxOffset = loopWidth * (REPEAT_COUNT / 2);
+    if (spinOffset >= maxOffset) {
+      setSpinOffset(prev => prev % loopWidth);
     }
+  }, [spinOffset, loopWidth]);
+
+  useEffect(() => {
+    return () => {
+      if (spinTimerRef.current) clearTimeout(spinTimerRef.current);
+    };
+  }, []);
+
+  const resetRoulette = () => {
+    setSpinDuration(0);
+    setSpinOffset(prev => prev % loopWidth);
+  };
+
+  const resetGame = () => {
+    setGameStarted(false);
+    setBetAmount(null);
+    setMultiplier(null);
+    setProfitAmount(0);
+    setIsWinModalVisible(false);
   };
 
   const startSpin = () => {
-    if (isSpinning) return;
+    if (isSpinning || !betAmount || !multiplier) return;
 
-    setIsSpinning(true);
+    adjustBalance(-betAmount);
+    setGameStarted(true);
 
-    // Generar un número aleatorio de rotaciones (entre 8 y 15 vueltas completas)
-    const rotations = Math.random() * 7 + 8;
-    // Añadir un offset aleatorio para que no siempre termine en el mismo lugar
-    const randomOffset = Math.random() * TOTAL_SLIDE_WIDTH;
-    const finalOffset = rotations * TOTAL_SLIDE_WIDTH + randomOffset;
+    resetRoulette();
+    setProfitAmount(betAmount);
 
-    // Animar la transición
-    setSpinOffset(prev => prev + finalOffset);
+    const isWin = Math.random() < 0.5;
 
-    // Detener el giro después de la animación
-    setTimeout(() => {
+    const candidateSlides = isWin
+      ? SLIDES.filter(
+          s =>
+            s.multiplier === multiplier.multiplier &&
+            s.type === multiplier.type,
+        )
+      : SLIDES.filter(
+          s =>
+            s.multiplier !== multiplier.multiplier ||
+            s.type !== multiplier.type,
+        );
+
+    const winnerIndex = Math.floor(Math.random() * candidateSlides.length);
+    const winnerSlide = candidateSlides[winnerIndex];
+    const slideIndex = SLIDES.findIndex(s => s.id === winnerSlide.id);
+
+    const baseOffset = slideIndex * TOTAL_SLIDE_WIDTH;
+    const centerAdjustment = SLIDE_WIDTH / 2 + 57;
+    const centerOffset = baseOffset + centerAdjustment;
+
+    const spinDistance = ROTATIONS * loopWidth + centerOffset;
+
+    setSpinDuration(SPIN_DURATION);
+
+    requestAnimationFrame(() => {
+      setIsSpinning(true);
+      setSpinOffset(spinDistance);
+    });
+
+    if (spinTimerRef.current) clearTimeout(spinTimerRef.current);
+    spinTimerRef.current = setTimeout(() => {
       setIsSpinning(false);
-      resetOffset();
-    }, 5000);
+
+      setMultiplierHistory(prev => [
+        ...prev,
+        {
+          value: multiplier.multiplier,
+          result: isWin ? ResultEnum.WIN : ResultEnum.LOSE,
+        },
+      ]);
+
+      if (isWin) {
+        const totalPayout = parseFloat(
+          (betAmount * multiplier.multiplier).toFixed(2),
+        );
+
+        const netProfit = parseFloat((totalPayout - betAmount).toFixed(2));
+        setProfitAmount(netProfit);
+        adjustBalance(totalPayout);
+        setIsWinModalVisible(true);
+
+        setTimeout(() => {
+          setIsWinModalVisible(false);
+        }, WIN_MODAL_TIMEOUT);
+      } else {
+        setProfitAmount(0);
+      }
+
+      setTimeout(() => {
+        resetGame();
+      }, 2000);
+    }, SPIN_DURATION * 1000);
   };
 
   return (
@@ -154,17 +188,17 @@ const Slides = (): React.ReactElement => {
       <div className="flex flex-col gap-6 relative w-full">
         <GameWrapper>
           <MultiplierHistory multiplierHistory={multiplierHistory} />
-          <div className="py-6 w-full flex flex-col gap-6 items-center relative">
+          <div className="py-6 w-full flex flex-col gap-6 items-center relative overflow-hidden">
             <div
               ref={containerRef}
-              className="flex w-full max-w-full overflow-hidden justify-center items-center h-full relative min-h-[230px]"
+              className="flex justify-center items-center h-full relative min-h-[230px] w-[478px] mx-auto"
             >
               <motion.div
                 className="flex gap-3"
                 animate={{ x: -spinOffset }}
                 transition={{
-                  duration: 5,
-                  ease: [0.68, 0.01, 0.32, 1], // Curva que empieza rápido y desacelera
+                  duration: isSpinning ? spinDuration : 0,
+                  ease: [0.68, 0.01, 0.32, 1],
                   type: 'tween',
                 }}
               >
@@ -173,6 +207,7 @@ const Slides = (): React.ReactElement => {
                 ))}
               </motion.div>
             </div>
+
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
               <Image
                 src={ASSETS.IMAGES.SLIDES.INDICATOR}
@@ -191,48 +226,45 @@ const Slides = (): React.ReactElement => {
               disabled={gameStarted}
             />
 
-            <NumberInput
-              value={targetMultiplier}
-              onChange={setTargetMultiplierAndChance}
-              maxValue={MAX_MULTIPLIER}
-              variant="modal"
-              actionsType="plus-minus"
-            />
-
-            <NumberInput
-              value={winChancePercentage}
-              onChange={setWinChanceAndMultiplier}
-              maxValue={MAX_WIN_CHANCE}
-              variant="modal"
-              actionsType="none"
-              disabled
-            />
+            <div className="flex items-center gap-3">
+              <SlideOption
+                type={SlideEnum.BLACK}
+                multiplier={2}
+                selected={multiplier?.type === SlideEnum.BLACK}
+                disabled={!betAmount || gameStarted}
+                onClick={() => setMultiplier({ multiplier: 2, type: SlideEnum.BLACK })}
+              />
+              <SlideOption
+                type={SlideEnum.VIOLET}
+                multiplier={14}
+                selected={multiplier?.type === SlideEnum.VIOLET}
+                disabled={!betAmount || gameStarted}
+                onClick={() => setMultiplier({ multiplier: 14, type: SlideEnum.VIOLET })}
+              />
+              <SlideOption
+                type={SlideEnum.RED}
+                multiplier={2}
+                selected={multiplier?.type === SlideEnum.RED}
+                disabled={!betAmount || gameStarted}
+                onClick={() => setMultiplier({ multiplier: 2, type: SlideEnum.RED })}
+              />
+            </div>
 
             <div className="flex gap-3">
               <Button
                 data-testid="submit-bet"
                 isFull
                 variant="primary"
-                onClick={handleBet}
+                onClick={startSpin}
                 disabled={buttonBetDisabled}
               >
                 Apuesta
               </Button>
-
-                            <Button
-                variant="default"
-                onClick={startSpin}
-                disabled={isSpinning}
-                className="px-6"
-              >
-                {isSpinning ? 'Girando...' : 'Girar'}
-              </Button>
             </div>
           </div>
-
           <ModalGameWin
             amount={profitAmount}
-            multiplier={targetMultiplier}
+            multiplier={multiplier?.multiplier}
             open={isWinModalVisible}
           />
         </GameWrapper>

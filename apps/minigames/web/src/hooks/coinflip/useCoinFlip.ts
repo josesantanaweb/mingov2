@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAdjustBalance } from '@/hooks';
 
-import { CoinTypeEnum, ResultEnum } from '@/types/common';
+import { CoinEnum, ResultEnum } from '@/types/common';
 
 import { getCoinOutcome, getMultiplier } from '@/components/coinflip/utils';
 import { playSound } from '@/utils/play-sound';
@@ -14,12 +14,12 @@ export const useCoinFlip = () => {
   const [flipping, setFlipping] = useState<boolean>(false);
   const [betAmount, setBetAmount] = useState<number | null>(null);
   const [gameStarted, setGameStarted] = useState<boolean>(false);
-  const [choice, setChoice] = useState<CoinTypeEnum | null>(null);
+  const [choice, setChoice] = useState<CoinEnum | null>(null);
   const [result, setResult] = useState<ResultEnum | null>(null);
-  const [coinResult, setCoinResult] = useState<CoinTypeEnum>(CoinTypeEnum.HEADS);
+  const [coinResult, setCoinResult] = useState<CoinEnum>(CoinEnum.HEADS);
   const [totalWinnings, setTotalWinnings] = useState<number>(0);
   const [winAmount, setWinAmount] = useState<number>(0);
-  const [coinHistory, setCoinHistory] = useState<CoinTypeEnum[]>([]);
+  const [coinHistory, setCoinHistory] = useState<CoinEnum[]>([]);
   const [multiplierHistory, setMultiplierHistory] = useState<IMultiplierHistory[]>([]);
   const [winStreak, setWinStreak] = useState<number>(0);
 
@@ -36,12 +36,12 @@ export const useCoinFlip = () => {
     setResult(null);
     setChoice(null);
     setCoinHistory([]);
-    setCoinResult(CoinTypeEnum.HEADS);
+    setCoinResult(CoinEnum.HEADS);
     setTotalWinnings(betAmount);
     setWinAmount(betAmount);
   };
 
-  const handleFlip = (choice: CoinTypeEnum) => {
+  const handleFlip = (choice: CoinEnum) => {
     if (!betAmount || flipping) return;
 
     setChoice(choice);
@@ -101,7 +101,7 @@ export const useCoinFlip = () => {
     setChoice(null);
     setTotalWinnings(0);
     setCoinHistory([]);
-    setCoinResult(CoinTypeEnum.HEADS);
+    setCoinResult(CoinEnum.HEADS);
     setWinStreak(0);
   };
 

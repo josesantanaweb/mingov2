@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CoinTypeEnum, CoinResultEnum } from '@/types/coin-flip';
+import { CoinEnum, CoinResultEnum } from '@/types/coin-flip';
 import {
   getCoinOutcome,
   calculateWinAmount,
@@ -13,11 +13,11 @@ export const useCoinFlip = () => {
   const [flipping, setFlipping] = useState<boolean>(false);
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
   const [gameStarted, setGameStarted] = useState<boolean>(false);
-  const [choice, setChoice] = useState<CoinTypeEnum | null>(null);
+  const [choice, setChoice] = useState<CoinEnum | null>(null);
   const [result, setResult] = useState<CoinResultEnum | null>(null);
-  const [coinResult, setCoinResult] = useState<CoinTypeEnum>(CoinTypeEnum.HEADS);
+  const [coinResult, setCoinResult] = useState<CoinEnum>(CoinEnum.HEADS);
   const [totalWinnings, setTotalWinnings] = useState<number>(0);
-  const [coinHistory, setCoinHistory] = useState<CoinTypeEnum[]>([]);
+  const [coinHistory, setCoinHistory] = useState<CoinEnum[]>([]);
   const [multiplierHistory, setMultiplierHistory] = useState<number[]>([]);
   const [winStreak, setWinStreak] = useState<number>(0);
 
@@ -31,10 +31,10 @@ export const useCoinFlip = () => {
     setResult(null);
     setChoice(null);
     setCoinHistory([]);
-    setCoinResult(CoinTypeEnum.HEADS);
+    setCoinResult(CoinEnum.HEADS);
   };
 
-  const handleFlip = (choice: CoinTypeEnum) => {
+  const handleFlip = (choice: CoinEnum) => {
     if (!selectedAmount || flipping) return;
 
     setChoice(choice);
@@ -85,7 +85,7 @@ export const useCoinFlip = () => {
     setChoice(null);
     setTotalWinnings(0);
     setCoinHistory([]);
-    setCoinResult(CoinTypeEnum.HEADS);
+    setCoinResult(CoinEnum.HEADS);
     setWinStreak(0);
   };
 

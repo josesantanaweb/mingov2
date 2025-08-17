@@ -1,4 +1,4 @@
-export enum CoinTypeEnum {
+export enum CoinEnum {
   HEADS = 'HEADS',
   TAILS = 'TAILS',
 }

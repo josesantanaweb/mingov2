@@ -2,11 +2,11 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { CoinTypeEnum } from '@/types/coin-flip';
+import { CoinEnum } from '@/types/coin-flip';
 import { getCoinImage, getCoinName } from '@/utils/coin-flip';
 
 interface CoinHistoryItemProps {
-  coin: CoinTypeEnum;
+  coin: CoinEnum;
 }
 
 const CoinHistoryItem = ({

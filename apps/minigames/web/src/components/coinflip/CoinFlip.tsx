@@ -11,7 +11,7 @@ import { SelectAmount } from '@mingo/components';
 import CoinFlipping from '@/components/coinflip/coin-flipping';
 import CoinHistory from '@/components/coinflip/coin-history';
 import MultiplierLabel from '@/components/coinflip/multiplier-label';
-import CoinOptions from '@/components/coinflip/coin-options';
+import CoinOption from '@/components/coinflip/coin-option';
 
 import MultiplierHistory from '@/components/common/multiplier-history';
 import GameWrapper from '@/components/common/game-wrapper';
@@ -20,7 +20,7 @@ import TopGames from '@/components/common/top-games';
 
 import { useCoinFlip, useGames } from '@/hooks';
 import { ResultEnum } from '@/types/common';
-import { MODAL_WIN_TIMEOUT, ASSETS } from '@/constants';
+import { WIN_MODAL_TIMEOUT, ASSETS } from '@/constants';
 import { playSound } from '@/utils/play-sound';
 
 const CoinFlip = (): React.ReactElement => {
@@ -56,7 +56,7 @@ const CoinFlip = (): React.ReactElement => {
     if (totalWinnings > 0) {
       setShowWinModal(true);
       handleRetire();
-      setTimeout(() => setShowWinModal(false), MODAL_WIN_TIMEOUT);
+      setTimeout(() => setShowWinModal(false), WIN_MODAL_TIMEOUT);
     } else if (choice !== null && betAmount) {
       startRound();
       handleFlip(choice);
@@ -145,7 +145,7 @@ const CoinFlip = (): React.ReactElement => {
               maxValue={balance}
             />
 
-            <CoinOptions
+            <CoinOption
               choice={choice}
               onClick={handleChoice}
               disabled={coinOptionsDisabled}

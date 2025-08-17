@@ -2,31 +2,31 @@
 import React from 'react';
 import Image from 'next/image';
 import { Button } from '@mingo/components';
-import { CoinTypeEnum } from '@/types/common';
+import { CoinEnum } from '@/types/common';
 import { getCoinImage, getCoinName } from '@/components/coinflip/utils';
 
 interface IOption {
   label: string;
-  value: CoinTypeEnum;
+  value: CoinEnum;
 }
 
-interface CoinOptionsProps {
+interface CoinOptionProps {
   disabled: boolean;
-  choice: CoinTypeEnum | null;
-  onClick: (option: CoinTypeEnum) => void;
+  choice: CoinEnum | null;
+  onClick: (option: CoinEnum) => void;
 }
 
-const CoinOptions = ({
+const CoinOption = ({
   disabled,
   choice,
   onClick,
-}: CoinOptionsProps): React.ReactElement => {
+}: CoinOptionProps): React.ReactElement => {
   const options: IOption[] = [
-    { label: 'cara', value: CoinTypeEnum.HEADS },
-    { label: 'sello', value: CoinTypeEnum.TAILS },
+    { label: 'cara', value: CoinEnum.HEADS },
+    { label: 'sello', value: CoinEnum.TAILS },
   ];
 
-  const getVariant = (value: CoinTypeEnum) =>
+  const getVariant = (value: CoinEnum) =>
     choice === value ? 'primary' : 'default';
 
   return (
@@ -55,4 +55,4 @@ const CoinOptions = ({
   );
 };
 
-export default CoinOptions;
+export default CoinOption;

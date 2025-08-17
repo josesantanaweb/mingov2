@@ -10,12 +10,12 @@ Permite al usuario apostar una cantidad, elegir cara o cruz, acumular multiplica
 - **flipping** (`boolean`) → Indica si la moneda está en animación de giro.
 - **selectedAmount** (`number | null`) → Cantidad apostada por el jugador.
 - **gameStarted** (`boolean`) → Indica si la partida ha comenzado.
-- **choice** (`CoinTypeEnum | null`) → Elección actual del jugador (cara o cruz).
+- **choice** (`CoinEnum | null`) → Elección actual del jugador (cara o cruz).
 - **result** (`ResultEnum | null`) → Resultado de la última tirada (WIN o LOSE).
-- **coinResult** (`CoinTypeEnum`) → Resultado real de la moneda.
+- **coinResult** (`CoinEnum`) → Resultado real de la moneda.
 - **totalWinnings** (`number`) → Ganancias acumuladas durante la partida.
 - **winAmount** (`number`) → Monto ganado en la última tirada.
-- **coinHistory** (`CoinTypeEnum[]`) → Historial de resultados de la moneda.
+- **coinHistory** (`CoinEnum[]`) → Historial de resultados de la moneda.
 - **multiplierHistory** (`IMultiplierHistory[]`) → Historial de multiplicadores aplicados y su resultado.
 - **winStreak** (`number`) → Contador de victorias consecutivas.
 
@@ -24,7 +24,7 @@ Permite al usuario apostar una cantidad, elegir cara o cruz, acumular multiplica
 ## Constantes utilizadas
 - **BASE_MULTIPLIER** → Multiplicador base para las apuestas.
 - **BONUS_PER_WIN** → Bono de multiplicador por cada victoria consecutiva.
-- **CoinTypeEnum** → Enumeración con valores posibles: `HEADS` y `TAILS`.
+- **CoinEnum** → Enumeración con valores posibles: `HEADS` y `TAILS`.
 - **ResultEnum** → Enumeración con valores: `WIN` y `LOSE`.
 
 ---
@@ -40,7 +40,7 @@ Actualiza el saldo del jugador sumando o restando el monto indicado.
 - Reinicia variables de estado.
 - Reproduce sonido inicial del juego.
 
-### `handleFlip(choice: CoinTypeEnum)`
+### `handleFlip(choice: CoinEnum)`
 - Registra la elección del jugador.
 - Inicia animación y sonido de lanzamiento.
 - Calcula el resultado aleatorio (`getCoinOutcome`).
