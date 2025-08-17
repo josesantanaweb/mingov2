@@ -35,7 +35,7 @@ const SlideOptions = ({
           key={option.type}
           disabled={disabled}
           onClick={() => onClick(option.type, option.multiplier)}
-          className={getClass(option.type)}
+          className={`${getClass(option.type)} text-base-100`}
           isFull
         >
           <span

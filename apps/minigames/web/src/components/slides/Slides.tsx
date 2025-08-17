@@ -55,25 +55,26 @@ const Slides = (): React.ReactElement => {
   const isBalanceInsufficient = balance <= 0 || betAmount > balance;
   const buttonBetDisabled =
     gameStarted || !betAmount || isBalanceInsufficient || !choice;
+  const slideOptionsDisabled = !betAmount || gameStarted;
   const containerRef = useRef<HTMLDivElement>(null);
   const spinTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const SLIDES: ISlide[] = [
-    { id: 1, multiplier: 2, color: 'bg-base-700', type: SlideEnum.BLACK },
-    { id: 2, multiplier: 2, color: 'bg-red-500', type: SlideEnum.RED },
-    { id: 3, multiplier: 2, color: 'bg-base-700', type: SlideEnum.BLACK },
-    { id: 4, multiplier: 2, color: 'bg-red-500', type: SlideEnum.RED },
-    { id: 5, multiplier: 2, color: 'bg-base-700', type: SlideEnum.BLACK },
-    { id: 6, multiplier: 2, color: 'bg-red-500', type: SlideEnum.RED },
-    { id: 7, multiplier: 2, color: 'bg-base-700', type: SlideEnum.BLACK },
-    { id: 8, multiplier: 2, color: 'bg-red-500', type: SlideEnum.RED },
-    { id: 9, multiplier: 2, color: 'bg-base-700', type: SlideEnum.BLACK },
-    { id: 10, multiplier: 2, color: 'bg-red-500', type: SlideEnum.RED },
-    { id: 11, multiplier: 2, color: 'bg-base-700', type: SlideEnum.BLACK },
-    { id: 12, multiplier: 2, color: 'bg-red-500', type: SlideEnum.RED },
-    { id: 13, multiplier: 2, color: 'bg-base-700', type: SlideEnum.BLACK },
+    { id: 1, multiplier: 2, color: 'bg-red-500', type: SlideEnum.BLACK },
+    { id: 2, multiplier: 2, color: 'bg-base-700', type: SlideEnum.RED },
+    { id: 3, multiplier: 2, color: 'bg-red-500', type: SlideEnum.BLACK },
+    { id: 4, multiplier: 2, color: 'bg-base-700', type: SlideEnum.RED },
+    { id: 5, multiplier: 2, color: 'bg-red-500', type: SlideEnum.BLACK },
+    { id: 6, multiplier: 2, color: 'bg-base-700', type: SlideEnum.RED },
+    { id: 7, multiplier: 2, color: 'bg-red-500', type: SlideEnum.BLACK },
+    { id: 8, multiplier: 2, color: 'bg-base-700', type: SlideEnum.RED },
+    { id: 9, multiplier: 2, color: 'bg-red-500', type: SlideEnum.BLACK },
+    { id: 10, multiplier: 2, color: 'bg-base-700', type: SlideEnum.RED },
+    { id: 11, multiplier: 2, color: 'bg-red-500', type: SlideEnum.BLACK },
+    { id: 12, multiplier: 2, color: 'bg-base-700', type: SlideEnum.RED },
+    { id: 13, multiplier: 2, color: 'bg-red-500', type: SlideEnum.BLACK },
     { id: 14, multiplier: 14, color: 'bg-primary-600', type: SlideEnum.VIOLET },
-    { id: 15, multiplier: 2, color: 'bg-red-500', type: SlideEnum.RED },
+    { id: 15, multiplier: 2, color: 'bg-base-700', type: SlideEnum.RED },
   ];
 
   const INFINITE_SLIDES = Array(REPEAT_COUNT)
@@ -229,9 +230,9 @@ const Slides = (): React.ReactElement => {
             />
 
             <SlideOptions
-              disabled={!betAmount || gameStarted}
               type={choice?.type}
               onClick={handleChoice}
+              disabled={slideOptionsDisabled}
             />
 
             <div className="flex gap-3">
