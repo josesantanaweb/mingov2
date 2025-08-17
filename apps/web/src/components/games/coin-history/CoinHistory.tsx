@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CoinEnum } from '@/types/coin-flip';
+import { CoinEnum } from '@/types/coinflip';
 import CoinHistoryItem from './CoinHistoryItem';
 
 interface CoinHistoryProps {

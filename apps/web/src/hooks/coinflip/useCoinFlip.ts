@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CoinEnum, CoinResultEnum } from '@/types/coin-flip';
+import { CoinEnum, CoinResultEnum } from '@/types/coinflip';
 import {
   getCoinOutcome,
   calculateWinAmount,

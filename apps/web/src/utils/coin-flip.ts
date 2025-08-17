@@ -1,12 +1,12 @@
-import { CoinEnum } from '@/types/coin-flip';
+import { CoinEnum } from '@/types/coinflip';
 
 export const coinAssets = {
   [CoinEnum.HEADS]: {
-    image: '/images/mini-games/coin-flip/heads.png',
+    image: '/images/minigames/coinflip/heads.png',
     name: 'heads',
   },
   [CoinEnum.TAILS]: {
-    image: '/images/mini-games/coin-flip/tails.png',
+    image: '/images/minigames/coinflip/tails.png',
     name: 'tails',
   },
 };

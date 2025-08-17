@@ -6,7 +6,7 @@ import {
   useTransform,
   animate,
 } from 'framer-motion';
-import { CoinResultEnum } from '@/types/coin-flip';
+import { CoinResultEnum } from '@/types/coinflip';
 
 interface MultiplierLabelProps {
   result: CoinResultEnum | null;
@@ -47,11 +47,11 @@ const MultiplierLabel = ({
 
     // Sonido
     if (result === CoinResultEnum.WIN) {
-      const audio = new Audio('/sounds/coin-flip/multiplier-win.mp3');
+      const audio = new Audio('/sounds/coinflip/multiplier-win.mp3');
       audio.play();
     }
     if (result === CoinResultEnum.LOSE) {
-      const audio = new Audio('/sounds/coin-flip/multiplier-lose.mp3');
+      const audio = new Audio('/sounds/coinflip/multiplier-lose.mp3');
       audio.play();
     }
     // eslint-disable-next-line

@@ -26,7 +26,7 @@ const GameWin = ({
         >
           <div className="w-[240px] absolute top-[15px]">
             <Image
-              src="/images/mini-games/modal-win.svg"
+              src="/images/minigames/modal-win.svg"
               alt="Coin Flip"
               width={100}
               height={100}

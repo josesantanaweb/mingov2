@@ -27,7 +27,7 @@ const Register = () => {
       code,
     });
 
-    router.push('/coin-flip');
+    router.push('/coinflip');
   };
 
   const handleNavigate = () => {
