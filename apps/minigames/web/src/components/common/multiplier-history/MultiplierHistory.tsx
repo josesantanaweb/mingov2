@@ -11,12 +11,11 @@ interface MultiplierHistoryProps {
   multiplierHistory: IMultiplierHistory[];
 }
 
-const MultiplierItem = ({
-  item,
-}: {
-  item: IMultiplierHistory;
-}) => {
-  const className = item.result === 'LOSE' ? 'bg-base-600 text-white' : 'bg-green-500 text-white';
+const MultiplierItem = ({ item }: { item: IMultiplierHistory }) => {
+  const className =
+    item.result === 'WIN'
+      ? 'bg-green-500 text-white'
+      : 'bg-base-600 text-white';
   return (
     <motion.div
       initial={{ opacity: 0, x: -30 }}

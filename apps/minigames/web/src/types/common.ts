@@ -13,3 +13,9 @@ export enum SlideEnum {
   BLACK = 'BLACK',
   VIOLET = 'VIOLET',
 }
+
+export enum RockPaperScissorsEnum {
+  ROCK = 'ROCK',
+  PAPER = 'PAPER',
+  SCISSORS = 'SCISSORS',
+}

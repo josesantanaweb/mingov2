@@ -183,3 +183,7 @@ input[type='number'] {
 .icon-coin-flip:before { content: '\e830'; } /* '' */
 .icon-limbo:before { content: '\e831'; } /* '' */
 .icon-slides:before { content: '\e832'; } /* '' */
+.icon-paper:before { content: '\e809'; } /* '' */
+.icon-rock:before { content: '\e833'; } /* '' */
+.icon-scissors:before { content: '\e834'; } /* '' */
+

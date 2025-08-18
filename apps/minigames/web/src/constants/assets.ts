@@ -15,7 +15,15 @@ export const ASSETS = {
       TAILS: '/images/minigames/coinflip/tails.png',
     },
     SLIDES: {
-      INDICATOR: '/images/minigames/slides/indicator.png'
-    }
+      INDICATOR: '/images/minigames/slides/indicator.png',
+    },
+    ROCK_PAPER_SCISSORS: {
+      ROCK_LEFT: '/images/minigames/rock-paper-scissors/rock-left.png',
+      ROCK_RIGHT: '/images/minigames/rock-paper-scissors/rock-right.png',
+      PAPER_LEFT: '/images/minigames/rock-paper-scissors/paper-left.png',
+      PAPER_RIGHT: '/images/minigames/rock-paper-scissors/paper-right.png',
+      SCISSORS_LEFT: '/images/minigames/rock-paper-scissors/scissors-left.png',
+      SCISSORS_RIGHT: '/images/minigames/rock-paper-scissors/scissors-right.png',
+    },
   },
 };
