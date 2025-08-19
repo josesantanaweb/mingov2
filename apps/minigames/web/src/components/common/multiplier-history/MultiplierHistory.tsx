@@ -1,10 +1,11 @@
 'use client';
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ResultEnum } from '@/types/common';
 
 export interface IMultiplierHistory {
   value: number;
-  result: 'WIN' | 'LOSE';
+  result: ResultEnum;
 }
 
 interface MultiplierHistoryProps {
@@ -13,7 +14,7 @@ interface MultiplierHistoryProps {
 
 const MultiplierItem = ({ item }: { item: IMultiplierHistory }) => {
   const className =
-    item.result === 'WIN'
+    item.result === ResultEnum.WIN
       ? 'bg-green-500 text-white'
       : 'bg-base-600 text-white';
   return (

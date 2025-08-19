@@ -1,6 +1,7 @@
 export enum ResultEnum {
   WIN = 'WIN',
   LOSE = 'LOSE',
+  DRAW = 'DRAW',
 }
 
 export enum CoinEnum {
