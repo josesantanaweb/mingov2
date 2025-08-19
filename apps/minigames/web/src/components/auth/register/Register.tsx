@@ -2,6 +2,7 @@
 import AuthForm from '@/components/common/auth-form';
 import { registerSchema } from '@/validations/auth';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/hooks';
 
 interface RegisterInput {
   email: string;
@@ -13,22 +14,20 @@ interface RegisterInput {
 
 const Register = () => {
   const router = useRouter();
+  const { register } = useAuth();
 
   const handleRegister = async (data: RegisterInput) => {
     const { email, password, name, code } = data;
-    
-    try {
-      // Aquí iría la lógica de registro con tu mutation de GraphQL
-      // Por ejemplo:
-      // const result = await registerUser({
-      //   variables: { email, password, name, code }
-      // });
-      
-      // Después del registro exitoso, redirigir al login
-      router.push('/login');
-    } catch (error) {
-      console.error('Registration error:', error);
-    }
+
+    await register({
+      username: email,
+      password,
+      name: name || '',
+      email,
+      code,
+    });
+
+    router.push('/coinflip');
   };
 
   const handleNavigate = () => {

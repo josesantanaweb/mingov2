@@ -1,4 +1,4 @@
-export const publicRoutes = ['/rooms', '/sports', '/bets', '/bets/game', '/match', '/market', '/coin-flip'];
+export const publicRoutes = ['/rooms', '/sports', '/bets', '/bets/game', '/match', '/market', '/coinflip'];
 export const authRoutes = ['/'];
 export const apiAuthPrefix = '/api/auth';
 export const DEFAULT_LOGIN_REDIRECT = '/';

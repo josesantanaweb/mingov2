@@ -1,21 +1,21 @@
-import { CoinTypeEnum } from '@/types/coin-flip';
+import { CoinEnum } from '@/types/coinflip';
 
 export const coinAssets = {
-  [CoinTypeEnum.GOLD]: {
-    image: '/images/mini-games/coin-flip/gold-coin.png',
-    name: 'Cara (Oro)',
+  [CoinEnum.HEADS]: {
+    image: '/images/minigames/coinflip/heads.png',
+    name: 'heads',
   },
-  [CoinTypeEnum.SILVER]: {
-    image: '/images/mini-games/coin-flip/silver-coin.png',
-    name: 'Cruz (Plata)',
+  [CoinEnum.TAILS]: {
+    image: '/images/minigames/coinflip/tails.png',
+    name: 'tails',
   },
 };
 
-export const getCoinImage = (coin: CoinTypeEnum) => coinAssets[coin].image;
-export const getCoinName = (coin: CoinTypeEnum) => coinAssets[coin].name;
+export const getCoinImage = (coin: CoinEnum) => coinAssets[coin].image;
+export const getCoinName = (coin: CoinEnum) => coinAssets[coin].name;
 
-export const getCoinOutcome = (): CoinTypeEnum =>
-  Math.random() < 0.5 ? CoinTypeEnum.GOLD : CoinTypeEnum.SILVER;
+export const getCoinOutcome = (): CoinEnum =>
+  Math.random() < 0.5 ? CoinEnum.HEADS : CoinEnum.TAILS;
 
 export const calculateWinAmount = (
   amount: number,

@@ -1,12 +1,12 @@
 import { useProfileQuery } from '@/__generated__/graphql';
-import { useSession } from 'next-auth/react';
+import { useAuth } from '@/hooks/auth/useAuth';
 
 export const useProfile = () => {
-  const { data: session } = useSession();
+  const { isAuthenticated } = useAuth();
   const { data, error, loading } = useProfileQuery({
     variables: {},
     fetchPolicy: 'network-only',
-    skip: !session?.user?.email,
+    skip: !isAuthenticated,
   });
 
   return {

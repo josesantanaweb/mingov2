@@ -8,8 +8,8 @@ import CoinFlipping from '@/components/games/coin-flipping';
 import CoinHistory from '@/components/games/coin-history';
 import MultiplierLabel from '@/components/games/multiplier-label';
 import CoinOptions from '@/components/games/coin-options';
-import { useCoinFlip } from '@/hooks/coin-flip/useCoinFlip';
-import { CoinResultEnum } from '@/types/coin-flip';
+import { useCoinFlip } from '@/hooks/coinflip/useCoinFlip';
+import { CoinResultEnum } from '@/types/coinflip';
 
 const CoinFlip = (): React.ReactElement => {
   const {

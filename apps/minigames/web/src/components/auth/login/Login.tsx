@@ -2,7 +2,8 @@
 import AuthForm from '@/components/common/auth-form';
 import { loginSchema } from '@/validations/auth';
 import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { useAuth } from '@/hooks';
+import { ROUTES } from '@/constants';
 
 interface LoginInput {
   email: string;
@@ -11,31 +12,16 @@ interface LoginInput {
 
 const Login = () => {
   const router = useRouter();
+  const { login } = useAuth();
 
   const handleLogin = async (data: LoginInput) => {
     const { email, password } = data;
-
-    try {
-      const result = await signIn('credentials', {
-        email,
-        password,
-        redirect: false,
-      });
-
-      if (result?.error) {
-        throw new Error(result.error);
-      }
-
-      if (result?.ok) {
-        router.push('/coin-flip');
-      }
-    } catch (error) {
-      console.error('Login error:', error);
-    }
+    await login({ email, password });
+    router.push(ROUTES.MINI_GAMES.COINFLIP);
   };
 
   const handleNavigate = () => {
-    router.push('/register');
+    router.push(ROUTES.REGISTER);
   };
 
   return (

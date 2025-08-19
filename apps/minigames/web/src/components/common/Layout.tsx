@@ -1,34 +1,39 @@
 'use client';
 
-import { signOut, useSession } from 'next-auth/react';
 import { Header, Footer } from '@mingo/components';
 import { MENU } from '@/constants/routes';
 import { useRouter } from 'next/navigation';
 import { useProfile } from '@/hooks/users/useProfile';
+import { useAuth } from '@/hooks/auth/useAuth';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
-  const { data: session, status } = useSession();
+  const { logout, isAuthenticated, getCurrentUser, isLoading: isAuthLoading } = useAuth();
   const { data: profileData, loading: profileLoading } = useProfile();
 
-  const isLoading =
-    status === 'loading' ||
-    (status === 'authenticated' && profileLoading) ||
-    (session && profileLoading);
+  const user = getCurrentUser();
+  const isLoadingProfile = isAuthenticated && profileLoading;
+  const isLoading = isAuthLoading || isLoadingProfile;
 
   const handleLogin = () => router.push('/login');
 
   const handleRegister = () => router.push('/register');
 
-  const handleLogout = () => {
-    signOut();
-    router.push('/login');
+  const handleLogout = async () => {
+    try {
+      if (user?.id) {
+        await logout(user.id);
+      }
+      router.push('/login');
+    } catch {
+      router.push('/login');
+    }
   };
 
   const profile = {
     balance: profileData?.balance || 0,
-    image: profileData?.image || '',
-    hasSession: !!session,
+    image: profileData?.image || user?.image || '',
+    hasSession: isAuthenticated,
     isLoading,
   };
 
